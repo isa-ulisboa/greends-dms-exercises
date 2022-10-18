@@ -24,7 +24,7 @@ The tool mysqladmin is a tool to administer the mariadb server. Check [this link
    ```
    $ mysqladmin -u root -p create dms_2022
    ```
-   **Explaination**
+   **Explanation**
 
    In the above command, you are executing it as user root, "`-u root`" , informing the system to prompt for the password, "`-p`", and giving the command to create a database with the name provided, "`create dms_2022`".
 
@@ -34,7 +34,7 @@ The tool mysqladmin is a tool to administer the mariadb server. Check [this link
    ```
    Enter the root password.
 
-3. Inside MariaDB, we will create the user and provide privileges to the database at once. For that, run the following, but changing the password:
+3. Inside MariaDB, we will create the user and provide privileges to the database at once. For that, run the following, but **remember to change the password** in the command:
    ```
    mysql> GRANT ALL PRIVILEGES ON dms_2022.* TO 'dms_user'@'localhost' IDENTIFIED BY 'mypassword';
 
@@ -44,7 +44,7 @@ The tool mysqladmin is a tool to administer the mariadb server. Check [this link
 
    ```
 
-   **Explaination**
+   **Explanation**
    
    In the above command, you are providing all privileges to all tables of the database `dms_2022`, which is noted by the name of the database with the asterisc "*" (for all). These privileges are given to the user "`dms_user`" at the local machine "`localhost`", and using the specified password. If you want that user to be able to access to that database from a remote machine, then you should repeat the command, but replacing "`localhost`" by the IP address of that machine, or in case of any machime, by "`%`". Don't forget the "`;`" at the end of the command.
 
