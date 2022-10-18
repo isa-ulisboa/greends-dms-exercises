@@ -1,4 +1,6 @@
-# Exercise 2.1 - Install and configure MariaDB
+# Data Management and Storage
+
+# Exercise 3 - Install and configure MariaDB
 
 The goal of this exercise is to setup your environment to have a functional and secure  MariaDB service for your databases. We will install and review the selected IDE tool - DBeaver - to work with the database, in addition to the terminal.
 

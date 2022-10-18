@@ -1,4 +1,6 @@
-# Exercise 2.2 - Create, backup and restore a database
+# Data Management and Storage
+
+# Exercise 4 - Create, backup and restore a database
 
 The goal of this exercise is to create a new database in MariaDB, create a new user, and provide privileges to that user to use the newly created database.
 

@@ -1,3 +1,6 @@
+-- Master Green Data Science
+-- Course Data Management and Storage 2022/2023
+--
 -- Create table for NUTS1
 -- Delete if the table exists
 -- It will fail because of existing dependencies

@@ -1,4 +1,6 @@
-# Exercise 2.4 - Create tables in the database
+# Data Management and Storage
+
+# Exercise 6 - Create tables in the database
 
 The goal of this exercise is to create tables in the database to accommodate our data. We will start by creating tables corresponding to the NUTS1 to 3, and Municipalities and Freguesias. For that, we will use the SQL DDL command create.
 

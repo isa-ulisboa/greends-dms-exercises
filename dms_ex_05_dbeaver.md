@@ -1,4 +1,6 @@
-# Exercise 2.3 - Get familiarized with the DBeaver interface
+# Data Management and Storage
+
+# Exercise 5 - Get familiarized with the DBeaver interface
 
 **DBeaver** is a complete IDE opensource application for managing SQL project which allows to link to many different SQL databases. The application is very complete, but will focus on the features that we will use most on our course.
 
