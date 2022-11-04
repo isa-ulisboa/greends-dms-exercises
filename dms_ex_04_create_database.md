@@ -78,4 +78,4 @@ In this exercise we learned:
 - how to create a backup of our database;
 - how to restore a database from a backup file.
 
-This concludes this exercise. In the next exercise, `sql_exercise_2_3.md`, you will get familiar with DBeaver and its interface.
+This concludes this exercise. In the next exercise, `dms_ex_05_dbeaver.md`, you will get familiar with DBeaver and its interface.
