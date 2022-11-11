@@ -122,7 +122,7 @@ Most probably, special characters were wrongly interpreted. This is because the 
 ```
 DELETE FROM NUTS1;
 ```
-Them, repeat the load of data, but adding a parameter to inform the character set of the file:
+Then, repeat the load of data, but adding a parameter to inform the character set of the file:
 ```
 LOAD DATA LOCAL INFILE '/home/rfigueira/Documents/projectos/ISA/docencia_aulas/UCs_disciplinas/msc_GAD_2371/Recenseamento_agricola_INE/exercises/NUTS1_2013.csv'
 INTO TABLE NUTS1
