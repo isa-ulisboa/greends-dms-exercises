@@ -24,4 +24,4 @@ Then, in the following questions, it is important to anwser the following:
 ## Wrap up
 We have secured your database server.
 
-This concludes this exercise. In the next exercise, `sql_exercise_2_2.md`, you will learn how to create, backup and restore a database in mysql.
+This concludes this exercise. In the next exercise, `dms_ex_04_create_database.md`, you will learn how to create, backup and restore a database in mysql.

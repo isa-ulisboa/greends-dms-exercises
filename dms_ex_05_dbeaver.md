@@ -73,6 +73,6 @@ In this exercise we learned:
 - how to create ER diagrams for a database
 - how to reset the UI of DBeaver to the default.
 
-This concludes this exercise. In the next exercise, `sql_exercise_2_4.md`, you will create your first tables in the database and load them with data.
+This concludes this exercise. In the next exercise, `dms_ex_06_create_tables.md`, you will create your first tables in the database and load them with data.
 
 
