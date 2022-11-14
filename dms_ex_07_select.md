@@ -67,8 +67,7 @@ SELECT DISTINCT crop FROM permanent_crop;
 8. Create a list of unique values of the crops in `permanent_crop`, but show only the first 5:
 
 ```
--- Write your statement here
-SELECT ... 
+select distinct crop_name from temporary_crop tc limit 5
 ```
 
 ## 2. Repeat the SELECT exercises for other tables
@@ -130,4 +129,4 @@ SELECT * FROM permanent_crop WHERE region_level = 'municipality' OR region_level
 ```
 SELECT * FROM permanent_crop WHERE region_level = 'municipality' AND region_level = 'freguesia';
 ```
-Justify your answer:
+Justify your answer: Não são seleccionadas nenhumas linhas da tabela, porque em cada linha apenas existe um valor associado a cada atributo. Ou seja, não existem linhas da tabela que possuam simultaneamente os valores 'municipality' e 'freguesia' associados ao atributo region_level.
