@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 8 - INSERT, UPDATE and DELETE statements
+# Exercise 8 - INSERT, UPDATE and DELETE (DML statements)
 
 The goal of this exercise is to exercise SQL statements with **INSERT**, **UPDATE**
 and **DELETE** statements.
@@ -124,8 +124,40 @@ DELETE FROM region_temp WHERE region_name IN ('Espanha', 'França');
 It is possible to insert or update records in one table with data obtained from 
 another table. We will briefly demonstrate an insert example. 
 
-First, let's delete some records from `region_temp`, that we will try to recover 
-later from the `region` table. Select 
+1. First, let's delete some records from `region_temp`, that we will try to recover 
+later from the `region` table. Select and delete all records that correspond to the region 
+level freguesia. 
+
+```
+SELECT * FROM region_temp WHERE region_level = 'freguesia';
+DELETE FROM region_temp WHERE region_level = 'freguesia';
+```
+After deleting records, repeat the SELECT statement to confirm that records where
+deleted.
+
+2. Now we can obtain the corresponding records from the `region` table and insert
+them in the `region_temp` table:
+
+First select from the `region`:
+```
+SELECT * FROM region WHERE region_level = 'freguesia';
+```
+Then combine INSERT with SELECT
+```
+INSERT INTO region_temp
+SELECT * FROM region WHERE region_level = 'freguesia';
+```
+This only works with this statement because we are sure that both tables have the
+same structure. Otherwise, we would define a list of columns that would receive data.
+
+Confirm that recods were added into the `region_temp` table:
+```
+SELECT * FROM region_temp WHERE region_level = 'freguesia';
+```
+
+
+
+
 
 
 

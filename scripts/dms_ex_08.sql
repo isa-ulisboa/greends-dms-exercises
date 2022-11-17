@@ -39,8 +39,16 @@ SELECT * FROM region_temp WHERE ParentCodeID = 'EU';
 -- delete records
 DELETE FROM region_temp WHERE region_name IN ('Espanha', 'França');
 
+-- select and delete records where region_level is freguesia
+SELECT * FROM region_temp WHERE region_level = 'freguesia';
+DELETE FROM region_temp WHERE region_level = 'freguesia';
 
+-- get the records from table region 
+SELECT * FROM region_temp WHERE region_level = 'freguesia';
 
+-- combine insert with select
+INSERT INTO region_temp
+SELECT * FROM region WHERE region_level = 'freguesia';
 
 
    

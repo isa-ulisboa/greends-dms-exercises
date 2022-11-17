@@ -25,7 +25,7 @@ tables. And we can have all tables with the same structure.
 
 To execute this exercise, you can use DBeaver or the MariaDB terminal. You will use
 also the NUTS csv tables you prepared in DMS exercise 01 (data wrangling), which 
-can be downloaded from [here]()
+can be downloaded from [here](https://github.com/isa-ulisboa/greends-dms-exercises/blob/main/data/NUTS.zip) .
 
 ## 1. Select the database
 
