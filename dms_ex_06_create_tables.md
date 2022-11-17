@@ -2,7 +2,9 @@
 
 # Exercise 6 - Create tables in the database
 
-The goal of this exercise is to create tables in the database to accommodate our data. We will start by creating tables corresponding to the NUTS1 to 3, and Municipalities and Freguesias. For that, we will use the SQL DDL command create.
+The goal of this exercise is to create tables in the database to accommodate our 
+data. We will start by creating tables corresponding to the NUTS1 to 3, and 
+Municipalities and Freguesias. For that, we will use the SQL DDL command create.
 
 The data to be imported to the database is in csv files, with the following structure (example):
 
@@ -12,11 +14,18 @@ codes|parent_code|Nível|Código|Designação
 2|PT|1|2|Região Autónoma dos Açores
 3|PT|1|3|Região Autónoma da Madeira 
 
-This data sample indicates that the table should contain 5 columns. From the sample, it also appear that the first, third and fourth columns have only numeric values. However, if you remember from the data wrangling exercise, there were codes that contained letters. The only column with numeric values only is the column `Nível`. Please, go back to your OpenRefine project and verify that.
+This data sample indicates that the table should contain 5 columns. From the 
+sample, it also appear that the first, third and fourth columns have only numeric 
+values. However, if you remember from the data wrangling exercise, there were 
+codes that contained letters. The only column with numeric values only is the 
+column `Nível`. Please, go back to your OpenRefine project and verify that.
 
-Therefore, we need to have this in consideration when defining the schema for the tables. And we can have all tables with the same structure.
+Therefore, we need to have this in consideration when defining the schema for the 
+tables. And we can have all tables with the same structure.
 
-To execute this exercise, you can use DBeaver or the MariaDB terminal.
+To execute this exercise, you can use DBeaver or the MariaDB terminal. You will use
+also the NUTS csv tables you prepared in DMS exercise 01 (data wrangling), which 
+can be downloaded from [here]()
 
 ## 1. Select the database
 
