@@ -146,7 +146,7 @@ as expected.
 Therefore, we need to repeat the UPDATE statement for that cases. Can you try to 
 write the statement?
 ```
-INSERT ...
+UPDATE ...
 ```
 ## 3. Final SQL DDL statements
 Remove the column `OriginalCode`, because it is redundant with the `NutsID`.
