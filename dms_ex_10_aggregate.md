@@ -1,9 +1,8 @@
 # Data Management and Storage
 
-# Exercise 10 - GROUP BY and aggregate functions COUNT(), SUM() and AVG()
+# Exercise 10 - GROUP BY and aggregate functions COUNT(), SUM(), AVG(), MIN() and MAX().
 
-The goal of this exercise is to use aggregate functions **COUNT()**, **SUM()** 
-and **AVG()**, to perform calculations at the server.
+The goal of this exercise is to use aggregate functions **COUNT()**, **SUM()** , **AVG()**, **MIN()** and **MAX()** to perform calculations at the server. The full list of aggregate functions can be consulted at https://mariadb.com/kb/en/aggregate-functions/.
 
 We will also introduce the use of **GROUP BY** to combine with these functions.
 

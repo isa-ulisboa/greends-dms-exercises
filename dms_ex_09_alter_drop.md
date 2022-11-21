@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 9 - ALTER, TRUNCATE and DROP (DLL statements)
+# Exercise 9 - ALTER, TRUNCATE and DROP (DDL statements)
 
 The goal of this exercise is to exercise DLL SQL statements with **ALTER**, 
 **TRUNCATE** and **DROP** statements.

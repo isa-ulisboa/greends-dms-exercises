@@ -5,7 +5,7 @@ USE dms_INE;
 SELECT * FROM permanent_crop pc ;
 
 -- create a view to make further analysis easier
--- filters on year=2019, crop=Vineyards and region_level=freguesia
+-- filters on year=2019 and region_level=freguesia
 -- adds the parent region municipality
 CREATE OR REPLACE
 VIEW perm_crop_freg AS
@@ -28,12 +28,42 @@ AND pc.`year` = 2019;
 -- see the view resultset
 select * FROM perm_crop_freg pcf ;
 
--- list of freguesias
-SELECT DISTINCT freguesia  FROM perm_crop_freg pcf WHERE area = 0 AND crop_name = 'Vineyards'; 
+-- list of non-duplicate list of municipalities, that do not contain holdings with vineyards
+SELECT
+	DISTINCT municipality
+FROM
+	perm_crop_freg pcf
+WHERE
+	`hold` = 0
+	AND crop_name = 'Vineyards'; 
 
-SELECT DISTINCT municipality, COUNT(freguesia)  from perm_crop_freg pcf  WHERE area = 0 AND crop_name = 'Vineyards' GROUP BY municipality ; 
+-- count number of freguesias in each municipality without vineyards. Use of GROUP BY
+SELECT
+	municipality, COUNT(freguesia) AS num_freg
+FROM
+	perm_crop_freg pcf
+WHERE
+	`hold` = 0
+	AND crop_name = 'Vineyards'
+GROUP BY municipality; 
 
-SELECT municipality, count(municipality) as num_freguesias FROM perm_crop_freg pcf GROUP BY municipality;
+-- sum area by municipality and crop. Exclude total from crop_name
+SELECT
+	municipality, crop_name, SUM(area) AS sum_area
+FROM
+	perm_crop_freg pcf
+WHERE
+	`hold` > 0 AND 
+	crop_name <> 'total'
+GROUP BY municipality, crop_name
+ORDER BY area DESC; 
 
-SELECT * FROM perm_crop_freg pcf ;
-
+-- average area by municipality and crop. Exclude total from crop_name
+SELECT
+	municipality, crop_name, AVG(area) AS avg_area
+FROM
+	perm_crop_freg pcf
+WHERE
+	crop_name <> 'total'
+GROUP BY municipality, crop_name
+ORDER BY avg_area DESC; 
