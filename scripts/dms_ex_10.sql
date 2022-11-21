@@ -136,3 +136,32 @@ GROUP BY
 	municipality,
 	crop_name ;
 
+-- subquery to select frequesias with area above the average area for freguesias
+SELECT
+	freguesia, area, (SELECT AVG(area) FROM perm_crop_freg pcf2) as average
+FROM
+	perm_crop_freg pcf
+WHERE
+	crop_name LIKE 'Olive%'
+	AND `hold` > 0
+	AND area > (SELECT AVG(area) FROM perm_crop_freg pcf2)
+ORDER BY area DESC;
+
+-- subquery to select municipalities with area above the average area for municipalities
+-- the subquery is in FROM
+SELECT
+	municipality,
+	area
+FROM
+	(
+	SELECT
+		municipality,
+		AVG(area) as area
+	FROM
+		perm_crop_freg pcf
+	WHERE
+		crop_name = 'total'
+	GROUP BY
+		municipality) AS municip_average;
+
+

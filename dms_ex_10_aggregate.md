@@ -200,6 +200,47 @@ GROUP BY
 	municipality,
 	crop_name ;
 ```
+
+## 6. Use of subqueries
+
+If we want to calculate the list of freguesias which crop area is higher than the
+average crop area, we can do the following query:
+```
+SELECT
+	freguesia, area, (SELECT AVG(area) FROM perm_crop_freg pcf2) as average
+FROM
+	perm_crop_freg pcf
+WHERE
+	crop_name LIKE 'Olive%'
+	AND `hold` > 0
+	AND area > (SELECT AVG(area) FROM perm_crop_freg pcf2)
+ORDER BY area DESC;
+```
+Remember that the records of the view created at the start of this exercise are 
+for freguesias. Therefore, if you want to calculate average values at the 
+municipality level, an aggregate function is necessary. In the previous examples
+of this exercise, we achieved this using the GROUP BY clause. But we can also use
+in in a subquery in the FROM clause:
+
+```
+SELECT
+	municipality,
+	area
+FROM
+	(
+	SELECT
+		municipality,
+		AVG(area) as area
+	FROM
+		perm_crop_freg
+	WHERE
+		crop_name = 'total'
+	GROUP BY
+		municipality) AS municip_average;
+```
+
+
+
 ## Wrap up
 
 In this exercise we learned:
