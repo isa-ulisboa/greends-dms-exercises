@@ -26,7 +26,7 @@ WHERE
 AND pc.`year` = 2019;
 
 -- see the view resultset
-select * FROM perm_crop_freg pcf ;
+select count(*) FROM perm_crop_freg pcf ;
 
 -- list of non-duplicate list of municipalities, that do not contain holdings with vineyards
 SELECT
@@ -56,7 +56,8 @@ WHERE
 	`hold` > 0 AND 
 	crop_name <> 'total'
 GROUP BY municipality, crop_name
-ORDER BY area DESC; 
+HAVING sum_area > 10000
+ORDER BY sum_area DESC; 
 
 -- average area by municipality and crop. Exclude total from crop_name
 SELECT
