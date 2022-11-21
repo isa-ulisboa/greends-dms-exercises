@@ -59,12 +59,24 @@ GROUP BY municipality, crop_name
 HAVING sum_area > 10000
 ORDER BY sum_area DESC; 
 
--- average area by municipality and crop. Exclude total from crop_name
+-- subquery to select frequesias with area above the average area for freguesias
+-- issues an error 
 SELECT
-	municipality, crop_name, AVG(area) AS avg_area
+    freguesia, area
+FROM
+    perm_crop_freg
+WHERE
+    area > AVG(area);
+
+-- subquery to select frequesias with area above the average area for freguesias
+SELECT
+	freguesia, area, (SELECT AVG(area) FROM perm_crop_freg pcf2) as average
 FROM
 	perm_crop_freg pcf
 WHERE
-	crop_name <> 'total'
-GROUP BY municipality, crop_name
-ORDER BY avg_area DESC; 
+	crop_name LIKE 'Olive%'
+	AND `hold` > 0
+	AND area > (SELECT AVG(area) FROM perm_crop_freg pcf2)
+ORDER BY area DESC;
+
+
