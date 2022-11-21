@@ -67,8 +67,7 @@ SELECT DISTINCT crop FROM permanent_crop;
 8. Create a list of unique values of the crops in `permanent_crop`, but show only the first 5:
 
 ```
--- Write your statement here
-SELECT ... 
+select distinct crop_name from temporary_crop tc limit 5
 ```
 
 ## 2. Repeat the SELECT exercises for other tables
@@ -88,39 +87,33 @@ SELECT * FROM permanent_crop WHERE region_level = 'municipality' and year = 2019
 ```
 3. Select all columns of the table `permanent_crop` but only for the region_level `municipality`, year `2019` and the crop `Vineyards`:
 ```
--- Write your statement here
-SELECT * FROM permanent_crop WHERE ...
+select * from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards'
 ```
 4. Select columns *region_name*, *crop_name* and *area* of the table but only for the region_level `municipality`, year `2019` and the crop `Vineyards`:
 
 ```
--- Write your statement here
-SELECT ... 
+select region_name, crop_name, area from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards'
 ```
 5. Select columns *region_name*, *crop_name* and *area* of the table `permanent_crop` but only for the region_level `municipality`, year `2019` and the crop `Vineyards`, in descending order of *area*:
 ```
--- Write your statement here
-SELECT ... 
+select region_name, crop_name, area from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards' order by area desc 
 ```
 6. Select area TOP 10 of the table `permanent_crop`, with columns *region_name*, *crop_name* and *area*  but only for the region_level `municipality`, year `2019` and the crop `Vineyards`, in descending order of *area*:
 ```
--- Write your statement here
-SELECT ... 
+select region_name, crop_name, area from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards' order by area desc limit 10
 ```
 7. Select all columns of the table `permanent_crop` where area is zero:
 ```
--- Write your statement here
-SELECT ...
+select * from permanent_crop pc where area = 0
 ```
 
 8. Select a list of regions (the column `region_name`), without duplications, of the table `permanent_crop` where area is zero:
 ```
--- Write your statement here
-SELECT ...
+select distinct region_name from permanent_crop pc 
 ```
 9. Select all columns of the table `permanent_crop` where area is zero:
 ```
-SELECT ...
+select * from permanent_crop pc where area = 0
 ```
 
 10. Select all columns of the table `permanent_crop` where region level is `municipality` or `freguesia`:
@@ -136,4 +129,4 @@ SELECT * FROM permanent_crop WHERE region_level = 'municipality' OR region_level
 ```
 SELECT * FROM permanent_crop WHERE region_level = 'municipality' AND region_level = 'freguesia';
 ```
-Justify your answer:
+Justify your answer: Não são seleccionadas nenhumas linhas da tabela, porque em cada linha apenas existe um valor associado a cada atributo. Ou seja, não existem linhas da tabela que possuam simultaneamente os valores 'municipality' e 'freguesia' associados ao atributo region_level.
