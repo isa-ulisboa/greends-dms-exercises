@@ -67,7 +67,7 @@ SELECT DISTINCT crop FROM permanent_crop;
 8. Create a list of unique values of the crops in `permanent_crop`, but show only the first 5:
 
 ```
-select distinct crop_name from temporary_crop tc limit 5
+select distinct crop_name from temporary_crop tc limit 5;
 ```
 
 ## 2. Repeat the SELECT exercises for other tables
@@ -87,33 +87,33 @@ SELECT * FROM permanent_crop WHERE region_level = 'municipality' and year = 2019
 ```
 3. Select all columns of the table `permanent_crop` but only for the region_level `municipality`, year `2019` and the crop `Vineyards`:
 ```
-select * from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards'
+select * from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards';
 ```
 4. Select columns *region_name*, *crop_name* and *area* of the table but only for the region_level `municipality`, year `2019` and the crop `Vineyards`:
 
 ```
-select region_name, crop_name, area from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards'
+select region_name, crop_name, area from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards';
 ```
 5. Select columns *region_name*, *crop_name* and *area* of the table `permanent_crop` but only for the region_level `municipality`, year `2019` and the crop `Vineyards`, in descending order of *area*:
 ```
-select region_name, crop_name, area from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards' order by area desc 
+select region_name, crop_name, area from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards' order by area desc;
 ```
 6. Select area TOP 10 of the table `permanent_crop`, with columns *region_name*, *crop_name* and *area*  but only for the region_level `municipality`, year `2019` and the crop `Vineyards`, in descending order of *area*:
 ```
-select region_name, crop_name, area from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards' order by area desc limit 10
+select region_name, crop_name, area from permanent_crop pc where region_level = 'municipality' and year = 2019 and crop_name = 'Vineyards' order by area desc limit 10;
 ```
 7. Select all columns of the table `permanent_crop` where area is zero:
 ```
-select * from permanent_crop pc where area = 0
+select * from permanent_crop pc where area = 0;
 ```
 
 8. Select a list of regions (the column `region_name`), without duplications, of the table `permanent_crop` where area is zero:
 ```
-select distinct region_name from permanent_crop pc 
+select distinct region_name from permanent_crop pc where area = 0;
 ```
 9. Select all columns of the table `permanent_crop` where area is zero:
 ```
-select * from permanent_crop pc where area = 0
+select * from permanent_crop pc where area = 0;
 ```
 
 10. Select all columns of the table `permanent_crop` where region level is `municipality` or `freguesia`:
