@@ -66,7 +66,7 @@ SELECT ...
 ```
 Q.2. Repeat the query, to count the number of records in the result set:
 ```
-SELECT COUNT(*) FROM perm_crop freg;
+SELECT COUNT(*) FROM perm_crop_freg;
 ```
 The result is the number of records in the view, which should be **24736**.
 
