@@ -62,11 +62,11 @@ view like if it was a table.
 Q.1. Complete the next statement to select all columns 
 of the view:
 ```
-SELECT ...
+SELECT * from perm_crop_freg;
 ```
 Q.2. Repeat the query, to count the number of records in the result set:
 ```
-SELECT COUNT(*) FROM perm_crop freg;
+SELECT COUNT(*) FROM perm_crop_freg;
 ```
 The result is the number of records in the view, which should be **24736**.
 
@@ -79,16 +79,19 @@ It is useful to explore the view to understand data. We can generate a list
 of the freguesias, removing duplicates:
 ```
 SELECT DISTINCT freguesia FROM perm_crop_freg;
+SELECT count(DISTINCT freguesia) FROM perm_crop_freg;
 ```
 Your result should be 2871 rows.
 
 Q.3. Do the same for municipalities and for crops:
 ```
 -- complete the query to obtain the list of municipalities
-SELECT DISTINCT ... ;
+SELECT DISTINCT municipality FROM perm_crop_freg;
+SELECT count(DISTINCT municipality) FROM perm_crop_freg;
 
 -- complete the query to obtain the list of crops
-SELECT DISTINCT ... ;
+SELECT DISTINCT crop_name FROM perm_crop_freg;
+SELECT count(DISTINCT crop_name) FROM perm_crop_freg;
 ```
 Result: 8 rows.
 
@@ -120,7 +123,15 @@ of holdings to determine which freguesias have citrus plantations)
 
 ```
 -- write your query here:
-SELECT ... ; 
+SELECT
+	municipality, count(freguesia) as num_freg_citrus 
+FROM
+	perm_crop_freg pcf
+WHERE 
+    	crop_name = 'Citrus plantations'
+AND
+	`hold` > 0
+GROUP BY municipality; 
 ```
 
 ## 4. Aggregate functions SUM(), AVG(), MIN() and MAX()
@@ -133,13 +144,19 @@ SELECT
 FROM
 	perm_crop_freg pcf
 WHERE
-    crop_name LIKE 'Citrus%'
+        crop_name LIKE 'Citrus%'
 GROUP BY municipality; 
 ```
 
 Q.5. Repeat, but for olive plantations; 
 ```
-SELECT ...
+SELECT
+	municipality, SUM(area) AS sum_area
+FROM
+	perm_crop_freg pcf
+WHERE
+        crop_name LIKE 'Olive%'
+GROUP BY municipality; 
 ```
 
 Now, calculate the total number of holdings per municipality, for all crops. you can combine several fields in the GROUP BY clause. Sort the result in descending order of 
@@ -156,11 +173,25 @@ ORDER BY sum_hold DESC;
 ```
 Q.6. Calculate again, but for the average (function AVG())
 ```
-SELECT ... ;
+SELECT
+	municipality, crop_name, AVG(`hold`) AS avg_hold
+FROM
+	perm_crop_freg pcf
+WHERE
+	crop_name <> 'total'
+GROUP BY municipality, crop_name 
+ORDER BY avg_hold DESC;
 ```
 Q.7. Repeat again the query, but to obtain the maximum value of holdings per municipality (function MAX())
 ```
-SELECT ... ;
+SELECT
+	municipality, MAX(`hold`) AS max_hold
+FROM
+	perm_crop_freg pcf
+WHERE
+	crop_name <> 'total'
+GROUP BY municipality 
+ORDER BY avg_hold DESC;
 ```
 
 It is possible to filter the results using the clause HAVING. HAVING only can be applied to a result set of an aggregate function.
