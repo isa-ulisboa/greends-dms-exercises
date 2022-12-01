@@ -1,3 +1,6 @@
+-- this script is to prepare the view perm_crop_freg and run some statements used
+-- in DMS class 10
+
 -- make sure the correct database is selected
 USE dms_INE;
 
