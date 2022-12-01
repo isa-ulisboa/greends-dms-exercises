@@ -78,6 +78,7 @@ DESCRIBE production ;
 /* needs a primary key
  * needs a foreign key on NutsID
  * region_name does not depend on the new primary key, but on NutsID 
+ * it can be removed
  */
 
 ALTER TABLE production
@@ -230,7 +231,7 @@ ADD COLUMN pc_name_ID INT,
 ADD PRIMARY KEY (permanent_crop_ID),
 ADD FOREIGN KEY (NutsID) REFERENCES region(NutsID);
 
--- add values to column type_labour_ID in labour table
+-- add values to column permanent_crop_ID in permanent_crop table
 UPDATE permanent_crop l, permanent_crop_name tl SET l.pc_name_ID = tl.pc_name_ID 
 WHERE l.crop_name = tl.crop_name;
 
@@ -269,11 +270,11 @@ DROP COLUMN region_level,
 ADD PRIMARY KEY (temporary_crop_ID),
 ADD FOREIGN KEY (NutsID) REFERENCES region(NutsID);
 
--- add values to column type_labour_ID in labour table
+-- add values to column temporary_crop_ID in temporary_crop table
 UPDATE temporary_crop l, temporary_crop_name tl SET l.tc_name_ID = tl.tc_name_ID 
 WHERE l.crop_name = tl.crop_name;
 
--- delete column crop_name from permanent_crop 
+-- delete column crop_name from temporary_crop 
 ALTER TABLE temporary_crop 
 DROP COLUMN crop_name,
 ADD FOREIGN KEY (tc_name_ID) REFERENCES temporary_crop_name(tc_name_ID);
