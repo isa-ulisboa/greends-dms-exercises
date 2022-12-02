@@ -311,11 +311,11 @@ with the changes required by each table:
 
 ## 7. Complete SQL script
 If you completed the code and executed it without issues, great! If not, you  can 
-check and run the full SQL script `dms_INE_normalization.sql`, which is available 
+check and run the full SQL script `dms_ex_11_normalization.sql`, which is available 
 from the `scripts` directory of the repository. It can be run 
-using DBeaver, or in the mysql command line, with the command:
+using DBeaver, or in the operating system command line, with the command:
 ```
-mysql > mysql -u dms_user -p dms_INE < dms_INE_normalization.sql
+$ mysql -u dms_user -p dms_INE < dms_INE_normalization.sql
 ```  
 
 ## 8. Dump of the database normalized file
