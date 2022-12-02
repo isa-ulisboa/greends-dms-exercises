@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="dms_INE_ERdiagram.erd">
+	<entities>
+		<data-source id="mariaDB-1834d016561-64321506cd536f6e">
+			<entity id="1" name="education" fq-name="dms_INE.education" order="0" x="505" y="40">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="2" name="education_level" fq-name="dms_INE.education_level" order="1" x="280" y="40">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="3" name="grassland" fq-name="dms_INE.grassland" order="2" x="120" y="100">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="4" name="labour" fq-name="dms_INE.labour" order="3" x="740" y="40">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="5" name="livestock" fq-name="dms_INE.livestock" order="4" x="300" y="400">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="6" name="livestock_name" fq-name="dms_INE.livestock_name" order="5" x="100" y="500">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="7" name="permanent_crop" fq-name="dms_INE.permanent_crop" order="6" x="774" y="404">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="8" name="permanent_crop_name" fq-name="dms_INE.permanent_crop_name" order="7" x="900" y="580">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="9" name="production" fq-name="dms_INE.production" order="8" x="120" y="280">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="10" name="region" fq-name="dms_INE.region" order="9" x="534" y="216">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="11" name="region_level" fq-name="dms_INE.region_level" order="10" x="769" y="226">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="12" name="temporary_crop" fq-name="dms_INE.temporary_crop" order="11" x="523" y="408">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="13" name="temporary_crop_name" fq-name="dms_INE.temporary_crop_name" order="12" x="360" y="580">
+				<path name="dms_INE"/>
+			</entity>
+			<entity id="14" name="type_labour" fq-name="dms_INE.type_labour" order="13" x="940" y="40">
+				<path name="dms_INE"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="education_ibfk_2" fq-name="dms_INE.education.education_ibfk_2" type="fk" pk-ref="2" fk-ref="1"/>
+		<relation name="livestock_ibfk_2" fq-name="dms_INE.livestock.livestock_ibfk_2" type="fk" pk-ref="6" fk-ref="5"/>
+		<relation name="permanent_crop_ibfk_2" fq-name="dms_INE.permanent_crop.permanent_crop_ibfk_2" type="fk" pk-ref="8" fk-ref="7"/>
+		<relation name="education_ibfk_1" fq-name="dms_INE.education.education_ibfk_1" type="fk" pk-ref="10" fk-ref="1"/>
+		<relation name="grassland_ibfk_1" fq-name="dms_INE.grassland.grassland_ibfk_1" type="fk" pk-ref="10" fk-ref="3"/>
+		<relation name="labour_ibfk_1" fq-name="dms_INE.labour.labour_ibfk_1" type="fk" pk-ref="10" fk-ref="4"/>
+		<relation name="livestock_ibfk_1" fq-name="dms_INE.livestock.livestock_ibfk_1" type="fk" pk-ref="10" fk-ref="5"/>
+		<relation name="permanent_crop_ibfk_1" fq-name="dms_INE.permanent_crop.permanent_crop_ibfk_1" type="fk" pk-ref="10" fk-ref="7"/>
+		<relation name="production_ibfk_1" fq-name="dms_INE.production.production_ibfk_1" type="fk" pk-ref="10" fk-ref="9"/>
+		<relation name="temporary_crop_ibfk_1" fq-name="dms_INE.temporary_crop.temporary_crop_ibfk_1" type="fk" pk-ref="10" fk-ref="12"/>
+		<relation name="region_ibfk_1" fq-name="dms_INE.region.region_ibfk_1" type="fk" pk-ref="11" fk-ref="10"/>
+		<relation name="temporary_crop_ibfk_2" fq-name="dms_INE.temporary_crop.temporary_crop_ibfk_2" type="fk" pk-ref="13" fk-ref="12"/>
+		<relation name="labour_ibfk_2" fq-name="dms_INE.labour.labour_ibfk_2" type="fk" pk-ref="14" fk-ref="4"/>
+	</relations>
+</diagram>
