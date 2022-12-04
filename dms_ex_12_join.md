@@ -262,38 +262,21 @@ Q.2. Provide your statement below:
 
 2. *Obtain the sum of livestock values per animal species together with grassland holding 
 value and area, for each year 1989, 1999, 2009 and 2019, at the municipality level.
- * Output the municipality name, year, sum of livestock value, sum of grassland area and year.*
+Output the municipality name, year, sum of livestock value, sum of grassland area and year.
+Make sure that values of livestock and grassland are for the same year.*
 
 Q.3. Provide your statement below:
 ```
 -- Write your query here ...
 ```
 
-3. *Obtain the sum of livestock values per animal species together with grassland holding 
-value and area, for each year 1989, 1999, 2009 and 2019, at the municipality level.
-Output the municipality name, year, sum of livestock value, sum of grassland area and year.*
-
-Q.4. Provide your statement below:
-```
--- Write your query here ...
-```
-
-4. *Obtain the sum of livestock values per animal species together with grassland holding 
-value and area, for each year 1989, 1999, 2009 and 2019, at the municipality level.
-Output the municipality name, year, sum of livestock value, sum of grassland area and year.*
-
-Q.5. Provide your statement below:
-```
--- Write your query here ...
-```
-
-5. *Obtain the sum of the number of familiar education per level of education  
+3. *Obtain the sum of the number of familiar education per level of education  
  for 2019, at the freguesia level, for freguesias that belong to the NUTS3 region 
  'Algarve. Output the NUTS3 name, municipality, freguesia, year, education level and
  sum of familiar members with that level of education. Remove the education level 
  with the value 'Total'.*
 
-Q.6. Provide your statement below:
+Q.4. Provide your statement below:
 ```
 -- Write your query here ...
 ```
@@ -303,3 +286,11 @@ The solutions for the queries of this exercise are available at the SQL script
 `dms_ex_12.sql`, in the scripts folder of the repository. But only check them after 
 you try to resolve the queries. Make sure you can understand all components of the 
 query, and why they are needed.
+
+## Wrap up
+
+In this exercise we learned:
+- how to make queries using multiple tables
+- how to **UNION** two queries in the same output
+- how to ensure that corresponding records from different values are matched when
+- additional criteria is necessary in addition to the keys
