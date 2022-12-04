@@ -249,3 +249,57 @@ GROUP BY tcn.crop_name
 ORDER By sum_holdings DESC;
 ```
 
+## 5. Exercise your queries
+
+1. *Obtain the total area value for each temporary crop for year 2019 based on 
+the region level freguesia.*
+
+Q.2. Provide your statement below:
+
+```
+-- Write your query here ...
+```
+
+2. *Obtain the sum of livestock values per animal species together with grassland holding 
+value and area, for each year 1989, 1999, 2009 and 2019, at the municipality level.
+ * Output the municipality name, year, sum of livestock value, sum of grassland area and year.*
+
+Q.3. Provide your statement below:
+```
+-- Write your query here ...
+```
+
+3. *Obtain the sum of livestock values per animal species together with grassland holding 
+value and area, for each year 1989, 1999, 2009 and 2019, at the municipality level.
+Output the municipality name, year, sum of livestock value, sum of grassland area and year.*
+
+Q.4. Provide your statement below:
+```
+-- Write your query here ...
+```
+
+4. *Obtain the sum of livestock values per animal species together with grassland holding 
+value and area, for each year 1989, 1999, 2009 and 2019, at the municipality level.
+Output the municipality name, year, sum of livestock value, sum of grassland area and year.*
+
+Q.5. Provide your statement below:
+```
+-- Write your query here ...
+```
+
+5. *Obtain the sum of the number of familiar education per level of education  
+ for 2019, at the freguesia level, for freguesias that belong to the NUTS3 region 
+ 'Algarve. Output the NUTS3 name, municipality, freguesia, year, education level and
+ sum of familiar members with that level of education. Remove the education level 
+ with the value 'Total'.*
+
+Q.6. Provide your statement below:
+```
+-- Write your query here ...
+```
+
+## 6. Check your answers
+The solutions for the queries of this exercise are available at the SQL script 
+`dms_ex_12.sql`, in the scripts folder of the repository. But only check them after 
+you try to resolve the queries. Make sure you can understand all components of the 
+query, and why they are needed.
