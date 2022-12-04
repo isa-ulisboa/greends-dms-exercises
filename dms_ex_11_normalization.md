@@ -120,7 +120,7 @@ region_level.
 
 After this change, if we want to obtain the name of the region level associated 
 with the name of the region, we will need to establish and **implicit join** of an
-**inner join** between the tables:
+**INNER JOIN** between the tables:
 
 ```
 select * from region r, region_level rl WHERE r.level_ID = rl.level_ID ;
@@ -145,7 +145,7 @@ Q.1. Can you identify the changes needed?
 `````
 -- Provide your answer here...
 `````
-If you identified the following, these are teh needed changes
+If you identified the following, these are the needed changes
  * needs a primary key
  * needs a foreign key on NutsID
  * region_name does not depend on the new primary key, but on NutsID, it can be removed
@@ -175,9 +175,8 @@ In this case, these are the changes:
 
  * create table education_level
  * add column education_level_ID
- * needs a primary key
- * needs a foreign key on NutsID
- * region_name does not depend on the new primary key, but on NutsID 
+ * table education needs a primary key
+ * table euication needs a foreign key on NutsID
 
  The following code will make it:
 
@@ -221,10 +220,11 @@ its records:
 SELECT * FROM permanent_crop ;
 ```
 The list of modifications includes:
- * add column permanent_crop_ID to be primary key
+ * add column permanent_crop_ID to be primary key. It will represent the candidate 
+ key combining columns {NutsID, crop_name}
  * needs a foreign key on NutsID
  * remove region_name and region_level
- * move crop_name to a new table and link
+ * move crop_name to a new table and link with a foreign key
 
 The following code, similar to the one above, will make the changes needed
 
@@ -246,11 +246,12 @@ ADD FOREIGN KEY (NutsID) REFERENCES region(NutsID);
 UPDATE permanent_crop l, permanent_crop_name tl SET l.pc_name_ID = tl.pc_name_ID 
 WHERE l.crop_name = tl.crop_name;
 
--- delete column crop_name from permanent_crop 
+-- delete column crop_name from permanent_crop and set the foreign key
 ALTER TABLE permanent_crop 
 DROP COLUMN crop_name,
 ADD FOREIGN KEY (pc_name_ID) REFERENCES permanent_crop_name(pc_name_ID);
 
+- remove columns with partial dependency
 ALTER TABLE permanent_crop 
 DROP COLUMN region_name,
 DROP COLUMN region_level;
@@ -278,7 +279,7 @@ CREATE TABLE ...
 -- select table created to check
 SELECT ...
 
--- change table tamporary_crop
+-- change table temporary_crop
 ALTER TABLE ...
 
 -- add values to column temporary_crop_ID in temporary_crop table
@@ -309,17 +310,30 @@ with the changes required by each table:
 
 `````
 
-## 7. Complete SQL script
-If you completed the code and executed it without issues, great! If not, you  can 
-check and run the full SQL script `dms_ex_11_normalization.sql`, which is available 
-from the `scripts` directory of the repository. It can be run 
-using DBeaver, or in the operating system command line, with the command:
+## 7. Run the complete SQL script
+
+If you had problems in completing the sql statements, you can check and run the 
+full SQL script `dms_ex_11_normalization.sql`, which is available 
+from the `scripts` directory of the repository. You can copy it or open it in 
+DBeaver, and afterwards run the whole script. This with the necessary changes to
+achieve the normalized version of the database, the version 2.
+
+## 7. Normalized database
+After making all changes without issues, then you achieved the 
+goal of having a fully normalized database. You can use `mysqldump` to export 
+a backup in this new version (version 2):
 ```
-$ mysql -u dms_user -p dms_INE < dms_INE_normalization.sql
-```  
+$ mysqldump -u dms_user -p dms_INE > dms_INE_v2.sql
+```
+
+You will notice that the dumped file
+as a size of about 18 MB, which is smaller that the 33 MB of the sql file of the 
+database imported at the beginning of the exercise (the version 1 imported).
+This is interesting, because although you created more tables, the normalized version
+optimizes the storage by avoiding duplication of values.
 
 ## 8. Dump of the database normalized file
 
 We have made a new version of the database, which is now fully normalized. The dump
-of the database after making all changes if available in the file `dms_INE_v2.sql.zip`
-that is in the data directory.
+of the database after making all changes is available in the file `dms_INE_v2.sql.zip`,
+in the `data` directory of the repository.
