@@ -59,7 +59,7 @@ The metadata information about the tables is the following
 1. *Obtain the values of total standard production per NUTS2 for the year 2019.*
 
 To obtain the requested values, we need tha tables **production**, **region** and **region_level**.
- The statement would be like this, in the form of implicit JOIN:
+ The statement would be like this, in the form of **implicit JOIN**:
 ```
  SELECT
 	r.region_name , p.value_eur 
@@ -104,23 +104,13 @@ WHERE
 	AND p.`year` = 2019;
 ```
 
-## INNER JOIN with three tables, filters and grouped by
+## 3. INNER JOIN with three tables, filters and grouped by
 
 1. *Obtain the total of agricultural holdings per type of permanent crop for year 
-2019 based on the region level freguesia*
+2019 based on the region level freguesia.*
 
 The best approach is to divide the problem in several parts. First, get values of holdings for year 2019:
 
-```
-SELECT
-	*
-FROM
-	permanent_crop pc
-WHERE
-	pc.`year` = 2019;
-```
-
-Repeat, in order to obtain only the column of values:
 ```
 SELECT
 	pc.`hold`
@@ -131,7 +121,7 @@ WHERE
 ```
 
 We need to include the type of crop, which is in table permanent_crop_name. 
-We can get it with an **INNER JOIN**:
+We can get it with an **INNER JOIN** to the table `permanent_crop_name`:
 
 ```
 SELECT
@@ -143,6 +133,21 @@ INNER JOIN permanent_crop_name pcn ON
 	pc.pc_name_ID = pcn.pc_name_ID
 WHERE
 	pc.`year` = 2019;
+```
+We should remove the results for the 'Total' crop type, which is an aggregate 
+value of the other crops.
+
+```
+SELECT
+	pcn.crop_name,
+	pc.`hold`
+FROM
+	permanent_crop pc
+INNER JOIN permanent_crop_name pcn ON
+	pc.pc_name_ID = pcn.pc_name_ID
+WHERE
+	pc.`year` = 2019
+AND pcn.crop_name <> 'Total';
 ```
 
 The result show values for all region. That is why each crop has many values.
@@ -160,33 +165,17 @@ INNER JOIN region r ON pc.NutsID = r.NutsID
 INNER JOIN region_level rl ON r.level_ID = rl.level_ID 
 WHERE
 	pc.`year` = 2019
+AND pcn.crop_name <> 'Total'
 AND rl.region_level = 'freguesia';
 ```
 
-The result of the query above includes 'Total' as a crop, which does not make sense.
-We need to exclude it in the WHERE clause:
-```
-SELECT
-	pcn.crop_name,
-	pc.`hold`
-FROM
-	permanent_crop pc
-INNER JOIN permanent_crop_name pcn ON
-	pc.pc_name_ID = pcn.pc_name_ID
-INNER JOIN region r ON pc.NutsID = r.NutsID 
-INNER JOIN region_level rl ON r.level_ID = rl.level_ID 
-WHERE
-	pc.`year` = 2019
-AND rl.region_level = 'freguesia'
-AND pcn.crop_name <> 'Total';
-```
-
 Finally, we have to sum the holding values grouped by crop name. Add the function
-SUM to the value of holdings, and add the clause GROUP BY on crop names.
+SUM to the value of holdings, and add the clause GROUP BY on crop names. We will
+also display the values in decreasing order.
 ```
 SELECT
 	pcn.crop_name,
-	SUM(pc.`hold`)
+	SUM(pc.`hold`) as sum_holdings
 FROM
 	permanent_crop pc
 INNER JOIN permanent_crop_name pcn ON
@@ -195,19 +184,68 @@ INNER JOIN region r ON pc.NutsID = r.NutsID
 INNER JOIN region_level rl ON r.level_ID = rl.level_ID 
 WHERE
 	pc.`year` = 2019
-AND rl.region_level = 'freguesia'
 AND pcn.crop_name <> 'Total'
-GROUP BY pcn.crop_name;
+AND rl.region_level = 'freguesia'
+GROUP BY pcn.crop_name
+ORDER By sum_holdings DESC;
 ```
 
-2. Repeat for temporary crops
+Q.1. Now, you can make the same query, but for temporary crops. We will need to change
+table names and field names, but the structure of the query should be the same.
 
-Can you repeat the query, but for temporary crops and for the area value instead
-of holdings. You can jump directly to the latest query to change it, if you fill 
-confident.
-
-Add your code here:
 ```
-SELECT ...
+-- Write your code here ...
+```
+
+
+## 4. **UNION** two queries
+1. *Obtain the total of agricultural holdings for all types of crops (permanent 
+or temporary) for year 2019 based on the region level freguesia. Identify is the
+crop is permanent or temporary in the result.*
+
+Imagine that you want a table with the value of before for all crops, including 
+permanent and temporary crops. This can be achieved by merging the two previous 
+queries with the clause **UNION**.
+
+It can only be done if the structure of the result set is the same, with equal number 
+of columns, having the same order and meaning. The clause **UNION** merges two select statements.
+
+In the previous SELECT queries, we will add a fixed value for each select to 
+identify if it is permanent or temporary crop. We also need to remove the ORDER 
+clause from the first select statement.
+
+```
+SELECT
+	pcn.crop_name,
+	'permanent' AS type_of_crop, 
+	SUM(pc.`hold`) AS sum_holdings
+FROM
+	permanent_crop pc
+INNER JOIN permanent_crop_name pcn ON
+	pc.pc_name_ID = pcn.pc_name_ID
+INNER JOIN region r ON pc.NutsID = r.NutsID 
+INNER JOIN region_level rl ON r.level_ID = rl.level_ID 
+WHERE
+	pc.`year` = 2019
+AND pcn.crop_name <> 'Total'
+AND rl.region_level = 'freguesia'
+GROUP BY pcn.crop_name
+UNION
+SELECT
+	tcn.crop_name,
+	'temporary' AS type_of_crop,
+	SUM(tc.`hold`) AS sum_holdings
+FROM
+	temporary_crop tc
+INNER JOIN temporary_crop_name tcn ON
+	tc.tc_name_ID = tcn.tc_name_ID
+INNER JOIN region r ON tc.NutsID = r.NutsID 
+INNER JOIN region_level rl ON r.level_ID = rl.level_ID 
+WHERE
+	tc.`year` = 2019
+AND tcn.crop_name <> 'Total'
+AND rl.region_level = 'freguesia'
+GROUP BY tcn.crop_name
+ORDER By sum_holdings DESC;
 ```
 

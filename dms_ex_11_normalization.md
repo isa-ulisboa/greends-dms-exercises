@@ -318,7 +318,7 @@ from the `scripts` directory of the repository. You can copy it or open it in
 DBeaver, and afterwards run the whole script. This with the necessary changes to
 achieve the normalized version of the database, the version 2.
 
-## 7. Normalized database
+## 8. Normalized database
 After making all changes without issues, then you achieved the 
 goal of having a fully normalized database. You can use `mysqldump` to export 
 a backup in this new version (version 2):
@@ -332,7 +332,7 @@ database imported at the beginning of the exercise (the version 1 imported).
 This is interesting, because although you created more tables, the normalized version
 optimizes the storage by avoiding duplication of values.
 
-## 8. Dump of the database normalized file
+## 9. Dump of the database normalized file
 
 We have made a new version of the database, which is now fully normalized. The dump
 of the database after making all changes is available in the file `dms_INE_v2.sql.zip`,
