@@ -22,4 +22,4 @@ doc = BeautifulSoup (result.text, "html.parser")
 #print(doc.prettify())
 
 nutritional_values = doc.find_all("strong")
-print(nutritional_values)
+print(nutritional_values) 
