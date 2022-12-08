@@ -28,3 +28,28 @@ WHERE
 	AND pc.area > 10
 ORDER BY
 	pc.area DESC;
+	
+
+/* Obtain the number of holdings with permanent crop per type of crop
+ * at the NUTS2 level for year 2019 
+ */
+
+SELECT
+	pcn.crop_name ,
+	SUM(pc.`hold`) AS sum_holdings
+FROM
+	permanent_crop pc
+INNER JOIN permanent_crop_name pcn
+ON
+	pc.pc_name_ID = pcn.pc_name_ID
+INNER JOIN region r ON
+	pc.NutsID = r.NutsID
+WHERE
+	pc.`year` = 2019
+	AND 
+r.level_ID = 2
+	AND pcn.crop_name <> 'Total'
+GROUP BY
+	pcn.pc_name_ID
+ORDER BY
+	sum_holdings DESC ;
