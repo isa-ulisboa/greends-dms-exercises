@@ -273,4 +273,4 @@ WHERE
 	AND r3.region_name = 'Algarve'
 	AND e.`year` = 2019
 GROUP BY
-	el.education_level;
+	r.region_name, el.education_level;
