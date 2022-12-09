@@ -268,6 +268,17 @@ Q.2. Provide your statement below:
 ```
 -- Write your query here ...
 ```
+select tcn.crop_name, 'temporary' as type_of_crop, sum (tc.area) as sum_area
+from temporary_crop tc 
+inner join temporary_crop_name tcn ON tc.tc_name_ID =tcn.tc_name_ID 
+inner join region r on tc.NutsID = r.NutsID 
+inner join region_level rl on r.level_ID = rl.level_ID 
+where tc.`year` = 2019
+and tcn.crop_name <> 'Total'
+and rl.region_level = 'freguesia'
+group by tcn.crop_name 
+order by sum_area desc;
+
 
 2. *Obtain the sum of livestock values per animal species together with grassland holding 
 value and area, for each year 1989, 1999, 2009 and 2019, at the municipality level.
