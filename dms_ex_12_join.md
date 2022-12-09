@@ -196,6 +196,15 @@ table names and field names, but the structure of the query should be the same.
 ```
 -- Write your code here ...
 ```
+select tcn.crop_name, sum(tc.`hold`) as sum_holdings
+from temporary_crop tc  
+inner join temporary_crop_name tcn on tc.tc_name_ID = tcn.tc_name_ID 
+inner join region r on tc.NutsID = r.NutsID 
+inner join region_level rl on r.level_ID = rl.level_ID 
+where tc.`year`= 2019
+and tcn.crop_name <> 'Total'
+and rl.region_level = 'freguesia'
+group by tcn.crop_name order by sum_holdings desc ;
 
 
 ## 4. **UNION** two queries
