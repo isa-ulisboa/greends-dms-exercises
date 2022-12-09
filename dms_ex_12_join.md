@@ -289,6 +289,24 @@ Q.3. Provide your statement below:
 ```
 -- Write your query here ...
 ```
+select  r.region_name, 
+		lv.`year`, 
+		ln2.animal_species, 
+		sum(lv.value) as livestock_value, 
+		sum(g.area) as area_ha, 
+		sum(g.`hold`) as grassland_hold
+from livestock lv
+inner join livestock_name ln2 on
+		lv.livestock_name_ID = ln2.livestock_name_ID 
+inner join region r on
+		lv.NutsID = r.NutsID 
+inner join region_level rl on
+		r.level_ID = rl.level_ID 
+inner join grassland g on
+		g.NutsID = r.NutsID 
+where rl.region_level = 'municipality'
+		and lv.`year` = g.`year` 
+group by r.region_name , lv.`year` , ln2.animal_species ;
 
 3. *Obtain the sum of the number of familiar education per level of education  
  for 2019, at the freguesia level, for freguesias that belong to the NUTS3 region 
