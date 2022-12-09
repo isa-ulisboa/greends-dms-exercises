@@ -273,4 +273,14 @@ WHERE
 	AND r3.region_name = 'Algarve'
 	AND e.`year` = 2019
 GROUP BY
-	el.education_level;
+	r.region_name, el.education_level;
+
+/* get the area of permanent_crop of type olive plantations and the amount of livestock of type sheep for region level freguesia*/
+SELECT
+	*
+FROM
+	livestock l
+INNER JOIN permanent_crop pc ON
+	l.NutsID = pc.NutsID
+	AND l.`year` = pc.`year`
+	WHERE ;
