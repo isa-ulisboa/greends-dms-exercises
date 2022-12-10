@@ -194,7 +194,67 @@ Q.1. Now, you can make the same query, but for temporary crops. We will need to 
 table names and field names, but the structure of the query should be the same.
 
 ```
--- Write your code here ...
+SELECT
+	tc .`hold`
+FROM
+	temporary_crop tc 
+WHERE
+	tc .`year` = 2019;
+
+
+SELECT
+	tcn.crop_name,
+	tc.`hold`
+FROM
+	temporary_crop tc 
+INNER JOIN temporary_crop_name tcn  ON
+	tc.tc_name_ID = tcn.tc_name_ID
+WHERE
+	tc.`year` = 2019;
+
+
+SELECT
+	tcn.crop_name,
+	tc.`hold`
+FROM
+	temporary_crop tc 
+INNER JOIN temporary_crop_name tcn  ON
+	tc.tc_name_ID = tcn.tc_name_ID
+WHERE
+	tc.`year` = 2019
+AND tcn.crop_name <> 'Total';
+
+
+SELECT
+	tcn.crop_name,
+	tc.`hold`
+FROM
+	temporary_crop tc 
+INNER JOIN temporary_crop_name tcn  ON
+	tc.tc_name_ID = tcn.tc_name_ID
+INNER JOIN region r ON tc.NutsID = r.NutsID
+INNER JOIN region_level rl ON r.level_ID = rl.level_ID 
+WHERE
+	tc.`year` = 2019
+AND tcn.crop_name <> 'Total'
+AND rl.region_level = 'freguesia';
+
+
+SELECT
+	tcn.crop_name,
+	SUM(tc.`hold`) as sum_holdings
+FROM
+	temporary_crop tc 
+INNER JOIN temporary_crop_name tcn  ON
+	tc.tc_name_ID = tcn.tc_name_ID
+INNER JOIN region r ON tc.NutsID = r.NutsID
+INNER JOIN region_level rl ON r.level_ID = rl.level_ID 
+WHERE
+	tc.`year` = 2019
+AND tcn.crop_name <> 'Total'
+AND rl.region_level = 'freguesia'
+GROUP BY tcn.crop_name 
+ORDER BY sum_holdings DESC;
 ```
 
 
