@@ -1,25 +1,17 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd 
-
-"""
-# open the html file
-with open("final_assignment\strawberries_html.html", "r", encoding="utf-8") as f:
-  doc = BeautifulSoup(f, "html.parser")
-
-#print(doc.prettify())
-
-tags = doc.find_all("strong")
-print(tags)
-
-"""
 import requests
 
 url = "https://www.healthline.com/nutrition/foods/strawberries#nutrition"
 
 result = requests.get(url)
-doc = BeautifulSoup (result.text, "html.parser")
-#print(doc.prettify())
+doc = BeautifulSoup (result.content, "html.parser")
+print(doc.prettify())
 
-nutritional_values = doc.find_all("strong")
-print(nutritional_values) 
+#doc1 = doc.find("article", class_="article-body")
+#doc2 = doc1.find("div", class_="css-0")
+#doc3 = doc2.find ("ul")
+#doc4 = doc3.find("li")
+#
+#print(doc4)
