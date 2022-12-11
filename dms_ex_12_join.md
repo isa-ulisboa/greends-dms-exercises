@@ -266,9 +266,7 @@ the region level freguesia.*
 Q.2. Provide your statement below:
 
 ```
--- Write your query here ...
-```
-select tcn.crop_name, 'temporary' as type_of_crop, sum (tc.area) as sum_area
+-- select tcn.crop_name, 'temporary' as type_of_crop, sum (tc.area) as sum_area
 from temporary_crop tc 
 inner join temporary_crop_name tcn ON tc.tc_name_ID =tcn.tc_name_ID 
 inner join region r on tc.NutsID = r.NutsID 
@@ -278,6 +276,8 @@ and tcn.crop_name <> 'Total'
 and rl.region_level = 'freguesia'
 group by tcn.crop_name 
 order by sum_area desc;
+```
+
 
 
 2. *Obtain the sum of livestock values per animal species together with grassland holding 
@@ -287,9 +287,7 @@ Make sure that values of livestock and grassland are for the same year.*
 
 Q.3. Provide your statement below:
 ```
--- Write your query here ...
-```
-select  r.region_name, 
+-- select  r.region_name, 
 		lv.`year`, 
 		ln2.animal_species, 
 		sum(lv.value) as livestock_value, 
@@ -307,6 +305,8 @@ inner join grassland g on
 where rl.region_level = 'municipality'
 		and lv.`year` = g.`year` 
 group by r.region_name , lv.`year` , ln2.animal_species ;
+```
+
 
 3. *Obtain the sum of the number of familiar education per level of education  
  for 2019, at the freguesia level, for freguesias that belong to the NUTS3 region 
@@ -316,8 +316,29 @@ group by r.region_name , lv.`year` , ln2.animal_species ;
 
 Q.4. Provide your statement below:
 ```
--- Write your query here ...
+-- select 	r3.region_name,
+		r2.region_name,
+		r.region_name,
+		e.`year`,
+		el.education_level,
+		sum(e.value) as sum_education
+from education e 
+inner join education_level el on
+		e.education_level_ID = el.education_level_ID 
+inner join region r on
+		e.NutsID = r.NutsID 
+inner join region r2 on
+		r.ParentCodeID =r2.NutsID 
+inner join region r3 on
+		r2.ParentCodeID = r3.NutsID 
+where 	el.education_level <> 'Total'
+		and r.level_ID = 5
+		and r3.region_name = 'Algarve'
+		and e.`year` = 2019
+group by r.region_name, el.education_level ;
 ```
+
+
 
 ## 6. Check your answers
 The solutions for the queries of this exercise are available at the SQL script 
