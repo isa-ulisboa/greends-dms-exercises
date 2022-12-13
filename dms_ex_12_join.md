@@ -266,7 +266,7 @@ the region level freguesia.*
 Q.2. Provide your statement below:
 
 ```
--- select tcn.crop_name, 'temporary' as type_of_crop, sum (tc.area) as sum_area
+select tcn.crop_name, sum (tc.area) as sum_area
 from temporary_crop tc 
 inner join temporary_crop_name tcn ON tc.tc_name_ID =tcn.tc_name_ID 
 inner join region r on tc.NutsID = r.NutsID 
