@@ -154,14 +154,6 @@ WHERE
     crop_name LIKE 'Olive%'
 GROUP BY municipality; 
 
-SELECT
-	municipality, crop_name, SUM(`hold`) AS sum_hold
-FROM
-	perm_crop_freg pcf
-WHERE
-    crop_name <> 'total'
-GROUP BY municipality, crop_name
-order by sum_hold desc;
 ```
 
 Now, calculate the total number of holdings per municipality, for all crops. you can combine several fields in the GROUP BY clause. Sort the result in descending order of 
