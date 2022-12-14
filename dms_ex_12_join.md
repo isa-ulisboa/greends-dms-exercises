@@ -208,6 +208,18 @@ confident.
 
 Add your code here:
 ```
-SELECT ...
+select 
+	sum(tc.`hold`),
+	tcn.crop_name
+from
+	temporary_crop tc 
+inner join temporary_crop_name tcn on tcn.tc_name_ID = tc.tc_name_ID 
+inner join region r on r.NutsID = tc.NutsID 
+inner join region_level rl on r.level_ID = rl.level_ID 
+where
+	tc.`year` = 2019
+and	rl.region_level = 'freguesia'
+and	tcn.crop_name <> 'Total'
+group by tcn.crop_name ;
 ```
 
