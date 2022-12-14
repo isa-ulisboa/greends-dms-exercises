@@ -302,10 +302,100 @@ the cases above. Create your SQL code by adapting the used code, in accordance
 with the changes required by each table:
 
 `````
--- Provide your code here...
+-- TABLE GRASSLAND -- 
 
+select * from grassland g ;
+describe grassland;
 
+-- What is need to do:
+-- add a primary key
+-- add foreign key NutsID 
+-- delete region_name and region_level columns 
 
+alter table grassland 
+add column `grassland_ID` int not null auto_increment,
+add primary key (grassland_ID),
+add foreign key (NutsID) references region(NutsID),
+drop column region_name,
+drop column region_level;
+
+-- TABLE LABOUR --
+
+select * from labour;
+describe labour ;
+
+/*What is need to do:
+add a primary key
+add foreign key NutsID
+create a new table type_labour_name and link with type_labour_ID*/
+
+-- create table type_labour_name 
+
+drop table if exists type_labour_name;
+
+create table type_labour_name (type_labour_ID int not null primary key auto_increment)
+select distinct type_labour from labour l ;
+
+-- add add a primary key, add foreign key NutsID, add column type_labour_ID
+
+alter table labour 
+add column type_labour_ID int,
+add column `labour_ID` int not null auto_increment,
+add primary key (labour_ID),
+add foreign key (NutsID) references region(NutsID);
+
+-- add values to the column type_labour_ID
+
+update labour l, type_labour_name tln set l.type_labour_ID = tln.type_labour_ID
+where l.type_labour = tln.type_labour;
+
+-- link with type_labour_ID and delete type_labour column
+
+alter table labour 
+add foreign key (type_labour_ID) references type_labour_name(type_labour_ID),
+drop column type_labour;
+
+select * from labour;
+
+-- TABLE livestock --
+
+select * from livestock l ;
+describe livestock ;
+
+/*What is necessary to do:
+ * add a primary key to livestock
+ * add a foreign key region(NutsID) to livestock
+ * creat a new table livestock_name and link it with livestock (livestock_name_ID)
+ * delete animal_species from livestock
+ */
+
+-- create a new table livestock_name
+
+drop table if exists livestock_name;
+
+create table livestock_name (livestock_name_ID int not null primary key auto_increment)
+select distinct animal_species from livestock l ;
+
+-- add a primary key, a foreign key region(NutsID), and the column livestock_name_ID to livestock
+
+alter table livestock 
+add column livestock_name_ID int,
+add column `livestock_ID` int not null auto_increment,
+add primary key (livestock_ID),
+add foreign key (NutsID) references region(NutsID);
+
+-- add values to the column livestock_name_ID
+
+update livestock l, livestock_name lsn set l.livestock_name_ID = lsn.livestock_name_ID 
+where l.animal_species = lsn.animal_species ;
+
+-- delete animal_species from livestock and create a foreign key (livestock_name_ID)
+
+alter table livestock 
+add foreign key (livestock_name_ID) references livestock_name(livestock_name_ID),
+drop column animal_species;
+
+select * from livestock l ;
 
 `````
 
