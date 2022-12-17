@@ -194,7 +194,21 @@ Q.1. Now, you can make the same query, but for temporary crops. We will need to 
 table names and field names, but the structure of the query should be the same.
 
 ```
--- Write your code here ...
+SELECT
+	tcn.crop_name,
+	SUM(tc.`hold`) as sum_holdings
+FROM
+	temporary_crop tc
+INNER JOIN temporary_crop_name tcn ON
+	tc.tc_name_ID = tcn.tc_name_ID
+INNER JOIN region r ON tc.NutsID = r.NutsID 
+INNER JOIN region_level rl ON r.level_ID = rl.level_ID 
+WHERE
+	tc.`year` = 2019
+AND tcn.crop_name <> 'Total'
+AND rl.region_level = 'freguesia'
+GROUP BY tcn.crop_name
+ORDER By sum_holdings DESC;
 ```
 
 
@@ -257,7 +271,26 @@ the region level freguesia.*
 Q.2. Provide your statement below:
 
 ```
--- Write your query here ...
+SELECT
+	tcn.crop_name,
+	'temporary' AS type_of_crop,
+	SUM(tc.area) as sum_area_ha
+FROM
+	temporary_crop tc
+INNER JOIN temporary_crop_name tcn ON
+	tc.tc_name_ID = tcn.tc_name_ID
+INNER JOIN region r ON
+	tc.NutsID = r.NutsID
+INNER JOIN region_level rl ON
+	r.level_ID = rl.level_ID
+WHERE
+	tc.`year` = 2019
+	AND rl.region_level = 'freguesia'
+	AND tcn.crop_name <> 'Total'
+GROUP BY
+	tcn.crop_name
+ORDER BY
+	sum_area_ha DESC;
 ```
 
 2. *Obtain the sum of livestock values per animal species together with grassland holding 
@@ -267,7 +300,28 @@ Make sure that values of livestock and grassland are for the same year.*
 
 Q.3. Provide your statement below:
 ```
--- Write your query here ...
+	SELECT
+	r.region_name ,
+	lv.`year`,
+	ln2.animal_species,
+	sum(lv.value) AS livestock_value, 
+	sum(g.area) AS area,
+	sum(g.`hold`) AS grassland_hold
+FROM
+	livestock AS lv
+INNER JOIN livestock_name ln2 ON
+	lv.livestock_name_ID = ln2.livestock_name_ID
+INNER JOIN region r ON
+	lv.NutsID = r.NutsID
+INNER JOIN region_level rl ON
+	r.level_ID = rl.level_ID
+INNER JOIN grassland g ON
+	g.NutsID = r.NutsID
+WHERE
+	rl.region_level = 'municipality'
+GROUP BY
+	r.region_name,
+	ln2.animal_species;
 ```
 
 3. *Obtain the sum of the number of familiar education per level of education  
