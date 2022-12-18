@@ -143,7 +143,7 @@ SELECT * FROM production p ;
 
 Q.1. Can you identify the changes needed?
 `````
--- Provide your answer here...
+alter table production add column `production_ID` int not null auto_increment, drop column region_name, add primary key (production_ID), add foreign key (NutsID) references region(NutsID);
 `````
 If you identified the following, these are the needed changes
  * needs a primary key
@@ -169,7 +169,29 @@ SELECT * FROM education e ;
 ```
 Q.2. Again, identify the changes needed?
 `````
--- Provide your answer here...
+select * from education e ;
+
+drop table if exists education_level;
+
+create table education_level (education_level_ID int not null primary key auto_increment)
+select distinct  education_level from education e ;
+select * from education e;
+
+alter table education 
+add column `education_ID` int not null auto_increment,
+add column `education_level_ID` int,
+add primary key (education_ID),
+add foreign key (NutsID) references region(NutsID);
+
+describe education e;
+select * from education e;
+
+update education e, education_level el set e.education_level_ID = el.education_level_ID 
+where e.education_level = el.education_level;
+describe education ;
+
+alter table education drop column education_level;
+alter table education add foreign key (education_level_ID) references education_level(education_level_ID);
 `````
 In this case, these are the changes:
 
@@ -267,27 +289,41 @@ SELECT * FROM temporary_crop ;
 ```
 Q.3. Can you make the changes? First, identify them here:
 `````
--- Provide your answer here...
+/* assignment 11
+ * Make changes on the temporary_crop table
+ * 	To do:	
+ * 		remove region_name and region_level because they are inter-dependent
+ * 		create foreign key between temporary_crop and regions table
+ * 		create a new table with `crop_name` values and creat a foreign key to connect both tables 
+ */
 `````
 Q.4. And adapt the code from above here:
 `````
--- Provide your code here...
+drop table if exists temporary_crop_ID;
 
 -- create table
-CREATE TABLE ...
+create table temporary_crop_ID (tc_name_ID int not null primary key auto_increment)
+select distinct crop_name from temporary_crop tc ;
 
 -- select table created to check
-SELECT ...
+select * from temporary_crop_id ;
 
 -- change table temporary_crop
-ALTER TABLE ...
+alter table temporary_crop 
+drop column region_name, 
+drop column region_level,
+add column tc_name_ID int,
+add column tc_ID int not null auto_increment, 
+add primary key (tc_ID),
+add foreign key (NutsID) references region(NutsID),
+add foreign key (tc_name_ID) references temporary_crop_ID(tc_name_ID);
 
 -- add values to column temporary_crop_ID in temporary_crop table
-UPDATE ...
+update temporary_crop tc, temporary_crop_id tl set tc.tc_name_ID = tl.tc_name_ID where tc.crop_name = tl.crop_name;
 
 -- delete column crop_name from temporary_crop 
-ALTER TABLE ...
 
+alter table temporary_crop drop column crop_name, add foreign key (tc_name_ID) references temporary_crop_ID(tc_name_ID);
 `````
 
 ## 6. Make changes in the remaining tables
@@ -303,11 +339,80 @@ the cases above. Create your SQL code by adapting the used code, in accordance
 with the changes required by each table:
 
 `````
--- Provide your code here...
+-- Grassland
 
+select * from grassland g ;
+describe grassland;
 
+/* To do:
+* add a primary key
+* add foreign key NutsID 
+* delete region_name and region_level columns 
+*/
 
+alter table grassland 
+add column `grassland_ID` int not null auto_increment,
+add primary key (grassland_ID),
+add foreign key (NutsID) references region(NutsID),
+drop column region_name,
+drop column region_level;
 
+-- Labour
+select * from labour;
+describe labour ;
+
+/* To do:
+* add a primary key
+* add foreign key NutsID
+* create a new table type_labour_name and link with type_labour_ID
+*/
+
+drop table if exists type_labour_name;
+create table type_labour_name (type_labour_ID int not null primary key auto_increment);
+
+select distinct type_labour from labour l ;
+
+alter table labour add column type_labour_ID int,
+add column `labour_ID` int not null auto_increment,
+add primary key (labour_ID),
+add foreign key (NutsID) references region(NutsID);
+
+update labour l, type_labour_name tln set l.type_labour_ID = tln.type_labour_ID
+where l.type_labour = tln.type_labour;
+select * from labour;
+
+-- Livestock
+
+select * from livestock l ;
+describe livestock ;
+
+/*To do:
+ * add a primary key to livestock
+ * add a foreign key region(NutsID) to livestock
+ * creat a new table livestock_name and link it with livestock (livestock_name_ID)
+ * delete animal_species from livestock
+ */
+ 
+ drop table if exists livestock_name;
+
+create table livestock_name (livestock_name_ID int not null primary key auto_increment)
+select distinct animal_species from livestock l ;
+
+alter table livestock add column livestock_name_ID int,
+add column `livestock_ID` int not null auto_increment,
+add primary key (livestock_ID),
+add foreign key (NutsID) references region(NutsID);
+
+select * from livestock;
+
+update livestock l, livestock_name lsn set l.livestock_name_ID = lsn.livestock_name_ID 
+where l.animal_species = lsn.animal_species ;
+
+alter table livestock 
+add foreign key (livestock_name_ID) references livestock_name(livestock_name_ID),
+drop column animal_species;
+
+select * from livestock l ;
 `````
 
 ## 7. Run the complete SQL script
