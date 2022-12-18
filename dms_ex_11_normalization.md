@@ -266,26 +266,37 @@ SELECT * FROM temporary_crop ;
 ```
 Q.3. Can you make the changes? First, identify them here:
 `````
--- Provide your answer here...
+/* What is need to do:
+ * delete region_name, region_level, crop_name 
+ * create a new table crop_name
+ * add primary key
+ * add foreign key: region(NustID) and crop_name(crop_name_ID)
+ */
 `````
 Q.4. And adapt the code from above here:
 `````
--- Provide your code here...
+-- create new table 
+ 
+drop table if exists temporary_crop_name;
 
--- create table
-CREATE TABLE ...
+create table temporary_crop_name (tc_name_ID int not null primary key auto_increment)
+select distinct crop_name from temporary_crop tc ;
 
--- select table created to check
-SELECT ...
+-- edit temporary_crop
 
--- change table tamporary_crop
-ALTER TABLE ...
+alter table temporary_crop 
+drop column region_name,
+drop column region_level,
+add column tc_name_ID int,
+add column tc_ID int not null auto_increment,
+add primary key (tc_ID),
+add foreign key (NutsID) references region(NutsID), 
+add foreign key (tc_name_ID) references temporary_crop_name(tc_name_ID);
 
--- add values to column temporary_crop_ID in temporary_crop table
-UPDATE ...
+-- add values to tc_name_ID
 
--- delete column crop_name from temporary_crop 
-ALTER TABLE ...
+update temporary_crop tc, temporary_crop_name tcn set tc.tc_name_ID = tcn.tc_name_ID 
+where tc.crop_name = tcn.crop_name ;
 
 `````
 
@@ -307,10 +318,10 @@ with the changes required by each table:
 select * from grassland g ;
 describe grassland;
 
--- What is need to do:
--- add a primary key
--- add foreign key NutsID 
--- delete region_name and region_level columns 
+/* What is need to do:
+ * add a primary key 
+ * add foreign key NutsID
+ * delete region_name and region_level columns */
 
 alter table grassland 
 add column `grassland_ID` int not null auto_increment,
@@ -324,10 +335,10 @@ drop column region_level;
 select * from labour;
 describe labour ;
 
-/*What is need to do:
-add a primary key
-add foreign key NutsID
-create a new table type_labour_name and link with type_labour_ID*/
+/* What is need to do:
+ * add a primary key
+ * add foreign key NutsID
+ * create a new table type_labour_name and link with type_labour_ID*/
 
 -- create table type_labour_name 
 
