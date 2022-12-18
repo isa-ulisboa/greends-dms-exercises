@@ -62,7 +62,8 @@ view like if it was a table.
 Q.1. Complete the next statement to select all columns 
 of the view:
 ```
-SELECT ...
+select * from perm_crop_freg pcf ;
+
 ```
 Q.2. Repeat the query, to count the number of records in the result set:
 ```
@@ -84,11 +85,9 @@ Your result should be 2871 rows.
 
 Q.3. Do the same for municipalities and for crops:
 ```
--- complete the query to obtain the list of municipalities
-SELECT DISTINCT ... ;
+select distinct municipality from perm_crop_freg;
 
--- complete the query to obtain the list of crops
-SELECT DISTINCT ... ;
+select distinct crop_name from perm_crop_freg;
 ```
 Result: 8 rows.
 
@@ -119,8 +118,14 @@ that have holdings with crop type *Citrus plantations* (tip: you can use the num
 of holdings to determine which freguesias have citrus plantations)
 
 ```
--- write your query here:
-SELECT ... ; 
+select 
+	municipality, count(freguesia) as num_freg
+from
+	perm_crop_freg pcf
+where
+	`hold`>0
+	and crop_name like 'Citrus%'
+group by municipality; 
 ```
 
 ## 4. Aggregate functions SUM(), AVG(), MIN() and MAX()
@@ -139,7 +144,14 @@ GROUP BY municipality;
 
 Q.5. Repeat, but for olive plantations; 
 ```
-SELECT ...
+select
+	municipality, sum(area) as sum_area
+from
+	perm_crop_freg pcf
+where
+    crop_name like 'Olive%'
+group by municipality; 
+
 ```
 
 Now, calculate the total number of holdings per municipality, for all crops. you can combine several fields in the GROUP BY clause. Sort the result in descending order of 
@@ -156,11 +168,29 @@ ORDER BY sum_hold DESC;
 ```
 Q.6. Calculate again, but for the average (function AVG())
 ```
-SELECT ... ;
+select
+	municipality, crop_name, avg(`hold`) as sum_hold
+from
+	perm_crop_freg pcf
+where
+	crop_name <> 'total'
+group by 
+	municipality,
+	crop_name
+order by sum_hold desc;
 ```
 Q.7. Repeat again the query, but to obtain the maximum value of holdings per municipality (function MAX())
 ```
-SELECT ... ;
+select
+	municipality, crop_name, max(`hold`) as sum_hold
+from
+	perm_crop_freg pcf
+where
+	crop_name <> 'total'
+group by 
+	municipality,
+	crop_name
+order by sum_hold desc;
 ```
 
 It is possible to filter the results using the clause HAVING. HAVING only can be applied to a result set of an aggregate function.
