@@ -194,7 +194,26 @@ Q.1. Now, you can make the same query, but for temporary crops. We will need to 
 table names and field names, but the structure of the query should be the same.
 
 ```
--- Write your code here ...
+SELECT
+	tcn.crop_name,
+	SUM(tc.`hold`) as sum_holdings
+FROM
+	temporary_crop tc
+INNER JOIN temporary_crop_name tcn ON
+	tc.tc_name_ID = tcn.tc_name_ID
+INNER JOIN region r ON
+	tc.NutsID = r.NutsID
+INNER JOIN region_level rl ON
+	r.level_ID = rl.level_ID
+WHERE
+	tc.`year` = 2019
+	AND tcn.crop_name <> 'Total'
+	AND rl.region_level = 'freguesia'
+GROUP BY
+	tcn.crop_name
+ORDER By
+	sum_holdings DESC;
+
 ```
 
 
@@ -257,7 +276,26 @@ the region level freguesia.*
 Q.2. Provide your statement below:
 
 ```
--- Write your query here ...
+SELECT
+	tcn.crop_name,
+	SUM(tc.area) as sum_area_ha
+FROM
+	temporary_crop tc
+INNER JOIN temporary_crop_name tcn ON
+	tc.tc_name_ID = tcn.tc_name_ID
+INNER JOIN region r ON
+	tc.NutsID = r.NutsID
+INNER JOIN region_level rl ON
+	r.level_ID = rl.level_ID
+WHERE
+	tc.`year` = 2019
+	AND rl.region_level = 'freguesia'
+	AND tcn.crop_name <> 'Total'
+GROUP BY
+	tcn.crop_name
+ORDER BY
+	sum_area_ha DESC;
+
 ```
 
 2. *Obtain the sum of livestock values per animal species together with grassland holding 
@@ -267,7 +305,32 @@ Make sure that values of livestock and grassland are for the same year.*
 
 Q.3. Provide your statement below:
 ```
--- Write your query here ...
+SELECT
+	r.region_name ,
+	lv.`year`,
+	ln2.animal_species,
+	SUM(lv.value) AS livestock_value, 
+	SUM(g.area) AS area_ha,
+	SUM(g.`hold`) AS grassland_hold
+FROM
+	livestock lv
+INNER JOIN livestock_name ln2 ON
+	lv.livestock_name_ID = ln2.livestock_name_ID
+INNER JOIN region r ON
+	lv.NutsID = r.NutsID
+INNER JOIN region_level rl ON
+	r.level_ID = rl.level_ID
+INNER JOIN grassland g ON
+	g.NutsID = r.NutsID
+WHERE
+	rl.region_level = 'municipality'
+	AND 
+    lv.`year` = g.`year`
+GROUP BY
+	r.region_name,
+	lv.`year`,
+	ln2.animal_species;
+
 ```
 
 3. *Obtain the sum of the number of familiar education per level of education  
@@ -278,7 +341,31 @@ Q.3. Provide your statement below:
 
 Q.4. Provide your statement below:
 ```
--- Write your query here ...
+SELECT
+	r3.region_name,
+	r2.region_name ,
+	r.region_name,
+	e.`year` ,
+	el.education_level,
+	SUM(e.value) AS sum_education
+FROM
+	education e
+INNER JOIN education_level el ON
+	e.education_level_ID = el.education_level_ID
+INNER JOIN region r ON
+	e.NutsID = r.NutsID
+INNER JOIN region r2 ON
+	r.ParentCodeID = r2.NutsID
+INNER JOIN region r3 ON
+	r2.ParentCodeID = r3.NutsID
+WHERE
+	el.education_level <> 'Total'
+	AND r.level_ID = 5
+	AND r3.region_name = 'Algarve'
+	AND e.`year` = 2019
+GROUP BY
+	r.region_name, el.education_level;
+
 ```
 
 ## 6. Check your answers
