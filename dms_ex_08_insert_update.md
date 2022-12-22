@@ -103,7 +103,7 @@ because we will deal only with data from Portugal. We can remove that records
 from the table.
 
 ```
-DELETE FROM region_temp WHERE...;
+DELETE FROM region_temp WHERE region_name IN ('Espanha', 'França');
 ```
 You need to complete the statement. Perform a select to identify the WHERE condition.
 
