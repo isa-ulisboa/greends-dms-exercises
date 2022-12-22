@@ -137,7 +137,7 @@ Do that using the ALTER statement of above, and try the UPDATE query again.
 Do a SELECT statement to output columns `region_name` and `simple_name` for all records to
 check the current situation. 
 ```
-SELECT ...
+Select region_name, simple_name from region_temp rt ; (Q1)
 ```
 You will verify that for records which `region_name` 
 does not start by 'União', the `simple_name` column contains a **NULL** value, 
@@ -146,7 +146,8 @@ as expected.
 Therefore, we need to repeat the UPDATE statement for that cases. Can you try to 
 write the statement?
 ```
-UPDATE ...
+Update region_temp rt set rt.simple_name = rt.region_name 
+Where region_name not like 'União%'; (Q2)
 ```
 ## 3. Final SQL DDL statements
 Remove the column `OriginalCode`, because it is redundant with the `NutsID`.
