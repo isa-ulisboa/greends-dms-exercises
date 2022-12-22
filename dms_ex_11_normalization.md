@@ -143,7 +143,9 @@ SELECT * FROM production p ;
 
 Q.1. Can you identify the changes needed?
 `````
--- Provide your answer here...
+ * needs a primary key
+ * needs a foreign key on NutsID
+ * region_name does not depend on the new primary key, but on NutsID, it can be removed
 `````
 If you identified the following, these are the needed changes
  * needs a primary key
@@ -169,7 +171,10 @@ SELECT * FROM education e ;
 ```
 Q.2. Again, identify the changes needed?
 `````
--- Provide your answer here...
+ * create table education_level
+ * add column education_level_ID
+ * table education needs a primary key
+ * table euication needs a foreign key on NutsID
 `````
 In this case, these are the changes:
 
@@ -267,26 +272,38 @@ SELECT * FROM temporary_crop ;
 ```
 Q.3. Can you make the changes? First, identify them here:
 `````
--- Provide your answer here...
+* add column permanent_crop_ID to be primary key. It will represent the candidate key combining columns {NutsID, crop_name}
+* needs a foreign key on NutsID
+* remove region_name and region_level
+* move crop_name to a new table and link with a foreign key
 `````
 Q.4. And adapt the code from above here:
 `````
 -- Provide your code here...
 
 -- create table
-CREATE TABLE ...
+CREATE TABLE temporary_crop_name (tc_name_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT)
 
 -- select table created to check
-SELECT ...
+SELECT DISTINCT crop_name FROM temporary_crop;
 
 -- change table temporary_crop
-ALTER TABLE ...
+ALTER TABLE temporary_crop
+ADD COLUMN temporary_crop_ID INT NOT NULL AUTO_INCREMENT,
+ADD COLUMN tc_name_ID INT,
+DROP COLUMN region_name,
+DROP COLUMN region_level,
+ADD PRIMARY KEY (temporary_crop_ID),
+ADD FOREIGN KEY (NutsID) REFERENCES region(NutsID);
 
 -- add values to column temporary_crop_ID in temporary_crop table
-UPDATE ...
+UPDATE temporary_crop l, temporary_crop_name t1 SET l.tc_name_ID = t1.tc_name_ID
+WHERE l.crop_name = t1.crop_name;
 
 -- delete column crop_name from temporary_crop 
-ALTER TABLE ...
+ALTER TABLE temporary_crop
+DROP COLUMN crop_name,
+ADD FOREIGN KEY (tc_name_ID) REFERENCES temporary_crop_name(tc_name_ID);
 
 `````
 
