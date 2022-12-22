@@ -268,25 +268,36 @@ SELECT * FROM temporary_crop ;
 Q.3. Can you make the changes? First, identify them here:
 `````
 -- Provide your answer here...
+1- remove region_name and region_level
+2 - NutsID must be a FK
+3 - add temporary_crop_ID to be a PK
+
 `````
 Q.4. And adapt the code from above here:
 `````
 -- Provide your code here...
 
--- create table
-CREATE TABLE ...
+Create table temporary_crop_name (tc_name_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT)
+Select distinct crop_name from temporary_crop;
 
--- select table created to check
-SELECT ...
+Select * from temporary_crop_name;
 
--- change table temporary_crop
-ALTER TABLE ...
+Alter table temporary_crop
+Add column `temporary_crop_ID` INT NOT NULL AUTO_INCREMENT,
+Add column tc_name_ID INT,
+Drop column region_name,
+Drop column region_level,
+Add primary key (temporary_crop_ID),
+Add foreign key (NutsID) references region(NutsID);
 
 -- add values to column temporary_crop_ID in temporary_crop table
-UPDATE ...
+Update temporary_crop l, temporary_crop_name tl SET l.tc_name_ID = tl.tc_name_ID 
+Where l.crop_name = tl.crop_name;
 
 -- delete column crop_name from temporary_crop 
-ALTER TABLE ...
+Alter Table temporary_crop 
+Drop Column crop_name,
+Add foreign key (tc_name_ID) references temporary_crop_name(tc_name_ID);
 
 `````
 
@@ -303,7 +314,48 @@ the cases above. Create your SQL code by adapting the used code, in accordance
 with the changes required by each table:
 
 `````
--- Provide your code here...
+-grassland
+
+Select * FROM grassland;
+Alter table grassland 
+Add column `grassland_ID` INT NOT NULL AUTO_INCREMENT,
+Add primary key (grassland_ID),
+Add foreign key (NutsID) REFERENCES region(NutsID),
+Drop column region_name,
+Drop column region_level;
+
+
+-labour
+
+Select * FROM labour;
+Drop table if exists type_labour_name;
+Create table type_labour_name (type_labour_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT);
+Select distinct type_labour FROM labour l;
+Alter table labour add column type_labour_ID INT,
+Add column `labour_ID` INT NOT NULL AUTO_INCREMENT,
+Add primary key (labour_ID),
+Add foreign key (NutsID) references region(NutsID);
+Update labour l, type_labour_name tln set l.type_labour_ID = tln.type_labour_ID
+where l.type_labour = tln.type_labour;
+
+
+-livestock
+
+Select * FROM livestock l;
+Drop table if exists livestock_name;
+Create table livestock_name (livestock_name_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT)
+Select distinct animal_species FROM livestock l;
+Alter table livestock add column livestock_name_ID INT,
+Add column `livestock_ID` INT NOT NULL AUTO_INCREMENT,
+Add primary key (livestock_ID),
+Add foreign key (NutsID) references region(NutsID);
+Select * from livestock;
+Update livestock l, livestock_name lsn SET l.livestock_name_ID = lsn.livestock_name_ID 
+Where l.animal_species = lsn.animal_species;
+Alter table livestock 
+Add foreign key (livestock_name_ID) references livestock_name(livestock_name_ID),
+Drop column animal_species;
+
 
 
 
