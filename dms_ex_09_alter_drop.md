@@ -137,7 +137,7 @@ Do that using the ALTER statement of above, and try the UPDATE query again.
 Do a SELECT statement to output columns `region_name` and `simple_name` for all records to
 check the current situation. 
 ```
-SELECT ...
+SELECT region_name, simple_name FROM region_temp rt;
 ```
 You will verify that for records which `region_name` 
 does not start by 'União', the `simple_name` column contains a **NULL** value, 
@@ -146,14 +146,13 @@ as expected.
 Therefore, we need to repeat the UPDATE statement for that cases. Can you try to 
 write the statement?
 ```
-UPDATE ...
+UPDATE region_temp rt SET rt.simple_name = rt.region_name WHERE region_name NOT LIKE 'União';
 ```
 ## 3. Final SQL DDL statements
 Remove the column `OriginalCode`, because it is redundant with the `NutsID`.
 ```
 ALTER TABLE region_temp DROP COLUMN OriginalCode;
 ```
-
 And as this is a table we used only for the exercise, we can use it to test 
 TRUNCATE and DROP statements. Remember that these SQL DDL delete records and 
 delete the table, respectively.
