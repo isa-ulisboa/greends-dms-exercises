@@ -194,7 +194,67 @@ Q.1. Now, you can make the same query, but for temporary crops. We will need to 
 table names and field names, but the structure of the query should be the same.
 
 ```
--- Write your code here ...
+SELECT
+	tc .`hold`
+FROM
+	temporary_crop tc 
+WHERE
+	tc .`year` = 2019;
+
+
+SELECT
+	tcn.crop_name,
+	tc.`hold`
+FROM
+	temporary_crop tc 
+INNER JOIN temporary_crop_name tcn  ON
+	tc.tc_name_ID = tcn.tc_name_ID
+WHERE
+	tc.`year` = 2019;
+
+
+SELECT
+	tcn.crop_name,
+	tc.`hold`
+FROM
+	temporary_crop tc 
+INNER JOIN temporary_crop_name tcn  ON
+	tc.tc_name_ID = tcn.tc_name_ID
+WHERE
+	tc.`year` = 2019
+AND tcn.crop_name <> 'Total';
+
+
+SELECT
+	tcn.crop_name,
+	tc.`hold`
+FROM
+	temporary_crop tc 
+INNER JOIN temporary_crop_name tcn  ON
+	tc.tc_name_ID = tcn.tc_name_ID
+INNER JOIN region r ON tc.NutsID = r.NutsID
+INNER JOIN region_level rl ON r.level_ID = rl.level_ID 
+WHERE
+	tc.`year` = 2019
+AND tcn.crop_name <> 'Total'
+AND rl.region_level = 'freguesia';
+
+
+SELECT
+	tcn.crop_name,
+	SUM(tc.`hold`) as sum_holdings
+FROM
+	temporary_crop tc 
+INNER JOIN temporary_crop_name tcn  ON
+	tc.tc_name_ID = tcn.tc_name_ID
+INNER JOIN region r ON tc.NutsID = r.NutsID
+INNER JOIN region_level rl ON r.level_ID = rl.level_ID 
+WHERE
+	tc.`year` = 2019
+AND tcn.crop_name <> 'Total'
+AND rl.region_level = 'freguesia'
+GROUP BY tcn.crop_name 
+ORDER BY sum_holdings DESC;
 ```
 
 
@@ -257,7 +317,16 @@ the region level freguesia.*
 Q.2. Provide your statement below:
 
 ```
--- Write your query here ...
+select tcn.crop_name , sum(tc.area) as total_ha
+from temporary_crop tc 
+inner join temporary_crop_name tcn on tc.tc_name_ID = tcn.tc_name_ID 
+inner join region r on tc.NutsID = r.NutsID 
+inner join region_level rl on r.level_ID = rl.level_ID 
+where tcn.crop_name <> 'Total'
+and tc.`year` = 2019
+and rl.region_level = 'freguesia'
+group by tcn.crop_name
+order by total_ha desc;
 ```
 
 2. *Obtain the sum of livestock values per animal species together with grassland holding 
@@ -267,7 +336,15 @@ Make sure that values of livestock and grassland are for the same year.*
 
 Q.3. Provide your statement below:
 ```
--- Write your query here ...
+select r.region_name, l.`year` , ln2.animal_species , sum(l.value) as livestock_value, sum(g.`hold`) as grassland_hold, sum(g.area) as grassland_ha
+from livestock l 
+inner join livestock_name ln2 on l.livestock_name_ID = ln2.livestock_name_ID 
+inner join region r on l.NutsID = r.NutsID 
+inner join region_level rl on r.level_ID =rl.level_ID 
+inner join grassland g on r.NutsID = g.NutsID 
+where l.`year` = g.`year` 
+and rl.region_level = 'municipality'
+group by r.region_name, l.`year`, ln2.animal_species;
 ```
 
 3. *Obtain the sum of the number of familiar education per level of education  
@@ -278,7 +355,17 @@ Q.3. Provide your statement below:
 
 Q.4. Provide your statement below:
 ```
--- Write your query here ...
+select r3.region_name as NUTS3, r2.region_name as Municipality, r.region_name as Freguesia, e.`year`, el.education_level, sum(e.value) as total_education
+from education e 
+inner join education_level el on e.education_level_ID = el.education_level_ID
+inner join region r on e.NutsID = r.NutsID
+inner join region r2 on r.ParentCodeID = r2.NutsID
+inner join region r3 on r2.ParentCodeID = r3.NutsID
+where el.education_level <> 'Total'
+and e.`year` = 2019
+and r.level_ID = 5
+and r3.region_name = 'Algarve'
+group by r.region_name, el.education_level;
 ```
 
 ## 6. Check your answers
