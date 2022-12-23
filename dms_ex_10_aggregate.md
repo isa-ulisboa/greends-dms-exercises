@@ -62,11 +62,11 @@ view like if it was a table.
 Q.1. Complete the next statement to select all columns 
 of the view:
 ```
-SELECT ...
+Select * from perm_crop_freg pcf ; (Q1)
 ```
 Q.2. Repeat the query, to count the number of records in the result set:
 ```
-SELECT COUNT(*) FROM perm_crop_freg;
+SELECT COUNT(*) FROM perm_crop_freg; (Q2 - feito)
 ```
 The result is the number of records in the view, which should be **24736**.
 
@@ -85,10 +85,10 @@ Your result should be 2871 rows.
 Q.3. Do the same for municipalities and for crops:
 ```
 -- complete the query to obtain the list of municipalities
-SELECT DISTINCT ... ;
+Select distinct municipality from perm_crop_freg; (Q3)
 
 -- complete the query to obtain the list of crops
-SELECT DISTINCT ... ;
+Select distinct crop_name from perm_crop_freg; (Q3)
 ```
 Result: 8 rows.
 
@@ -120,7 +120,10 @@ of holdings to determine which freguesias have citrus plantations)
 
 ```
 -- write your query here:
-SELECT ... ; 
+Select municipality, count(freguesia) as num_freg
+from perm_crop_freg pcf
+where `hold` > 0 and crop_name like 'Citrus%'
+group by municipality; (Q4)
 ```
 
 ## 4. Aggregate functions SUM(), AVG(), MIN() and MAX()
@@ -139,7 +142,10 @@ GROUP BY municipality;
 
 Q.5. Repeat, but for olive plantations; 
 ```
-SELECT ...
+Select municipality, sum(area) as sum_area
+from perm_crop_freg pcf
+where crop_name like 'Olive plantations'
+group by municipality; (Q5)
 ```
 
 Now, calculate the total number of holdings per municipality, for all crops. you can combine several fields in the GROUP BY clause. Sort the result in descending order of 
@@ -156,11 +162,19 @@ ORDER BY sum_hold DESC;
 ```
 Q.6. Calculate again, but for the average (function AVG())
 ```
-SELECT ... ;
+Select municipality, crop_name, avg(`hold`) as avg_hold
+from perm_crop_freg pcf
+where crop_name <> 'total'
+group by municipality, crop_name 
+order by avg_hold DESC; (Q6)
 ```
 Q.7. Repeat again the query, but to obtain the maximum value of holdings per municipality (function MAX())
 ```
-SELECT ... ;
+Select municipality, crop_name, max(`hold`) as max_hold
+from perm_crop_freg pcf
+where crop_name <> 'total'
+group by municipality, crop_name 
+order by max_hold DESC; (Q7)
 ```
 
 It is possible to filter the results using the clause HAVING. HAVING only can be applied to a result set of an aggregate function.
