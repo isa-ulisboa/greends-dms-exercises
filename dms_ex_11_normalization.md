@@ -268,25 +268,38 @@ SELECT * FROM temporary_crop ;
 Q.3. Can you make the changes? First, identify them here:
 `````
 -- Provide your answer here...
+* delete tables region_name, region_level
+* create table crop_name with primary key
+* add foreign key: NutsID and crop_name_ID
 `````
 Q.4. And adapt the code from above here:
 `````
 -- Provide your code here...
 
 -- create table
-CREATE TABLE ...
+CREATE TABLE temporary_crop_name (tc_n_ID int);
 
 -- select table created to check
-SELECT ...
+SELECT distinct crop_name from temporary_crop;
 
 -- change table temporary_crop
-ALTER TABLE ...
+ALTER TABLE temporary_crop 
+drop column region_name,
+drop column region_level,
+add column tc_n_ID int,
+add column tc_ID int,
+add primary key (tc_ID),
+add foreign key (tc_n_ID) references temporary_crop_name(tc_n_ID),
+add foreign key (NutsID) references region(NutsID);
+
 
 -- add values to column temporary_crop_ID in temporary_crop table
-UPDATE ...
+UPDATE temporary_crop tc, temporary_crop_name tcn set tc.tc_n_ID = tcn.tc_n_ID where tc.crop_name=tcn.crop_name;
+
 
 -- delete column crop_name from temporary_crop 
-ALTER TABLE ...
+ALTER TABLE temporary_crop 
+drop column crop_name;
 
 `````
 
@@ -304,6 +317,7 @@ with the changes required by each table:
 
 `````
 -- Provide your code here...
+Doing the same steps that we did for table: temporary_crop
 
 
 
