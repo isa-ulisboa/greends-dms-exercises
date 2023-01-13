@@ -196,6 +196,15 @@ table names and field names, but the structure of the query should be the same.
 ```
 -- Write your code here ...
 ```
+select tcn.crop_name, sum(tc.`hold`) as sum_holdings
+from temporary_crop tc  
+inner join temporary_crop_name tcn on tc.tc_name_ID = tcn.tc_name_ID 
+inner join region r on tc.NutsID = r.NutsID 
+inner join region_level rl on r.level_ID = rl.level_ID 
+where tc.`year`= 2019
+and tcn.crop_name <> 'Total'
+and rl.region_level = 'freguesia'
+group by tcn.crop_name order by sum_holdings desc ;
 
 
 ## 4. **UNION** two queries
@@ -257,8 +266,19 @@ the region level freguesia.*
 Q.2. Provide your statement below:
 
 ```
--- Write your query here ...
+select tcn.crop_name, sum (tc.area) as sum_area
+from temporary_crop tc 
+inner join temporary_crop_name tcn ON tc.tc_name_ID =tcn.tc_name_ID 
+inner join region r on tc.NutsID = r.NutsID 
+inner join region_level rl on r.level_ID = rl.level_ID 
+where tc.`year` = 2019
+and tcn.crop_name <> 'Total'
+and rl.region_level = 'freguesia'
+group by tcn.crop_name 
+order by sum_area desc;
 ```
+
+
 
 2. *Obtain the sum of livestock values per animal species together with grassland holding 
 value and area, for each year 1989, 1999, 2009 and 2019, at the municipality level.
@@ -267,8 +287,26 @@ Make sure that values of livestock and grassland are for the same year.*
 
 Q.3. Provide your statement below:
 ```
--- Write your query here ...
+-- select  r.region_name, 
+		lv.`year`, 
+		ln2.animal_species, 
+		sum(lv.value) as livestock_value, 
+		sum(g.area) as area_ha, 
+		sum(g.`hold`) as grassland_hold
+from livestock lv
+inner join livestock_name ln2 on
+		lv.livestock_name_ID = ln2.livestock_name_ID 
+inner join region r on
+		lv.NutsID = r.NutsID 
+inner join region_level rl on
+		r.level_ID = rl.level_ID 
+inner join grassland g on
+		g.NutsID = r.NutsID 
+where rl.region_level = 'municipality'
+		and lv.`year` = g.`year` 
+group by r.region_name , lv.`year` , ln2.animal_species ;
 ```
+
 
 3. *Obtain the sum of the number of familiar education per level of education  
  for 2019, at the freguesia level, for freguesias that belong to the NUTS3 region 
@@ -278,8 +316,29 @@ Q.3. Provide your statement below:
 
 Q.4. Provide your statement below:
 ```
--- Write your query here ...
+-- select 	r3.region_name,
+		r2.region_name,
+		r.region_name,
+		e.`year`,
+		el.education_level,
+		sum(e.value) as sum_education
+from education e 
+inner join education_level el on
+		e.education_level_ID = el.education_level_ID 
+inner join region r on
+		e.NutsID = r.NutsID 
+inner join region r2 on
+		r.ParentCodeID =r2.NutsID 
+inner join region r3 on
+		r2.ParentCodeID = r3.NutsID 
+where 	el.education_level <> 'Total'
+		and r.level_ID = 5
+		and r3.region_name = 'Algarve'
+		and e.`year` = 2019
+group by r.region_name, el.education_level ;
 ```
+
+
 
 ## 6. Check your answers
 The solutions for the queries of this exercise are available at the SQL script 
