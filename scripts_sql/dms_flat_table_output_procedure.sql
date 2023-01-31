@@ -420,7 +420,7 @@ INNER JOIN permanent_crop_hold_view pch ON
 	e.NutsID = pch.NutsID
 	AND e.`year` = pch.`year`
 WHERE
-	rl.region_level = 'freguesia'
+	r.level_ID = 5
 	AND r.NutsID NOT LIKE '200%'  -- exclui Açores 
 	AND r.NutsID NOT LIKE '300%';  -- exclui Madeira
 
