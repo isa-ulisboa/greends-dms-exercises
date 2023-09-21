@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 1 - OpenRefine - Create tables with territorial units - NUTSS
+# Exercise 1 - OpenRefine - Create tables with territorial units - NUTS
 
 ## Introduction
 
@@ -10,7 +10,7 @@ In each of the tables, we will create a foreign key of the parent unit. We will 
 
 ## 1. Download data from INE
 
-**Suggestion**: before advancing to any tasks, organize your data project directories and files as discussed in FADS.
+**Suggestion**: before advancing to any tasks, organize your data project directories and files as discussed in FADS Exercise 3.
 
 1. Go to [INE (Metainformation System)](https://smi.ine.pt/Categoria/Parent/3504), to path "SMI/Módulo classificações/Famílias/Classificações/Versões/Categorias" and export all to a *csv* or *xslx* file.
 
@@ -34,7 +34,7 @@ At this point, you should have your *OpenRefine* project with 3435 rows and thre
 
 ## 3. Create keys that match codes in INE data files
 
-To be able to establish relations between NUTS and data tables from teh Agricultural census, codes of territorial units need to match. Observing the census data, we can verify that for municipalities and freguesias, the code includes the code of the NUTS3 region they belong. Therefore, we need to create the codes with that format. We will use a similar approach as before:
+To be able to establish relations between NUTS and data tables from the Agricultural census, codes of territorial units need to match. Observing the census data, we can verify that for municipalities and freguesias, the code includes the code of the NUTS3 region they belong. Therefore, we need to create the codes with that format. We will use a similar approach as before:
 
 1. Create a new text facet for the column `Nível`
 2. In the `Nível` facet, select rows with values `1`, `2` and `3`.
@@ -55,7 +55,7 @@ To be able to establish relations between NUTS and data tables from teh Agricult
 ## 4. Create parent codes
 
 1. We need a new column for the parent codes of each territorial unit. Because our dataset is ordered with a hierarchy (the parent is above of all of its children), we will fill in our codes in several iterations:
-    - In the facet of the column `Nível`, select the values `4`, which are the parent codes of all level 5 items
+    - In the facet of the column `Nível`, select the values `4`, which are the parent codes of all level `5` items
     - On the column `codes`, create a new column by doing 
       
       `Edit column --> Add column based on this column`
@@ -73,8 +73,8 @@ To be able to establish relations between NUTS and data tables from teh Agricult
       `Edit cells --> Common transforms --> To null` 
 
 3. Repeat this process, but for rows with level `4`.
-    - In the facet, select rows with value `3` (parents of level 4)
-    - Copy codes from column `codes` to `parent_code`. To do this, select in the latter column:
+    - In the facet, select rows with value `3` (parents of level `4`)
+    - Copy codes from column `codes` to `parent_code`. To do this, select in the later column:
       
       `Edit cells --> Transforms...`
 
