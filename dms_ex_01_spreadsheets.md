@@ -154,14 +154,10 @@ How can the procedures performed help improve data quality?
 ## Wrap-up
 
 In this exercise, we explored best practices to improve data quality when using a spreadsheet:
-- import data to OpenRefine
-- use facets to filter records
-- transform values in selected rows
-- reuse expressions
-- fill down values
-- copy values from one column to the other
-- reorder columns
-- export data
+- open files with correct encoding
+- save files with correct encoding
+- remove blanks spaces
+- use reference lists
  
 This concludes the current exercise.
 
