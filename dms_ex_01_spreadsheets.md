@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 1 - OpenRefine - Good practices in the use of spreadsheets in data handling
+# Exercise 1 - Good practices in the use of spreadsheets in data handling
 
 ## Introduction
 
