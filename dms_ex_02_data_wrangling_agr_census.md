@@ -23,7 +23,7 @@ The INE data service only allow to download data tables with a maximum of 40 000
 1. Go to [this link in INE (Database)](https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&indOcorrCod=0010502&contexto=bd&selTab=tab2&xlang=en), which displays a table of the **Area of permanent crops (ha) by Geographic localization (NUTS -2013) and Type (permanent crops); Decennial (1)**.
 2. Select **Change selection conditions**, and check *Select all* for **Geographic localization** (NUTS-2013). The total cells should be 27488.
 3. Select **Obtain table** and then on the icon **Download table (CSV format)**. Download the csv and give an appropriate name, for example, **area_perm_crops_2019.csv**.
-4. This file only contains data for the year *2019*. Repeat the **Change selection conditions**, but select a different year. Download the csv file naming it approprially.
+4. This file only contains data for the year *2019*. Repeat the **Change selection conditions**, but select a different year. Download the csv file naming it appropriately.
 5. When you finish the previous step, you should have four csv files downloaded.
 
 ## 2. Import data to OpenRefine
@@ -126,9 +126,9 @@ Let's perform the operation to join data from the project 2009 with project 2019
 
    A new facet will be show which should not contain rows with true value 
 
-5. Repeat the previous steps for the projects 1999 and 1989. You can reuse the GREL expression, available in the history of the *Add column based on column...* panel, but remember to adjust it, namelly the name of the project you are exporting data and and of the name of the column that contains the values (arg1 and arg3 in the generic expression above).
+5. Repeat the previous steps for the projects 1999 and 1989. You can reuse the GREL expression, available in the history of the *Add column based on column...* panel, but remember to adjust it, namely the name of the project you are exporting data and and of the name of the column that contains the values (arg1 and arg3 in the generic expression above).
 
-## 6. Create the table in nornalized form
+## 6. Create the table in normalized form
 
 To comply with the 3rd Normal Form, we need to change the format of the table, so that we have only one column with area values, for the corresponding year, region and crop. Therefore, the final table should have the following columns:
    - ID
@@ -137,7 +137,7 @@ To comply with the 3rd Normal Form, we need to change the format of the table, s
    - Year
    - area_ha
 
-To achive this, we will need to make the following operations:
+To achieve this, we will need to make the following operations:
 
 1. The first is a transpose, as in step 4. In the column `primary_key` 
    - select *Transpose cells across columns into rows*, from **area_1989** to **last column**
@@ -146,12 +146,12 @@ To achive this, we will need to make the following operations:
 
 2. In the column `year`, we need to change values by replacing text. Select in this column `Edit cells --> Replace`, placing in the *Find* box `area_`, and leaving the box *Replace with* empty.
 
-3. In the column `area_ha`, **no data** values are repesented by two hyphens separated by a space: `- -`. We need to replace that with an empty string, like in the previous step.
+3. In the column `area_ha`, **no data** values are represented by two hyphens separated by a space: `- -`. We need to replace that with an empty string, like in the previous step.
 
 4. The column `Region` has the aggregated value of the ID of the NUTS region with its name. In the previous exercise, we created tables of NUTS to be imported to the database, where the codes are separated from the name. Therefore we need to have equivalent codes in this table. We can achieve this by split the values in `Regions`. In this column:
    - select `Edit column --> Split into several columns...`. 
    - Place the character `:` as separator.
-   - unckeck the box *Guess cell type*
+   - uncheck the box *Guess cell type*
    - rename the new column `Region 1` as `codes`.
    - remove the column `Region 2`
 
@@ -190,7 +190,7 @@ This concludes this exercise.
 We will need to repeat the processing for other entities of the Agricultural census:
 - temporary crops
 - production
-- 
+- ...
 
 
 
