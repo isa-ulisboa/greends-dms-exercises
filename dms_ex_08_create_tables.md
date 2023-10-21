@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 6 - Create tables in the database
+# Exercise 8 - Create tables in the database
 
 The goal of this exercise is to create tables in the database to accommodate our 
 data. We will start by creating tables corresponding to the NUTS1 to 3, and 

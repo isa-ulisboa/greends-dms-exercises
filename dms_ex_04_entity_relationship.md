@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 5 - Designing an Entity-Relationship Model
+# Exercise 4 - Designing an Entity-Relationship Model
 
 ## Introduction
 

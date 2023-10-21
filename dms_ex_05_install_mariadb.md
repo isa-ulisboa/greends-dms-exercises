@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 3 - Install and configure MariaDB
+# Exercise 5 - Install and configure MariaDB
 
 The goal of this exercise is to setup your environment to have a functional and secure  MariaDB service for your databases. We will install and review the selected IDE tool - DBeaver - to work with the database, in addition to the terminal.
 
@@ -24,4 +24,4 @@ Then, in the following questions, it is important to anwser the following:
 ## Wrap up
 We have secured your database server.
 
-This concludes this exercise. In the next exercise, `dms_ex_04_create_database.md`, you will learn how to create, backup and restore a database in mysql.
+This concludes this exercise. In the next exercise, `dms_ex_06_create_database.md`, you will learn how to create, backup and restore a database in mysql.

@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 5 - Get familiarized with the DBeaver interface
+# Exercise 7 - Get familiarized with the DBeaver interface
 
 **DBeaver** is a complete IDE opensource application for managing SQL project which allows to link to many different SQL databases. The application is very complete, but will focus on the features that we will use most on our course.
 
@@ -73,6 +73,6 @@ In this exercise we learned:
 - how to create ER diagrams for a database
 - how to reset the UI of DBeaver to the default.
 
-This concludes this exercise. In the next exercise, `dms_ex_06_create_tables.md`, you will create your first tables in the database and load them with data.
+This concludes this exercise. In the next exercise, `dms_ex_08_create_tables.md`, you will create your first tables in the database and load them with data.
 
 
