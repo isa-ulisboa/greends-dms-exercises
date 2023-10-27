@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 12 - Working with multiple tables
+# Exercise 14 - Working with multiple tables
 
 The goal of this exercise is to make DML queries using multiple tables. After the 
 normalization process, obtaining meaningful data from the database normally will 

@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 9 - ALTER, TRUNCATE and DROP (DDL statements)
+# Exercise 11 - ALTER, TRUNCATE and DROP (DDL statements)
 
 The goal of this exercise is to exercise DLL SQL statements with **ALTER**, 
 **TRUNCATE** and **DROP** statements.
@@ -9,7 +9,7 @@ We will also introduce the use of **ALIASES** for columns and tables.
 
 ## Preparation of the exercise
 
-This exercise is the continuation of DMS Exercise 08. It assumes you have the
+This exercise is the continuation of DMS Exercise 10. It assumes you have the
 `region_temp` table in the `dms_INE` database.
 
 You can use DBeaver to execute the exercise.
@@ -58,9 +58,9 @@ SELECT region_name FROM region_temp WHERE region_name LIKE 'União%';
 2. Then, let's try with the MySQL function **REPLACE**. 
 
 The generic form of the function is:
-
+```
 REPLACE (*string*, *substring*, *new_string*)
-
+```
 To know more about the functions of MySQL, you can check the [following resource](https://www.w3schools.com/mysql/mysql_ref_functions.asp).
 
 We will replace `União das freguesias de ` by an empty string, to shorten the name.

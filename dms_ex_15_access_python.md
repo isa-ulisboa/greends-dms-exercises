@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 13 - Access to the database from Jupyter Notebook
+# Exercise 15 - Access to the database from Jupyter Notebook
 
 The goal of this exercise is to learn how to make a connection to a database in
 MySQL from a Jupyter Notebook.
@@ -108,7 +108,7 @@ conn.close()
 ## Experiment in a Jupyter Notebook
 
 Now that we have covered how to connect to MySQL from python, we can experiment with the 
-Notebook `dms_ex_13_mysql_python.ipynb`, available in this repository. Download it and run it using your local Jupyter installation.
+Notebook `dms_ex_15_mysql_python.ipynb`, available in this repository. Download it and run it using your local Jupyter installation.
 
 In this case, it is not possible to run it from a Google Colabs, because the local MySQL 
 instance is not accessible from your cloud Colab instance.

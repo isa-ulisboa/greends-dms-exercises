@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 10 - GROUP BY and aggregate functions COUNT(), SUM(), AVG(), MIN() and MAX().
+# Exercise 12 - GROUP BY and aggregate functions COUNT(), SUM(), AVG(), MIN() and MAX().
 
 The goal of this exercise is to use aggregate functions **COUNT()**, **SUM()** , **AVG()**, **MIN()** and **MAX()** to perform calculations at the server. The full list of aggregate functions can be consulted at https://mariadb.com/kb/en/aggregate-functions/.
 
@@ -11,7 +11,7 @@ analyzed in the exercise.
 
 ## Preparation of the exercise
 
-This exercise is the continuation of DMS Exercise 09. It assumes you have the
+This exercise is the continuation of DMS Exercise 11. It assumes you have the
 `permanent_crop` table in the `dms_INE` database.
 
 We will create a **VIEW**. VIEW is a DDL statement that corresponds to a virtual
@@ -239,8 +239,6 @@ FROM
 		municipality) AS municip_average;
 ```
 
-
-
 ## Wrap up
 
 In this exercise we learned:
@@ -251,3 +249,4 @@ In this exercise we learned:
 
 
 This concludes this exercise. you should submit your sql script with answers via github pull request.
+

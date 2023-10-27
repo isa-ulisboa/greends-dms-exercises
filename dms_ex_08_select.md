@@ -1,12 +1,12 @@
 # Data Management and Storage
 
-# Exercise 7 - SELECT statement
+# Exercise 8 - SELECT statement
 
 The goal of this exercise is to exercise SQL statements with **SELECT**.
 
 ## Preparation of the exercise
 
-**Note**: please refer to exercise *dms_ex_04* to check how to do the following two steps.
+**Note**: please refer to exercise *dms_ex_06* to check how to do the following two steps.
 
 1. Create a new database named `dms_INE`, and import data from the sql backup file dms_INE.zip, that can be downloaded from https://github.com/isa-ulisboa/greends-dms-exercises/blob/main/data/dms_INE.zip. Do not forget to unzip the downloaded file.
 
@@ -112,7 +112,6 @@ SELECT ...
 -- Write your statement here
 SELECT ...
 ```
-
 8. Select a list of regions (the column `region_name`), without duplications, of the table `permanent_crop` where area is zero:
 ```
 -- Write your statement here
@@ -122,7 +121,6 @@ SELECT ...
 ```
 SELECT ...
 ```
-
 10. Select all columns of the table `permanent_crop` where region level is `municipality` or `freguesia`:
 ```
 SELECT * FROM permanent_crop WHERE region_level IN ('municipality', 'freguesia');

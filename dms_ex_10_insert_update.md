@@ -1,8 +1,8 @@
 # Data Management and Storage
 
-# Exercise 8 - INSERT, UPDATE and DELETE (DML statements)
+# Exercise 10 - INSERT, UPDATE and DELETE (DML statements)
 
-The goal of this exercise is to exercise SQL statements with **INSERT**, **UPDATE**
+The goal of this exercise is to learn how to execute SQL statements with **INSERT**, **UPDATE**
 and **DELETE** statements.
 
 ## Preparation of the exercise
@@ -10,7 +10,7 @@ and **DELETE** statements.
 1. Open DBeaver and open a connection to your local MariaDB installation, with the 
 user `dms_user`.
 
-2. Ensure that you are using the `dms_INE` database. Execute the statement
+2. Ensure that you are using the `dms_INE` database. Execute the statement to make it the active database;
 ```
 USE dms_INE;
 ```
@@ -20,7 +20,7 @@ autocomplete function.
 
 ## 1. INSERT records
 
-We will do these changes in a copy of the `region` table. First, copy the table:
+We will do these changes in a temporary copy of the `region` table. First, copy the table:
 
 ```
 CREATE TABLE region_temp
@@ -150,7 +150,7 @@ SELECT * FROM region WHERE region_level = 'freguesia';
 This only works with this statement because we are sure that both tables have the
 same structure. Otherwise, we would define a list of columns that would receive data.
 
-Confirm that recods were added into the `region_temp` table:
+Confirm that records were added into the `region_temp` table:
 ```
 SELECT * FROM region_temp WHERE region_level = 'freguesia';
 ```

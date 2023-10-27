@@ -1,10 +1,10 @@
 # Data Management and Storage
 
-# Exercise 8 - Create tables in the database
+# Exercise 9 - Create tables in the database
 
 The goal of this exercise is to create tables in the database to accommodate our 
 data. We will start by creating tables corresponding to the NUTS1 to 3, and 
-Municipalities and Freguesias. For that, we will use the SQL DDL command create.
+Municipalities and Freguesias. For that, we will use the SQL DDL command **create**.
 
 The data to be imported to the database is in csv files, with the following structure (example):
 
@@ -24,7 +24,7 @@ Therefore, we need to have this in consideration when defining the schema for th
 tables. And we can have all tables with the same structure.
 
 To execute this exercise, you can use DBeaver or the MariaDB terminal. You will use
-also the NUTS csv tables you prepared in DMS exercise 01 (data wrangling), which 
+also the NUTS csv tables you prepared in DMS exercise 02 (data wrangling), which 
 can be downloaded from [here](https://github.com/isa-ulisboa/greends-dms-exercises/blob/main/data/NUTS.zip) .
 
 ## 1. Select the database
@@ -62,7 +62,7 @@ ENGINE=InnoDB;
 
    **Explanation**
    
-   In the command, after defining the name of the table, you list the names of the columns, inside a parenthesis. Please notice that we changes the names of the original columns in the table, for consistency. This is perfectly fine. We defined the column `NutsID` as primary key. We also said that the storage engine is INNODB, which is a general-purpose storage engine that balances high reliability and high performance.
+   In the command, after defining the name of the table, you list the names of the columns, inside a parenthesis. Please notice that we changed the names of the original columns in the table, for consistency. This is perfectly fine. We defined the column `NutsID` as primary key. We also said that the storage engine is INNODB, which is a general-purpose storage engine that balances high reliability and high performance.
 
 You can check the schema of the resulting table, with the SQL command:
 ```
@@ -123,13 +123,13 @@ IGNORE 1 LINES;
 ```
 The above statement **needs to be changed** for your particular environment, namely the path and name of the csv file, and the string that identifies the end of a line. 
 
-It might happen that the statement does not work on DBeaver, due to limitations in teh MariaDB driver. In that case, you need to run it directly in mysql (in a `mysql>` prompt). Do not forget to tell mysql that you will use the database DMS_2022, with the command `USE` of above.
+It might happen that the statement does not work on DBeaver, due to limitations in the MariaDB driver. In that case, you need to run it directly in mysql (in a `mysql>` prompt). Do not forget to tell mysql that you will use the database DMS_2022, with the command `USE` of above.
 
-Check is data was correctly uploaded:
+Check if data was correctly uploaded:
 ```
 SELECT * FROM NUTS1;
 ```
-Most probably, special characters were wrongly interpreted. This is because the default character set of the database differs from the one in the csv file. Let's correct the issue, first by deleting all records from **NUTS1** table:
+Most probably, special characters were wrongly interpreted. This is because the default character set of the database differs from the one in the csv file. Let's correct this issue, first by deleting all records from **NUTS1** table:
 ```
 DELETE FROM NUTS1;
 ```
@@ -144,4 +144,4 @@ IGNORE 1 LINES;
 ```
 Check is data was correctly uploaded.
 
-Repeat the operation to load data for tables **NUTS2**, **NUTS3**, **NUTS4** and **NUTS5**
+Repeat the operation to load data for tables **NUTS2**, **NUTS3**, **NUTS4** and **NUTS5**.

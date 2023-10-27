@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 11 - Normalization of the dms_INE database
+# Exercise 13 - Normalization of the dms_INE database
 
 The goal of this exercise is to perform the normalization of the database `dms_INE`
 according to the **3NF**. We will go through each of the tables to identify what 
@@ -176,7 +176,7 @@ In this case, these are the changes:
  * create table education_level
  * add column education_level_ID
  * table education needs a primary key
- * table euication needs a foreign key on NutsID
+ * table education needs a foreign key on NutsID
 
  The following code will make it:
 
