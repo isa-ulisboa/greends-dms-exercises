@@ -24,7 +24,7 @@ the speed of data searching.
 This exercise should be done in DBeaver, so that you can observe in the status bar 
 the time of execution of teh query. We will use the 
 database dms_INE version 2 that resulted from [Exercise 13](https://github.com/isa-ulisboa/greends-dms-exercises/blob/main/dms_ex_13_normalization.md). You can obtain the 
-dump of that from the file dms_INE_v1.sql.zip, which can be downloaded from the 
+dump of that from the file dms_INE_v2.sql.zip, which can be downloaded from the 
 data folder of this github repository.
 
 ## 1. Run queries in tables with indexes
