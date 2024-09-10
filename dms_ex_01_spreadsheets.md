@@ -123,9 +123,9 @@ The use of the `$` symbol is important to fix the address of the start and end c
 > The VLOOKUP function allows you to search for a value in a table and return the value from another > column in the same row. In this case, we are using the VLOOKUP function to search for the name of the taxon in the lista_nomesCientificos_ex01.xls table and return the value of the Phylum column in the same row.
 >
 >The formula for the Phylum column is as follows:
->
+>```
 > =VLOOKUP(AA, BB:CC, 4,0)
->
+>```
 >> AA: The cell that contains the name of the taxon for which you want to get the value of the phylum.
 >> BB:CC: The table that contains in the first column the corresponding taxon and in the following columns the values that you want to get.
 > 4: The number of the column that contains the value that you want to get.

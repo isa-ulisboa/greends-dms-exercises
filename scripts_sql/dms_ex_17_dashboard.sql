@@ -148,7 +148,7 @@ WHERE pcn.crop_name <> 'Total' AND rl.region_level = 'country' AND pc.year = 201
 GROUP BY r.region_name, pcn.crop_name  
 ORDER BY number_farms DESC;
 
- 
+
 
 			
 		

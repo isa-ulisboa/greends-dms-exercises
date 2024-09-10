@@ -1,6 +1,6 @@
 # Data Management and Storage
 
-# Exercise 1 - OpenRefine - Create tables with territorial units - NUTS
+# Exercise 2 - OpenRefine - Create tables with territorial units - NUTS
 
 ## Introduction
 
@@ -98,7 +98,7 @@ To be able to establish relations between NUTS and data tables from the Agricult
 
 ## 5. Export tables
 
-You can now export the tables for each NUTS level. For that, filter with the facet `Nível` the value for each level corresponding to the NUTS table you want to export, and then use on the button *Export* at the top-right corner. Export data as *csv* files, to a folder called *data_processing*. 
+You can now export the tables for each NUTS level. For that, filter with the facet `Nível` the value for each level corresponding to the NUTS table you want to export, and then use on the button *Export* at the top-right corner. Export data as *csv* files, to a folder called *processed*, under folder *data*. 
 
 ## Wrap-up
 
