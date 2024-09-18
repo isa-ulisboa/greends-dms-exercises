@@ -2,6 +2,11 @@
 
 # Exercise 1 - Good practices in the use of spreadsheets in data handling
 
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **15th October 2024**.
+
+> 1. Create a blank txt file formatted in markdown to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
+> 2. Submit also the final csv file of the exercise.
+
 ## Introduction
 
 In this exercise, we will identify the errors that can occur in data manipulation through a spreadsheet. Two programs will be used, MS Excel and (optionally) LibreOffice Calc, highlighting the advantages of each one in data manipulation.
@@ -14,7 +19,7 @@ Preparation for exercises
 ## 1. Manipulating opening and writing files
 
 
-### 1. Difference between Open and Import for a text file (csv), in Excel
+### 1.1. Difference between Open and Import for a text file (csv), in Excel
 
 
 1. Open the file `dados_sampleQLDB_ex01_code01.csv` in Excel, with the menu sequence: File → Open  
@@ -28,7 +33,7 @@ Preparation for exercises
 8. Close the file without saving
 
 
-### 2. Open a csv file in LibreOffice (optional)
+### 1.2. Open a csv file in LibreOffice (optional)
 
 
 1. Open the file dados_sampleQLDB_ex01_code01.csv in LibreOffice Calc, with the menu sequence: **File → Open**
@@ -37,10 +42,10 @@ Preparation for exercises
 
 ### Discussion
 
-- What are the differences in opening the files you found between the two programs?
+Q1. What are the differences in opening the files you found between the two programs?
 
 
-### 3. Save data tables in csv text formats
+### 1.3. Save data tables in csv text formats
 
 Saving files in csv (comma separated values) formats is one of the best ways to ensure compatibility with other programs. Sometimes it is also necessary to change the character encoding of the file to ensure compatibility. In this exercise, the file `dados_sampleQLDB_ex01_code02.csv` will be opened and saved with a UTF-8 encoding.
 
@@ -65,11 +70,11 @@ Saving files in csv (comma separated values) formats is one of the best ways to 
 
 ### Discussion
 
-- What is the importance of controlling character encoding in data sets?
+Q2. What is the importance of controlling character encoding in data sets?
 
 ## 2. Common data quality operations
 
-### 4. Identify and remove blank spaces
+### 2.1. Identify and remove blank spaces
 
 Blank spaces are often introduced into data inadvertently. For the computer, it functions as a character, influencing the matching of values or the ordering of lists. Blank spaces should be removed.
 
@@ -91,7 +96,7 @@ Blank spaces are often introduced into data inadvertently. For the computer, it 
 
     c. Copy this column and paste it over the `Collectors` column, with *paste special -> values only*.
 
-### 5. Using a reference list to automatically fill in values
+### 2.2. Using a reference list to automatically fill in values
 
 Many times it is necessary to complete data related to a particular value. An example is the filling in of the various taxonomic levels for a species, from Kingdom to Genus, or the various administrative levels, from Country to Municipality, in the case of the parish. This can be done using reference lists and the VLOOKUP function (in Portuguese, PROCV), which allows you to establish correspondences between tables.
 
@@ -135,7 +140,7 @@ The use of the `$` symbol is important to fix the address of the start and end c
 >
 >The remaining columns (Class, Order, Family, Genus) can be filled in using the same process.
 
-### 8. Export to csv and verify the table
+### 2.3. Export to csv and verify the table
 
 1. Save the file in CSV format, as in the previous exercise, with UTF-8 encoding.
 
@@ -149,7 +154,14 @@ c. There are no blank spaces at the beginning of the collector values.
 
 ### Discussion:
 
-How can the procedures performed help improve data quality?
+Q3. How can the procedures performed help improve data quality?
+
+> ## 3. Submission of exercise
+> **Submit two files**:
+> 1. A text file formatted in Markdown with the answers to discussion points
+> 2. The final csv of the exercise
+> 
+> The submission in Moodle is at [Exercise 1 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=469001)
 
 ## Wrap-up
 
