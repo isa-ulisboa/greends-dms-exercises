@@ -2,6 +2,11 @@
 
 # Exercise 2 - OpenRefine - Create tables with territorial units - NUTS
 
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **15th October 2024**.
+
+> 1. Create a blank txt file formatted in markdown to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
+> 1. Submit also the final csv file of the exercise.
+
 ## Introduction
 
 In this exercise, we will create five tables, corresponding to the several NUTS categories for Portugal (i.e. NUTS 1 to NUTS 3, Municipalities and Freguesias). We will use as data source the official data provided by INE. These data is provided as one file, so we will process them to create the several tables.
@@ -10,7 +15,7 @@ In each of the tables, we will create a foreign key of the parent unit. We will 
 
 ## 1. Download data from INE
 
-**Suggestion**: before advancing to any tasks, organize your data project directories and files as discussed in FADS Exercise 3.
+**Suggestion**: before advancing to any tasks, organize your data project directories and files as discussed in FADS Exercise 4.
 
 1. Go to [INE (Metainformation System)](https://smi.ine.pt/Categoria/Parent/3504), to path "SMI/Módulo classificações/Famílias/Classificações/Versões/Categorias" and export all to a *csv* or *xslx* file.
 

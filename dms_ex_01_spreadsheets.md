@@ -161,7 +161,7 @@ Q3. How can the procedures performed help improve data quality?
 > 1. A text file formatted in Markdown with the answers to discussion points
 > 2. The final csv of the exercise
 > 
-> The submission in Moodle is at [Exercise 1 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=469001)
+> The submission in Moodle is at [Exercise 1 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=469001).
 
 ## Wrap-up
 
