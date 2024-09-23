@@ -2,7 +2,7 @@
 
 # Exercise 1 - Good practices in the use of spreadsheets in data handling
 
-> An exercise submission via Moodle is required once completed. The deadline for submissions is **15th October 2024**.
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **4th October 2024**.
 
 > 1. Create a blank txt file formatted in markdown to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
 > 2. Submit also the final csv file of the exercise.

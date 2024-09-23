@@ -103,7 +103,14 @@ To be able to establish relations between NUTS and data tables from the Agricult
 
 ## 5. Export tables
 
-You can now export the tables for each NUTS level. For that, filter with the facet `Nível` the value for each level corresponding to the NUTS table you want to export, and then use on the button *Export* at the top-right corner. Export data as *csv* files, to a folder called *processed*, under folder *data*. 
+You can now export the tables for each NUTS level. For that, filter with the facet `Nível` the value for each level corresponding to the NUTS table you want to export, and then use on the button *Export* at the top-right corner. Export data as *csv* files, to a directory called *processed*, under folder *data*. 
+
+> ## 6. Submission of exercise
+> **Submit one files**:
+> 1. Compress the *processed* directory using zip or similar
+> 2. Submit the zipped file via Moodle
+> 
+> The submission in Moodle is at [Exercise 2 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=471157).
 
 ## Wrap-up
 
