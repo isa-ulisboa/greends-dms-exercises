@@ -1,6 +1,14 @@
 # Data Management and Storage
 
-# Exercise 2 - OpenRefine - Data wrangling - Agricultural Census data
+# Exercise 3 - OpenRefine - Data wrangling - Agricultural Census data
+
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **11th October 2024**.
+
+> 1. Create a blank txt file formatted in markdown to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
+> 1. Submit also the final csv file of the exercise.
+
+## Introduction
+
 In this exercise, we will prepare rectangular tables from the data files downloaded from INE's data service. 
 
 These files can be downloaded as xls or csv files. Although both formats have their pros and cons, we will use csv files as basis, and OpenRefine to do all data wrangling.
@@ -20,8 +28,9 @@ Our exercise will include several steps:
 
 The INE data service only allow to download data tables with a maximum of 40 000 values. This is a big limitation, because for many parameters that combine several dates, locations and parameters, the number is rapidly overcome. For that reason, we need to make partial downloads, as is the following case.
 
-1. Go to [this link in INE (Database)](https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&indOcorrCod=0010502&contexto=bd&selTab=tab2&xlang=en), which displays a table of the **Area of permanent crops (ha) by Geographic localization (NUTS -2013) and Type (permanent crops); Decennial (1)**.
-2. Select **Change selection conditions**, and check *Select all* for **Geographic localization** (NUTS-2013). The total cells should be 27488.
+1. Go to [this link in INE (Database)](https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&indOcorrCod=0010504&contexto=bd&selTab=tab2), which displays a table of the **Area of permanent crops (ha) by Geographic localization (NUTS -2013) and Type (permanent crops); Decennial (1)**.
+2. Select **Change selection conditions**, and check *Select all* for **Geographic localization** (NUTS-2013). 
+3. Select **Type (permanent crops)**, and click on the plus sign on the right panel near to **Total**. Select all the items on the first level of the tree open: *Fresh fruit plantations, Citrus plantations, Fruit plantations, ...*. The total cells should be 27488.
 3. Select **Obtain table** and then on the icon **Download table (CSV format)**. Download the csv and give an appropriate name, for example, **area_perm_crops_2019.csv**.
 4. This file only contains data for the year *2019*. Repeat the **Change selection conditions**, but select a different year. Download the csv file naming it appropriately.
 5. When you finish the previous step, you should have four csv files downloaded.
@@ -95,7 +104,7 @@ Data from all years should be merged in only one table. And, in order to comply 
 This is possible with the function *Create column based on this column*. But in order to do this, we need to link the projects, making sure that the correct rows are related. For that we will use the column `primary_key` we create before. The general GREL expression to use is:
 ```
 cell.cross('arg1','arg2').cells['arg3'].value[arg4]
-````
+```
  
 - arg1 = name of project you are exporting data from
 - arg2 = name of the key column
@@ -173,6 +182,13 @@ To achieve this, we will need to make the following operations:
 
 At this stage, your should have a table with 5 columns and 109952 rows. All the data wrangling to prepare a normalized table is completed. We will later create a key for crops, but this will be done in the database. 
 You can now export the table as a csv file. Give the name area_crops_census2019.csv to the exported file, and place it in the folder *data_processing*.
+
+> ## 8. Submission of exercise
+> **Submit one file**:
+> 1. Compress the *processed* directory using zip or similar
+> 2. Submit the zipped file via Moodle
+> 
+> The submission in Moodle is at [Exercise 3 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=471529).
 
 ## Wrap up
 

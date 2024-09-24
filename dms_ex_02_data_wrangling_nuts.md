@@ -2,10 +2,8 @@
 
 # Exercise 2 - OpenRefine - Create tables with territorial units - NUTS
 
-> An exercise submission via Moodle is required once completed. The deadline for submissions is **15th October 2024**.
-
-> 1. Create a blank txt file formatted in markdown to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
-> 1. Submit also the final csv file of the exercise.
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **11th October 2024**.
+> 1. Submit the final csv file of the exercise.
 
 ## Introduction
 
@@ -17,7 +15,7 @@ In each of the tables, we will create a foreign key of the parent unit. We will 
 
 **Suggestion**: before advancing to any tasks, organize your data project directories and files as discussed in FADS Exercise 4.
 
-1. Go to [INE (Metainformation System)](https://smi.ine.pt/Categoria/Parent/3504), to path "SMI/Módulo classificações/Famílias/Classificações/Versões/Categorias" and export all to a *csv* or *xslx* file.
+1. Go to [INE (Metainformation System)](https://smi.ine.pt/Categoria/Parent/3504), to path "SMI/Módulo classificações/Famílias/Classificações/Versões/Categorias" and export all to a *csv* or *xlsx* file.
 
 
 ## 2. Import data to OpenRefine
@@ -106,7 +104,7 @@ To be able to establish relations between NUTS and data tables from the Agricult
 You can now export the tables for each NUTS level. For that, filter with the facet `Nível` the value for each level corresponding to the NUTS table you want to export, and then use on the button *Export* at the top-right corner. Export data as *csv* files, to a directory called *processed*, under folder *data*. 
 
 > ## 6. Submission of exercise
-> **Submit one files**:
+> **Submit one file**:
 > 1. Compress the *processed* directory using zip or similar
 > 2. Submit the zipped file via Moodle
 > 
