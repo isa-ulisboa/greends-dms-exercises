@@ -3,7 +3,7 @@
 # Exercise 2 - OpenRefine - Create tables with territorial units - NUTS
 
 > An exercise submission via Moodle is required once completed. The deadline for submissions is **11th October 2024**.
-> 1. Submit the final csv file of the exercise.
+> 1. Submit the final zip file of the exercise.
 
 ## Introduction
 

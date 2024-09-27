@@ -2,9 +2,14 @@
 
 # Exercise 4 - Designing an Entity-Relationship Model
 
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **18th October 2024**.
+> 1. Create a markdown file to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
+> 2. Add diagrams to your markdown file.
+> 3. Export a pdf of the markdown report and submit via Moodle.
+
 ## Introduction
 
-In this exercise we will train how to identify entities, attributes and relationships in a problem statement. You will solve this exercise in two steps, after discussion of classes 04 and 05 of the course. The exercise will be updated with further tasks accordingly. 
+In this exercise we will train how to identify entities, attributes and relationships in a problem statement. You will solve this exercise in two steps, after discussion of classes 03 and 05 of the course. The exercise will be updated with further tasks accordingly. 
 
 ### Problem 1. Scenario:
 You are tasked with designing a database to manage soil data for a research project. The database should store information about soil samples collected from various locations. The data to be stored includes details about the soil samples, the locations where they were collected, and the technicians who collected them. The following values are sampled for each of the soil samples: 
@@ -31,7 +36,10 @@ It is important to note that sometimes, multiple samples were collected at the s
 - Affiliation
 
 **Task:** 
-1. Can you identify the entities and attributes of this scenario. Also identify possible relationships between entities. Represent it as a entity-relationship using a standard notation such as rectangles for entities, ellipses for attributes and diamonds for relationships.
+
+Q1. Can you identify the entities and attributes of this scenario. Also identify possible relationships between entities. Represent it as a entity-relationship using a standard notation such as rectangles for entities, ellipses for attributes and diamonds for relationships.
+
+As a suggestion, you can use the online tool [https://app.diagrams.net/](https://app.diagrams.net/) to create your diagrams.
 
 ### Problem 2. Scenario:
 You have been tasked with designing a database to manage data related to water pollution in various bodies of water (e.g., rivers, lakes, oceans). The database should store information about water quality measurements, the locations where these measurements were taken, the pollutants found, and the monitoring agencies responsible. 
@@ -73,5 +81,10 @@ There are some constraints:
 
 **Task:**
 
-1. Create an Entity-Relationship Diagram (ERD) that represents the above requirements. Use standard notations such as rectangles for entities, diamonds for relationships. In this case, also define primary keys and foreign keys for each entity in the ERD.
+Q2. Create an Entity-Relationship Diagram (ERD) that represents the above requirements. Use standard notations such as rectangles for entities, diamonds for relationships. In this case, also define primary keys and foreign keys for each entity in the ERD.
 
+> ## Submission of exercise
+> **Submit one file**:
+> 1. Submit the report in pdf format via Moodle.
+> 
+> The submission in Moodle is at [Exercise 4 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=472620).
