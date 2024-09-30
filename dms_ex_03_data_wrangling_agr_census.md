@@ -183,12 +183,25 @@ To achieve this, we will need to make the following operations:
 At this stage, your should have a table with 5 columns and 109952 rows. All the data wrangling to prepare a normalized table is completed. We will later create a key for crops, but this will be done in the database. 
 You can now export the table as a csv file. Give the name area_crops_census2019.csv to the exported file, and place it in the folder *data_processing*.
 
-> ## 8. Submission of exercise
+## 8. Other entities
+We will need to repeat the processing for other entities of the Agricultural census. The list of entities we need to get from the agricultural census is:
+- temporary crops
+- permanent crops
+- lifestock
+- education
+- labour
+- grassland
+- production
+
+> ## 9. Submission of exercise
 > **Submit one file**:
 > 1. Compress the *processed* directory using zip or similar
 > 2. Submit the zipped file via Moodle
 > 
 > The submission in Moodle is at [Exercise 3 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=471529).
+
+
+
 
 ## Wrap up
 
@@ -201,13 +214,6 @@ In this exercise we learned:
 - how to join data between OpenRefine projects
 
 This concludes this exercise.
-
-## Exercises to be done at home
-We will need to repeat the processing for other entities of the Agricultural census:
-- temporary crops
-- production
-- ...
-
 
 
 
