@@ -201,6 +201,8 @@ We will need to repeat the processing for other entities of the Agricultural cen
 - grassland
 - production
 
+You can search with these topics as keywords at [https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_base_dados](https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_base_dados), selecting `Agriculture, forestry and fishing` as theme, `Agricultural census` as subtheme and `freguesia` as geographic level. Each student should process only an additional topic, but ensuring through Discord discussion among colleagues that all topics are covered. The objective is to distribute the processing among the class. 
+
 > ## 9. Submission of exercise
 > **Submit one file**:
 > 1. Compress the *processed* directory using zip or similar
