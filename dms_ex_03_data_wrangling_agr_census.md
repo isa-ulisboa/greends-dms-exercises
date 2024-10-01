@@ -41,8 +41,10 @@ The INE data service only allow to download data tables with a maximum of 40 000
 2. Adjust parameters in *Parse data as*, and click *Update preview* button to check changes:
     - Check Character encoding is appropriate (possibly WINDOWS-1252)
     - column delimiter (e.g. ';')
-    - if using Windows, ignore first 4 rows. If using Mac, ignore first 8 rows. This will make the next row to become column headers. To check, the first 4 columns should have the values:
-        Column; Column2; Total; Fresh fruit plantations (excluding citrus plantations)
+    - if using Windows, ignore first 4 rows. If using Mac, ignore first 8 rows. This will make the next row to become column headers. To check, the first 5 columns should be the following:
+
+      | Column | Column2 | Total | Fresh fruit plantations (excluding citrus plantations) | Citrus plantations |
+      | ------ | ------ | ------ | ------ | ------ |
 3. Click on the button *Create project*, on the top-right corner of the window.
 4. Remove the first column on the left
 5. Rename the new first column on the left (now named Column2), and call it `Region`.
@@ -63,7 +65,7 @@ In the expression `^` means *starts with*, `PT` is the string that the value can
 
 3. Click *invert* in the top of the filter box. Now, if you are using Windows you should have 26 rows, and if you are using Mac you should have 34 rows. If you like, scroll through the file to confirm that no rows with region codes appear.
 4. Click on column `All --> Edit rows --> Remove matching rows` to delete the rows. Then remove the filter.
-5. Now, to double check all the correct rows were removed, in the `Total` Column go to `Facet --> Customized facets --> Facet by null`. Select `inclue` next to `true` results, to see that 3 rows were still included from our regular expression filter that should not have been. Delete these rows.
+5. Now, to double check all the correct rows were removed, in the `Total` Column go to `Facet --> Customized facets --> Facet by null`. Select `include` next to `true` results, to see that 3 rows were still included from our regular expression filter that should not have been. Delete these rows.
 6. Remove all filters to obtain all remaining rows. Now you should have 3463 rows.
 
 ## 4. Transpose columns
