@@ -55,21 +55,21 @@ The file was imported with all the rows, including the ones that contain metadat
 Analyze the values on this column, and verify that the codes for a region always start with the number `1`, `2` or `3`, except for the country, which starts with `PT`. We will use this pattern to define a **regular expression**
 
 1. Create a new text filter for the column `Region`, and check the box *regular expression*.
-2. Get the regular expression that filters your data properly. If you notice, you want to retain all rows staring with 1, 2, or 3, PT, but not starting as a date 10-Ago-2022. You can use the following [special chatGPT](https://chatgpt.com/g/g-Acs23Ncxe-regex-gpt) to get the expression that would capture this. You can use the following prompt in the chat:
-   `get all rows starting with 1,2, 3 , PT but not 10-`
-4. Copy the expression calculated by the chat, but read the explanation of the expresion. The expession should be the following:
+2. Get the regular expression that filters your data properly. If you notice, you want to retain all rows staring with 1, 2, or 3, PT, but not starting as a date 10-Ago-2022 or equal to 1989 or 2019. You can use the following [special chatGPT](https://chatgpt.com/g/g-Acs23Ncxe-regex-gpt) to get the expression that would capture this. You can use the following prompt in the chat:
+   `get all rows starting with 1,2, 3, PT, but ignore all rows that start with 10- or equal 1989 or 2019`
+4. Copy the expression calculated by the chat, but read the explanation of the expresion. The expession should be similar to the following:
    ```
-   ^(?!10-)([123]|PT)
+   ^(?!10-|1989$|2019$)([123]|PT)
    ```
 
 In the expression:
 - `^`: Anchors the match at the beginning of the line (ensures it starts from the beginning).
-- `(?!10-)`: A negative lookahead that ensures the line does not start with 10-.
+- `(?!10-|1989$|2019$)`: A negative lookahead that ensures the line does not start with 10- or equal 1989 or 2019. 
 - `([123]|PT)`: Matches either 1, 2, 3, or the string PT. 
 
 5. Click *invert* in the top of the filter box. Now, you should have 34 rows. If you like, scroll through the file to confirm that no rows with region codes appear.
 6. Click on column `All --> Edit rows --> Remove matching rows` to delete the rows. 
-7. Remove all filters to obtain all remaining rows. Now you should have 3463 rows.
+7. Remove all filters to obtain all remaining rows. Now you should have 3436 rows.
 
 ## 4. Transpose columns
 
