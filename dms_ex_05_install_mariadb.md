@@ -25,7 +25,7 @@ Then, in the following questions, it is important to anwser the following:
 
 > ## Submission of exercise
 > **Submit one file**:
-> 1. Make a screenshot of your Dbeaver installation and submit it via Moodle.
+> 1. Make a screenshot of your MariaDB installation in the terminal and submit it via Moodle.
 > 
 > The submission in Moodle is at [Exercise 5 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=477024).
 
