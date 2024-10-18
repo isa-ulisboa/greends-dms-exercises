@@ -41,9 +41,12 @@ The INE data service only allow to download data tables with a maximum of 40 000
 2. Adjust parameters in *Parse data as*, and click *Update preview* button to check changes:
     - Check Character encoding is appropriate (possibly WINDOWS-1252)
     - column delimiter (e.g. ';')
-    - ignore first 10 rows. This will make the next row to become column headers
+    - check that you select "ignore first **4** rows"
+    - ensure that the option "Parse next **1** line(s) as column headers" is selected. This will make the next row to become column headers
+    - check "Discard initial **3** row(s) of data"
 3. Click on the button *Create project*, on the top-right corner of the window.
-4. Rename the first column on the left, and call it `Region`.
+4. Remove the first column on the left, that containg the year of data
+5. Rename the new first column on the left, and call it `Region`.
 
 ## 3. Delete rows that contain no data
 
@@ -52,16 +55,21 @@ The file was imported with all the rows, including the ones that contain metadat
 Analyze the values on this column, and verify that the codes for a region always start with the number `1`, `2` or `3`, except for the country, which starts with `PT`. We will use this pattern to define a **regular expression**
 
 1. Create a new text filter for the column `Region`, and check the box *regular expression*.
-2. Enter the filter criteria 
+2. Get the regular expression that filters your data properly. If you notice, you want to retain all rows staring with 1, 2, or 3, PT, but not starting as a date 10-Ago-2022. You can use the following [special chatGPT](https://chatgpt.com/g/g-Acs23Ncxe-regex-gpt) to get the expression that would capture this. You can use the following prompt in the chat:
+   `get all rows starting with 1,2, 3 , PT but not 10-`
+4. Copy the expression calculated by the chat, but read the explanation of the expresion. The expession should be the following:
    ```
-   ^PT|^[1-3]
+   ^(?!10-)([123]|PT)
    ```
 
-In the expression `^` means *starts with*, `PT` is the string that the value can start with, `|` means *or* and `^[1-3]` means *starts with a digit in the range between 1 and 3*.
+In the expression:
+- `^`: Anchors the match at the beginning of the line (ensures it starts from the beginning).
+- `(?!10-)`: A negative lookahead that ensures the line does not start with 10-.
+- `([123]|PT)`: Matches either 1, 2, 3, or the string PT. 
 
-3. Click *invert* in the top of the filter box. Now, you should have 34 rows. If you like, scroll through the file to confirm that no rows with region codes appear.
-4. Click on column `All --> Edit rows --> Remove matching rows` to delete the rows. 
-5. Remove all filters to obtain all remaining rows. Now you should have 3463 rows.
+5. Click *invert* in the top of the filter box. Now, you should have 34 rows. If you like, scroll through the file to confirm that no rows with region codes appear.
+6. Click on column `All --> Edit rows --> Remove matching rows` to delete the rows. 
+7. Remove all filters to obtain all remaining rows. Now you should have 3463 rows.
 
 ## 4. Transpose columns
 
@@ -183,12 +191,27 @@ To achieve this, we will need to make the following operations:
 At this stage, your should have a table with 5 columns and 109952 rows. All the data wrangling to prepare a normalized table is completed. We will later create a key for crops, but this will be done in the database. 
 You can now export the table as a csv file. Give the name area_crops_census2019.csv to the exported file, and place it in the folder *data_processing*.
 
-> ## 8. Submission of exercise
+## 8. Other entities
+We will need to repeat the processing for other entities of the Agricultural census. The list of entities we need to get from the agricultural census is:
+- temporary crops
+- permanent crops
+- lifestock
+- education
+- labour
+- grassland
+- production
+
+You can search with these topics as keywords at [https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_base_dados](https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_base_dados), selecting `Agriculture, forestry and fishing` as theme, `Agricultural census` as subtheme and `freguesia` as geographic level. Each student should process only an additional topic, but ensuring through Discord discussion among colleagues that all topics are covered. The objective is to distribute the processing among the class. 
+
+> ## 9. Submission of exercise
 > **Submit one file**:
 > 1. Compress the *processed* directory using zip or similar
 > 2. Submit the zipped file via Moodle
 > 
 > The submission in Moodle is at [Exercise 3 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=471529).
+
+
+
 
 ## Wrap up
 
@@ -201,13 +224,6 @@ In this exercise we learned:
 - how to join data between OpenRefine projects
 
 This concludes this exercise.
-
-## Exercises to be done at home
-We will need to repeat the processing for other entities of the Agricultural census:
-- temporary crops
-- production
-- ...
-
 
 
 
