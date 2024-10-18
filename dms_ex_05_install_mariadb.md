@@ -4,6 +4,8 @@
 
 The goal of this exercise is to setup your environment to have a functional and secure  MariaDB service for your databases. We will install and review the selected IDE tool - DBeaver - to work with the database, in addition to the terminal.
 
+> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **25th October 2024**.
+
 ### Conventions of this document
 
 In all commands, `$` indicates that it should be run at the operating system terminal. But `$` should not be included in the instruction. If the command prompt is `mysql>`, it means it should be run inside MariaDb.
@@ -20,6 +22,12 @@ Then, in the following questions, it is important to anwser the following:
 - Remove anonymous users? `Y`
 - Disallow root login remotelly? `Y`
 - Remove test database and access to it? `Y` 
+
+> ## Submission of exercise
+> **Submit one file**:
+> 1. Make a screenshot of your Dbeaver installation and submit it via Moodle.
+> 
+> The submission in Moodle is at [Exercise 5 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=477024).
 
 ## Wrap up
 We have secured your database server.
