@@ -4,6 +4,8 @@
 
 The goal of this exercise is to exercise SQL statements with **SELECT**.
 
+> Your solutions for this exercise should be submitted via Moodle. You should create a SQL script with solution queries identified as **Q**.The deadline for submissions is **25th October 2024**.
+
 ## Preparation of the exercise
 
 **Note**: please refer to exercise *dms_ex_06* to check how to do the following two steps.
@@ -64,16 +66,17 @@ SELECT DISTINCT crop FROM permanent_crop;
 ```
   If you copied the last statement above, you probably received an error message. Check the error and provide the right statement.
 
-8. Create a list of unique values of the crops in `permanent_crop`, but show only the first 5:
+9. Create a list of unique values of the crops in `permanent_crop`, but show only the first 5:
+
 
 ```
--- Write your statement here
+-- Q1. Write your statement here
 SELECT ... 
 ```
 
 ## 2. Repeat the SELECT exercises for other tables
 
-Repeat the SELECT statements before for table `temporary_crop`
+Q2. Repeat the SELECT statements before for table `temporary_crop`
 
 ## 3. Apply filters with WHERE
 
@@ -88,37 +91,38 @@ SELECT * FROM permanent_crop WHERE region_level = 'municipality' and year = 2019
 ```
 3. Select all columns of the table `permanent_crop` but only for the region_level `municipality`, year `2019` and the crop `Vineyards`:
 ```
--- Write your statement here
+-- Q3. Write your statement here
 SELECT * FROM permanent_crop WHERE ...
 ```
 4. Select columns *region_name*, *crop_name* and *area* of the table but only for the region_level `municipality`, year `2019` and the crop `Vineyards`:
 
 ```
--- Write your statement here
+-- Q4. Write your statement here
 SELECT ... 
 ```
 5. Select columns *region_name*, *crop_name* and *area* of the table `permanent_crop` but only for the region_level `municipality`, year `2019` and the crop `Vineyards`, in descending order of *area*:
 ```
--- Write your statement here
+-- Q5. Write your statement here
 SELECT ... 
 ```
 6. Select area TOP 10 of the table `permanent_crop`, with columns *region_name*, *crop_name* and *area*  but only for the region_level `municipality`, year `2019` and the crop `Vineyards`, in descending order of *area*:
 ```
--- Write your statement here
+-- Q6. Write your statement here
 SELECT ... 
 ```
 7. Select all columns of the table `permanent_crop` where area is zero:
 ```
--- Write your statement here
+-- Q7. Write your statement here
 SELECT ...
 ```
 8. Select a list of regions (the column `region_name`), without duplications, of the table `permanent_crop` where area is zero:
 ```
--- Write your statement here
+-- Q8. Write your statement here
 SELECT ...
 ```
 9. Select all columns of the table `permanent_crop` where area is zero:
 ```
+-- Q9. Write your statement here
 SELECT ...
 ```
 10. Select all columns of the table `permanent_crop` where region level is `municipality` or `freguesia`:
@@ -130,8 +134,14 @@ SELECT * FROM permanent_crop WHERE region_level IN ('municipality', 'freguesia')
 SELECT * FROM permanent_crop WHERE region_level = 'municipality' OR region_level = 'freguesia';
 ```
 
-12. What will be the result of the following statement:
+12. Q10. What will be the result of the following statement:
 ```
 SELECT * FROM permanent_crop WHERE region_level = 'municipality' AND region_level = 'freguesia';
 ```
 Justify your answer:
+
+> ## 4. Submission of exercise
+> **Submit one file**:
+> 1. Submit the sql script you created with queries or answers to questions identified with `Q`, including the question number. If the response is not a SLQ statement, comment your text using `--`for a single row, or `/*`and `*/` to open and close your comment section. 
+> 
+> The submission in Moodle is at [Exercise 8 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=477152).
