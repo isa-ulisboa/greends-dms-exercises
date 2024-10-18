@@ -5,8 +5,10 @@
 **DBeaver** is a complete IDE opensource application for managing SQL project which allows to link to many different SQL databases. The application is very complete, but will focus on the features that we will use most on our course.
 
 In this exercise, we are mainly interested in:
-- creating and managing a connection to our database server
+- creating and managing a connection to your database server
 - execute SQL statements.
+
+> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **25th October 2024**.
 
 ## 1. Make a database connection 
 
@@ -62,6 +64,14 @@ In the case your interface gets too confused, you can reset to the default using
 `
 File --> Reset UI setting
 `
+
+> ## Submission of exercise
+> **Submit one file**:
+> 1. Make a screenshot of your terminal, logged in MariaDB and submit it via Moodle.
+> 
+> The submission in Moodle is at [Exercise 7 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=477149).
+
+
 
 ## Wrap up
 
