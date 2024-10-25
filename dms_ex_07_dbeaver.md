@@ -57,14 +57,6 @@ On the bottom left panel you have tge **Project Explorer**. A particularly inter
 
 To create amn ER for a particular database, click `Create a new ER Diagram`, give a name to your ER, browse to select a specific database and click on finish. The new diagram will appear on the right panel of DBeaver with tables, relationships, etc. You can right-click on top of the diagram to see different options of styles and attributes to be shown in the diagram.
 
-## 5. Reset the interface
-
-In the case your interface gets too confused, you can reset to the default using the menu
-
-`
-File --> Reset UI setting
-`
-
 > ## Submission of exercise
 > **Submit one file**:
 > 1. Make a screenshot of your terminal, logged in MariaDB and submit it via Moodle.
