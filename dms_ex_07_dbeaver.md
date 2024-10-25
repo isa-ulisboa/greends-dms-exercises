@@ -55,7 +55,7 @@ Clicking on the arrow for a database, it will show the database components, incl
 
 On the bottom left panel you have tge **Project Explorer**. A particularly interesting functionality is the possibility to create ER Diagrams for a database. Use the context menu to explore the options you have.
 
-To create amn ER for a particular database, click `Create a new ER Diagram`, give a name to your ER, browse to select a specific database and click on finish. The new diagram will appear on the right panel of DBeaver with tables, relationships, etc. You can right-click on top of the diagram to see different options of styles and attributes to be shown in the diagram.
+To create amn ER for a particular database, click `Create a new ER Diagram`, give a name to your ER, browse to select a specific database and click on finish. The new diagram will appear on the right panel of DBeaver with tables, relationships, etc. You can right-click on top of the diagram to see different options of styles and attributes to be shown in the diagram. Notice that if you do this on the dms_2024 database, the ER diagram will be empty, because the database doesn't contain tables.
 
 > ## Submission of exercise
 > **Submit one file**:
