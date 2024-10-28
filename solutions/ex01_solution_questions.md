@@ -1,3 +1,5 @@
+# Solution to Exercise 1 - Good practices in the use of spreadsheets in data handling
+
 **Q1. What are the differences in opening the files you found between the two programs?**
 
 In excel, the file --> open procedure does not allow to define column separator
