@@ -25,12 +25,12 @@ Preparation for exercises
 1. Open the file `dados_sampleQLDB_ex01_code01.csv` in Excel, with the menu sequence: File → Open  
 2. Identify the type of problems you find in the following columns
     `Collector`, `Start Date`, `Country`, `Province`, `District`, `Locality Name`, `Collection`
-3. Close the file without saving
+3. Close the file without saving.
 4. Open a new Book in Excel.
 5. Import the csv file with the menu sequence: **Data → From text**
 6. Select the File Origin, so that the accents, cedillas, etc., appear correctly encoded. You may need to try with more than one type of origin. The most common are Unicode (UTF-8), Western Europe, Portuguese. In this case, it is UTF-8. To learn more about character encoding, please visit [Wikipedia](https://pt.wikipedia.org/wiki/Codifica%C3%A7%C3%A3o_de_caracteres).
 7. Select the correct column delimiter. The most common are the tab, the comma, and the semicolon. Complete the import and view the file.
-8. Close the file without saving
+8. Close the file without saving.
 
 
 ### 1.2. Open a csv file in LibreOffice (optional)
@@ -92,7 +92,7 @@ Blank spaces are often introduced into data inadvertently. For the computer, it 
 
     a. Add a blank column to the right of the `Collectors` column
 
-    b. Apply the TRIM formula (in PT, ARRUMAR), using the cell in the `Collectors` column as a parameter.
+    b. Apply the TRIM formula (in PT, COMPACTAR), using the cell in the `Collectors` column as a parameter.
 
     c. Copy this column and paste it over the `Collectors` column, with *paste special -> values only*.
 
