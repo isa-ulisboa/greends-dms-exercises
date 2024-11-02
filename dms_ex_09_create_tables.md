@@ -5,7 +5,7 @@
 The goal of this exercise is to create tables in the database to accommodate our 
 data. 
 
-> Your solutions for this exercise should be submitted via Moodle. You should create a SQL script with solution queries identified as **Q**.The deadline for submissions is **22th November 2024**.
+> Your solutions for this exercise should be submitted via Moodle.The deadline for submissions is **22th November 2024**.
 
 
 We will start by creating tables corresponding to the NUTS1 to 3, and 
