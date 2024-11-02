@@ -2,7 +2,7 @@
 
 # Exercise 11 - ALTER, TRUNCATE and DROP (DDL statements)
 
-The goal of this exercise is to exercise DLL SQL statements with **ALTER**, 
+The goal of this exercise is to exercise DDL SQL queries with **ALTER**, 
 **TRUNCATE** and **DROP** statements.
 
 We will also introduce the use of **ALIASES** for columns and tables.
@@ -21,7 +21,7 @@ We can use the SQL **ALTER** statement to make changes in the structure of a tab
 like adding, removing, renaming or modifying columns.
 
 1. Check the current schema of the table:
-```
+```SQL
 DESCRIBE region_temp;
 ```
 
@@ -29,19 +29,19 @@ Use this all the times you want to check changes in the schema of a table;
 
 2. Create a new column in the `region_temp` table.
 
-```
+```SQL
 ALTER TABLE region_temp ADD COLUMN simple_mane VARCHAR(20);
 ```
 
 2. Rename a column. There is a typo in the name of the column. Let's modify it:
 
-```
+```SQL
 ALTER TABLE region_temp RENAME COLUMN simple_mane TO simple_name;
 ```
 
 3. We can also change the column type.
 
-```
+```SQL
 ALTER TABLE region_temp MODIFY COLUMN simple_name VARCHAR(50);
 ```
 
@@ -52,21 +52,21 @@ relevant for the freguesias which name starts with `União das freguesias...`
 
 1. First, identify those records starting by that string:
 
-```
+```SQL
 SELECT region_name FROM region_temp WHERE region_name LIKE 'União%'; 
 ```
 2. Then, let's try with the MySQL function **REPLACE**. 
 
 The generic form of the function is:
-```
+```SQL
 REPLACE (*string*, *substring*, *new_string*)
 ```
-To know more about the functions of MySQL, you can check the [following resource](https://www.w3schools.com/mysql/mysql_ref_functions.asp).
+To know more about the functions of MySQL, you can check the [following resource](https://www.w3schools.com/mysql/mysql_ref_functions.asp). Notice that this is not a standard SQL statement. 
 
 We will replace `União das freguesias de ` by an empty string, to shorten the name.
 Execute the statement:
 
-```
+```SQL
 SELECT REPLACE (region_name, 'União das freguesias de ', '') FROM region_temp WHERE region_name LIKE 'União%'; 
 ```
 However, if you check the outcome, there are situations that are not captured, like
@@ -84,7 +84,7 @@ In this case, we can use them to solve the search problem of the `de`, `da`, `da
 
 Try the following statement:
 
-```
+```SQL
 SELECT region_name, REGEXP_REPLACE (region_name, 'União (.*) freguesias d[ea] ', '') FROM region_temp WHERE region_name LIKE 'União%';  
 ```
 In the statement, `(.*)` finds the first `de` and `das` occurrence in the string,
@@ -105,15 +105,15 @@ To solve that, we can use `aliases`:
 more readable.
 
 Therefore, we can repeat the statement adding the alias `short_name`.
-```
+```SQL
 SELECT region_name, REGEXP_REPLACE (region_name, 'União (.*) freguesias d[ea] ', '') AS short_name FROM region_temp WHERE region_name LIKE 'União%';  
 ```
 
 4. Add values with an update
 
-We can, finally, add the shorten values to the new column. Notice how the UPDATE query 
+We can, finally, add the shorten values to the new column. Notice how the **UPDATE** query 
 is build. It uses an alias for the table name (the AS keyword can be omitted):
-```
+```SQL
 UPDATE region_temp rt SET rt.simple_name = REGEXP_REPLACE (region_name, 'União (.*) freguesias d[ea] ', '') 
 WHERE region_name LIKE 'União%';
 ```
@@ -136,36 +136,36 @@ Do that using the ALTER statement of above, and try the UPDATE query again.
 
 Do a SELECT statement to output columns `region_name` and `simple_name` for all records to
 check the current situation. 
-```
+```SQL
 SELECT ...
 ```
 You will verify that for records which `region_name` 
 does not start by 'União', the `simple_name` column contains a **NULL** value, 
 as expected. 
 
-Therefore, we need to repeat the UPDATE statement for that cases. Can you try to 
+Therefore, we need to repeat the **UPDATE** statement for that cases. Can you try to 
 write the statement?
 ```
 UPDATE ...
 ```
 ## 3. Final SQL DDL statements
 Remove the column `OriginalCode`, because it is redundant with the `NutsID`.
-```
+```SQL
 ALTER TABLE region_temp DROP COLUMN OriginalCode;
 ```
 
 And as this is a table we used only for the exercise, we can use it to test 
-TRUNCATE and DROP statements. Remember that these SQL DDL delete records and 
+**TRUNCATE** and **DROP** statements. Remember that these SQL DDL delete records and 
 delete the table, respectively.
-```
+```SQL
 TRUNCATE TABLE region_temp;
 ```
 
-```
+```SQL
 DROP TABLE region_temp;
 ```
 
-
+This concludes the exercise. It does not require a result submission.
 
 
 
