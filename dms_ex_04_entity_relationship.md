@@ -46,7 +46,7 @@ You have been tasked with designing a database to manage data related to water p
 
 Requirements:
 
-**a. Water Quality Measurement: Each measurement has the following attributes:**
+*a. Water Quality Measurement: Each measurement has the following attributes:*
 - Date and Time of Measurement
 - pH Level
 - Dissolved Oxygen (DO) Level
@@ -54,7 +54,7 @@ Requirements:
 - Temperature
 - Conductivity
 
-**b. Location: Each location has the following attributes:**
+*b. Location: Each location has the following attributes:*
 - Latitude
 - Longitude
 - Country
