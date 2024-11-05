@@ -142,6 +142,6 @@ Justify your answer:
 
 > ## 4. Submission of exercise
 > **Submit one file**:
-> 1. Submit the sql script you created with queries or answers to questions identified with `Q`, including the question number. If the response is not a SLQ statement, comment your text using `--`for a single row, or `/*`and `*/` to open and close your comment section. 
+> 1. Submit the sql script you created with queries or answers to questions identified with `Q`, including the question number. If the response is not a SQL statement, comment your text using `--`for a single row, or `/*`and `*/` to open and close your comment section. 
 > 
 > The submission in Moodle is at [Exercise 8 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=477152).
