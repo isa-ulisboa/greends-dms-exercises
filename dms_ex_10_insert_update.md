@@ -5,7 +5,7 @@
 The goal of this exercise is to learn how to execute SQL statements with **INSERT**, **UPDATE**
 and **DELETE** statements.
 
-> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **22th November 2024**.
+> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **22nd November 2024**.
 
 ## Preparation of the exercise
 
