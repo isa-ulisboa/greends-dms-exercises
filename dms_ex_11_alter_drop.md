@@ -119,7 +119,7 @@ WHERE region_name LIKE 'União%';
 ```
 The query will not work. There will be an error issued:
 
-```
+```SQL
 SQL Error [1406] [22001]: (conn=8) Data too long for column 'simple_name' at row XXX
 ```
 Can you identify the reason of the error?
@@ -145,7 +145,7 @@ as expected.
 
 Therefore, we need to repeat the **UPDATE** statement for that cases. Can you try to 
 write the statement?
-```
+```SQL
 UPDATE ...
 ```
 ## 3. Final SQL DDL statements
