@@ -278,7 +278,7 @@ Q.3. Provide your statement below:
  with the value 'Total'.*
 
 Q.4. Provide your statement below:
-```
+```SQL
 -- Write your query here ...
 ```
 
