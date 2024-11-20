@@ -10,6 +10,8 @@ tables.
 Additionally, we will implement **CONSTRAINTS** to the tables (addition of **PRIMARY** and
 **FOREIGN KEYS**), which will improve the security and quality of the data.
 
+> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **6th December 2024**.
+
 ## Preparation of the exercise
 
 This exercise can be run at the MySQL command line or in DBeaver.
@@ -35,11 +37,11 @@ table has more than one value). You can verify this by making simple SELECT quer
 to the tables.
 
 Let's make sure we have the correct table active:
-```
+```SQL
 mysql > USE dms_INE;
 ```
 And see which tables are in the database;
-```
+```SQL
 mysql > SHOW TABLES;
 ```
 The list should be as the following
@@ -61,11 +63,11 @@ The list should be as the following
 
 Analyze the region table:
 
-```
+```SQL
 SELECT * FROM region r ;
 ```
 If we want to check the schema of the table, we can run:
-```
+```SQL
 DESCRIBE region;
 ```
 Looking at the values of the table, we can verify the need of the following changes:
@@ -79,7 +81,7 @@ Looking at the values of the table, we can verify the need of the following chan
  first case, to run each query step by step, to make sure you understand the need
  of the statement and what it does.
 
-```
+```SQL
 -- remove colum
 ALTER TABLE region DROP COLUMN OriginalCode;
 
@@ -115,20 +117,19 @@ SELECT NutsID FROM region r GROUP BY NutsID HAVING count(*) > 1;
 ALTER TABLE region 
 ADD PRIMARY KEY (NutsID);
 ```
-After running all queries above, make a general SELECT on the two tables region and 
+After running all queries above, make a general `SELECT` on the two tables region and 
 region_level.
 
 After this change, if we want to obtain the name of the region level associated 
 with the name of the region, we will need to establish and **implicit join** of an
 **INNER JOIN** between the tables:
 
-```
-select * from region r, region_level rl WHERE r.level_ID = rl.level_ID ;
-
+```SQL
+SELECT * FROM region r, region_level rl WHERE r.level_ID = rl.level_ID ;
 ```
 or
 
-```
+```SQL
 SELECT * FROM region r INNER JOIN region_level rl ON r.level_ID = rl.level_ID ;
 ```
 
@@ -136,22 +137,22 @@ SELECT * FROM region r INNER JOIN region_level rl ON r.level_ID = rl.level_ID ;
 
 Again, we can start by checking the current status of the table:
 
-```
+```SQL
 -- check table production;
 SELECT * FROM production p ;
 ```
 
 Q.1. Can you identify the changes needed?
-`````
+```SQL
 -- Provide your answer here...
-`````
+```
 If you identified the following, these are the needed changes
  * needs a primary key
  * needs a foreign key on NutsID
  * region_name does not depend on the new primary key, but on NutsID, it can be removed
 
 The following code will make the changes
-```
+```SQL
 ALTER TABLE production
 ADD COLUMN `production_ID` INT NOT NULL AUTO_INCREMENT,
 DROP COLUMN region_name,
@@ -163,14 +164,15 @@ ADD FOREIGN KEY (NutsID) REFERENCES region(NutsID);
 
 Unlike production, we need to create a new table with education level, to make 
 the table education compatible with 3NF:
-```
+
+```SQL
 -- check table education;
 SELECT * FROM education e ;
 ```
 Q.2. Again, identify the changes needed?
-`````
+```SQL
 -- Provide your answer here...
-`````
+```
 In this case, these are the changes:
 
  * create table education_level
@@ -180,7 +182,7 @@ In this case, these are the changes:
 
  The following code will make it:
 
-```
+```SQL
 -- remove a table if exists
 DROP TABLE IF EXISTS education_level;
 
@@ -215,7 +217,7 @@ ADD FOREIGN KEY (education_level_ID) REFERENCES education_level(education_level_
 
 The permanent_crop requires several changes, as can be identifying by observing
 its records:
-```
+```SQL
 -- check table permanent_crop;
 SELECT * FROM permanent_crop ;
 ```
@@ -228,7 +230,7 @@ The list of modifications includes:
 
 The following code, similar to the one above, will make the changes needed
 
-```
+```SQL
 DROP TABLE IF EXISTS permanent_crop_name;
 
 CREATE TABLE permanent_crop_name (pc_name_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT)
@@ -261,14 +263,14 @@ DROP COLUMN region_level;
 
 The **temporary_crop** table is similar to the **permanent_crop**. 
 
-```
+```SQL
 -- check table temporary_crop;
 SELECT * FROM temporary_crop ;
 ```
 Q.3. Can you make the changes? First, identify them here:
-`````
+```SQL
 -- Provide your answer here...
-`````
+```
 Q.4. And adapt the code from above here:
 `````
 -- Provide your code here...
@@ -302,18 +304,18 @@ also need to be processed to be normalized. The changes needed are repetitions o
 the cases above. Create your SQL code by adapting the used code, in accordance
 with the changes required by each table:
 
-`````
+```SQL
 -- Provide your code here...
 
 
 
 
-`````
+```
 
 ## 7. Run the complete SQL script
 
 If you had problems in completing the sql statements, you can check and run the 
-full SQL script `dms_ex_11_normalization.sql`, which is available 
+full SQL script `dms_ex_13_normalization.sql`, which is available 
 from the `scripts` directory of the repository. You can copy it or open it in 
 DBeaver, and afterwards run the whole script. This with the necessary changes to
 achieve the normalized version of the database, the version 2.
@@ -322,7 +324,8 @@ achieve the normalized version of the database, the version 2.
 After making all changes without issues, then you achieved the 
 goal of having a fully normalized database. You can use `mysqldump` to export 
 a backup in this new version (version 2):
-```
+
+```SQL
 $ mysqldump -u dms_user -p dms_INE > dms_INE_v2.sql
 ```
 
@@ -337,3 +340,7 @@ optimizes the storage by avoiding duplication of values.
 We have made a new version of the database, which is now fully normalized. The dump
 of the database after making all changes is available in the file `dms_INE_v2.sql.zip`,
 in the `data` directory of the repository.
+
+> ## 10. Submission of exercise
+> **Submit one file**:
+> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 13 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=481437).
