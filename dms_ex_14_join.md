@@ -11,16 +11,17 @@ allow to respond to several questions.
 The ultimate goal is to obtain the tables necessary to build the dashboard of the 
 [Agricultural Census](https://www.ine.pt/scripts/db_ra_2019.html).
 
+> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **6th December 2024**.
 
 ## Preparation of the exercise
 
 This exercise can be run at the MySQL command line or in DBeaver.
 
 It assumes that you have your database fully normalized, as a result of the successful
-completion of DMS exercise 11. If you are uncertain that the database it in good
+completion of DMS exercise 13. If you are uncertain that the database it in good
 state, you can download +https://github.com/isa-ulisboa/greends-dms-exercises/blob/main/data/dms_INE_v2.sql.zip, 
 unzip it and import to your database in the operating system terminal with the command
-```
+```SQL
 $ mysql -u dms_user -p dms_INE < dms_INE_v2.sql
 ```  
 
@@ -60,9 +61,9 @@ The metadata information about the tables is the following
 
 To obtain the requested values, we need tha tables **production**, **region** and **region_level**.
  The statement would be like this, in the form of **implicit JOIN**:
-```
- SELECT
-	r.region_name , p.value_eur 
+```SQL
+SELECT
+	r.region_name, p.value_eur 
 FROM
 	production p,
 	region r,
@@ -91,9 +92,9 @@ more shorter and readable than using the full table name.
 
 We will repeat the query, but now with the use of an **INNER JOIN**
 
-```
+```SQL
 SELECT
-	r.region_name ,
+	r.region_name,
 	p.value_eur
 FROM
 	production p
@@ -111,7 +112,7 @@ WHERE
 
 The best approach is to divide the problem in several parts. First, get values of holdings for year 2019:
 
-```
+```SQL
 SELECT
 	pc.`hold`
 FROM
@@ -123,7 +124,7 @@ WHERE
 We need to include the type of crop, which is in table permanent_crop_name. 
 We can get it with an **INNER JOIN** to the table `permanent_crop_name`:
 
-```
+```SQL
 SELECT
 	pcn.crop_name,
 	pc.`hold`
@@ -137,7 +138,7 @@ WHERE
 We should remove the results for the 'Total' crop type, which is an aggregate 
 value of the other crops.
 
-```
+```SQL
 SELECT
 	pcn.crop_name,
 	pc.`hold`
@@ -153,7 +154,7 @@ AND pcn.crop_name <> 'Total';
 The result show values for all region. That is why each crop has many values.
 We need to define the level `freguesia`, which requires to join `region` and 
 `region_level` tables:
-```
+```SQL
 SELECT
 	pcn.crop_name,
 	pc.`hold`
@@ -172,7 +173,7 @@ AND rl.region_level = 'freguesia';
 Finally, we have to sum the holding values grouped by crop name. Add the function
 SUM to the value of holdings, and add the clause GROUP BY on crop names. We will
 also display the values in decreasing order.
-```
+```SQL
 SELECT
 	pcn.crop_name,
 	SUM(pc.`hold`) as sum_holdings
@@ -193,7 +194,7 @@ ORDER By sum_holdings DESC;
 Q.1. Now, you can make the same query, but for temporary crops. We will need to change
 table names and field names, but the structure of the query should be the same.
 
-```
+```SQL
 -- Write your code here ...
 ```
 
@@ -210,11 +211,11 @@ queries with the clause **UNION**.
 It can only be done if the structure of the result set is the same, with equal number 
 of columns, having the same order and meaning. The clause **UNION** merges two select statements.
 
-In the previous SELECT queries, we will add a fixed value for each select to 
+In the previous `SELECT` queries, we will add a fixed value for each select to 
 identify if it is permanent or temporary crop. We also need to remove the ORDER 
 clause from the first select statement.
 
-```
+```SQL
 SELECT
 	pcn.crop_name,
 	'permanent' AS type_of_crop, 
@@ -256,7 +257,7 @@ the region level freguesia.*
 
 Q.2. Provide your statement below:
 
-```
+```SQL
 -- Write your query here ...
 ```
 
@@ -266,7 +267,7 @@ Output the municipality name, year, sum of livestock value, sum of grassland are
 Make sure that values of livestock and grassland are for the same year.*
 
 Q.3. Provide your statement below:
-```
+```SQL
 -- Write your query here ...
 ```
 
@@ -283,9 +284,13 @@ Q.4. Provide your statement below:
 
 ## 6. Check your answers
 The solutions for the queries of this exercise are available at the SQL script 
-`dms_ex_12.sql`, in the scripts folder of the repository. But only check them after 
+`dms_ex_14.sql`, in the scripts folder of the repository. But only check them after 
 you try to resolve the queries. Make sure you can understand all components of the 
 query, and why they are needed.
+
+> ## 7. Submission of exercise
+> **Submit one file**:
+> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 14 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=481440).
 
 ## Wrap up
 
