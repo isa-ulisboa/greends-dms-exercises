@@ -93,8 +93,6 @@ import pymysql
 2. Create a connection and run queries. You will provide the name or address of the server, 
 the user, the database and the password
 ```python
-
-
 import pymysql 
 # Open database connection 
 conn = pymysql.connect(
@@ -111,12 +109,13 @@ cursor = conn.cursor()
 cursor.execute("SELECT * FROM <table_name>") 
 
 # Fetch all rows 
-rows = cursor.fetchall()
+results = cursor.fetchall()
  
 for row in results: 
-print(row)
+    print(row)
+
 # Close database connection 
-db.close()
+conn.close()
 ```
 You need to replace  `<database_name>`, `<database_user>` and `<password>` by 
 the actual values in your case.
@@ -170,13 +169,13 @@ cursor.execute(sql_query, data)
 
 6. Commit the changes
 ```python
-connection.commit()
+conn.commit()
 ```
 
 7. Close the cursor and the connection
 ```python
 cursor.close()
-connection.close()
+conn.close()
 ```
 
 ## Experiment in a Jupyter Notebook
