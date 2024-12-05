@@ -7,14 +7,14 @@ data on a database, and the benefit of indexes.
 
 ## Introduction
 
-Database normalization as the main purpose to provide consistency in your data. 
+Database normalization has the main purpose to provide consistency in your data. 
 But another benefit is that the performance of your database will increase, due 
 to the creation of indexes. Fields that are defined as primary key and foreign 
 keys are indexed.
 
-An index in a lockup table for finding records quick. It should be used in fields 
-that users use frequently for searching. There are several types of indexes, which
-for MariaDB you can learn more [here](https://mariadb.com/kb/en/the-essentials-of-an-index/).
+An index in a look up table for finding records quick. It should be used in fields 
+used frequently for searching. There are several types of indexes, about which,
+for MariaDB, you can learn more [here](https://mariadb.com/kb/en/the-essentials-of-an-index/).
 
 In this exercise, we will demonstrate the use of indexes, and how this increases
 the speed of data searching.
@@ -22,7 +22,7 @@ the speed of data searching.
 ## Preparation of the exercise
 
 This exercise should be done in DBeaver, so that you can observe in the status bar 
-the time of execution of teh query. We will use the 
+the time of execution of the queries. We will use the 
 database dms_INE version 2 that resulted from [Exercise 13](https://github.com/isa-ulisboa/greends-dms-exercises/blob/main/dms_ex_13_normalization.md). You can obtain the 
 dump of that from the file dms_INE_v2.sql.zip, which can be downloaded from the 
 data folder of this github repository.
@@ -68,38 +68,37 @@ prefix `t1_` before the name of the original table.
 
 ```SQL
 -- make a simple copy of table region
-CREATE TABLE t1_region SELECT * FROM region r 
+CREATE TABLE t1_region SELECT * FROM region r;
 
 -- describe to see its schema
-DESCRIBE t1_region
+DESCRIBE t1_region;
 
 -- make a simple copy of table region_level
-CREATE TABLE t1_region_level SELECT * FROM region_level r 
+CREATE TABLE t1_region_level SELECT * FROM region_level r; 
 
 -- describe to see its schema
-DESCRIBE t1_region_level
-
+DESCRIBE t1_region_level;
 
 -- make a simple copy of table permanent_crop
-CREATE TABLE t1_permanent_crop SELECT * FROM permanent_crop pc ;
+CREATE TABLE t1_permanent_crop SELECT * FROM permanent_crop pc;
 
 -- describe to see its schema
 DESCRIBE t1_permanent_crop;
 
 -- make a simple copy of table permanent_crop
-CREATE TABLE t1_permanent_crop_name SELECT * FROM permanent_crop_name pcn ;
+CREATE TABLE t1_permanent_crop_name SELECT * FROM permanent_crop_name pcn;
 
 -- describe to see its schema
 DESCRIBE t1_permanent_crop_name;
 
 -- make a simple copy of table permanent_crop
-CREATE TABLE t1_temporary_crop SELECT * FROM temporary_crop pc ;
+CREATE TABLE t1_temporary_crop SELECT * FROM temporary_crop pc;
 
 -- describe to see its schema
 DESCRIBE t1_temporary_crop;
 
 -- make a simple copy of table permanent_crop
-CREATE TABLE t1_temporary_crop_name SELECT * FROM temporary_crop_name pcn ;
+CREATE TABLE t1_temporary_crop_name SELECT * FROM temporary_crop_name pcn;
 
 -- describe to see its schema
 DESCRIBE t1_temporary_crop_name;
