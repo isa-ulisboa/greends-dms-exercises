@@ -6,6 +6,8 @@ The goal of this exercise is to practice SQL queries. We will use the INE
 dashboard of Agricultural Census database as a motivation for the queries to 
 be performed.
 
+> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **13th December 2024**.
+
 ## Introduction
 
 Through our course, we have used data from the 2019 Agricultural Census to build
@@ -28,7 +30,7 @@ Figure 1. Dashboard of Agricultural Census 2019, available at [INE web page](htt
 ## Preparation of the exercise
 
 This exercise should be done in DBeaver, so that you can observe in the status bar 
-the time of execution of teh query. We will use the 
+the time of execution of the query. We will use the 
 database dms_INE version 2 that resulted from [Exercise 13](https://github.com/isa-ulisboa/greends-dms-exercises/blob/main/dms_ex_13_normalization.md). You can obtain the 
 dump of that from the file dms_INE_v2.sql.zip, which can be downloaded from the 
 data folder of this github repository.
@@ -206,10 +208,10 @@ Calculate the difference and divide it for the value of 2009 to obtain the value
 
 ## 1.3. Average agricultural area per farm
 
-Create a query to determine the average area per farm.
+Create a query to determine the average area per farm (column `holdings`).
 
 If you have difficulties, check a working query in the solution file `dms_ex_17.sql` 
-on folder scripts . 
+on folder `script`. 
 
 
 # 2. Calculate the number of permanent crops
@@ -247,4 +249,7 @@ Now, repeat for temporary crops:
 SELECT ...
 ```
 
+> # 3. Submission of exercise
+> **Submit one file**:
+> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 17 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=483104).
 
