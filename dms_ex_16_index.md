@@ -59,6 +59,14 @@ GROUP BY pc.year, pcn.crop_name, tcn.crop_name ;
 
 Read carefully the query to make sure you understand what it is doing. Then, 
 execute it and take note of the time of execution.
+ 
+You can verify what will be the execution plan of MariaDB for the query, and see 
+which indexes are being used. For that, you just need to add the statement `EXPLAIN`
+before the query. Redo the previous query:
+```SQL
+EXPLAIN SELECT pc.year, r.NutsID , region_name...
+```
+
 
 ## 2. Create new tables without indexes
 
@@ -118,6 +126,8 @@ SELECT ...
 Take note of the execution time. It should be much slower that the previous 
 query on indexed tables.
 
+Repeat the query, but adding `EXPLAIN` statement to the query. Check if 
+indexes are used.
 
 ## 4. Add indexes
 
