@@ -2,7 +2,7 @@
 
 # Exercise 1 - Good practices in the use of spreadsheets in data handling
 
-> An exercise submission via Moodle is required once completed. The deadline for submissions is **4th October 2024**.
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **3rd October 2024**.
 
 > 1. Create a blank txt file formatted in markdown to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
 > 2. Submit also the final csv file of the exercise.
@@ -22,7 +22,7 @@ Preparation for exercises
 ### 1.1. Difference between Open and Import for a text file (csv), in Excel
 
 
-1. Open the file `dados_sampleQLDB_ex01_code01.csv` in Excel, with the menu sequence: File → Open  
+1. Open the file `dados_sampleQLDB_ex01_code01.csv` in Excel, with the menu sequence: **File → Open**  
 2. Identify the type of problems you find in the following columns
     `Collector`, `Start Date`, `Country`, `Province`, `District`, `Locality Name`, `Collection`
 3. Close the file without saving.
@@ -47,7 +47,7 @@ Q1. What are the differences in opening the files you found between the two prog
 
 ### 1.3. Save data tables in csv text formats
 
-Saving files in csv (comma separated values) formats is one of the best ways to ensure compatibility with other programs. Sometimes it is also necessary to change the character encoding of the file to ensure compatibility. In this exercise, the file `dados_sampleQLDB_ex01_code02.csv` will be opened and saved with a UTF-8 encoding.
+Saving files in csv (comma separated values) format is one of the best ways to ensure compatibility with other programs. Sometimes it is also necessary to change the character encoding of the file to ensure compatibility. In this exercise, the file `dados_sampleQLDB_ex01_code02.csv` will be opened and saved with a UTF-8 encoding.
 
 1. Open the file `dados_sampleQLDB_ex01_code02.csv` in Excel, with the import procedure described above. You must find out which character code and column separator are correct.
 
@@ -106,12 +106,12 @@ Many times it is necessary to complete data related to a particular value. An ex
 
 3. In the original table, insert 5 new columns before the Full Name column, and give them the following names: `Phylum`, `Class`, `Order`, `Family`, `Genus`
 
-4. In the Phylum column, enter the following formula: `=VLOOKUP(AA, BB:CC, 4,0)`, where 
-- *AA* corresponds to the cell that contains the name of the taxon for which you want to get the value of the phylum, 
-- *BB:CC* to the table that contains in the first column the corresponding taxon and in the following columns the values that you want to get, 
-- 3 is the number of the column that contains the value that you want to get, and 
-- 0 corresponds to the FALSE value for the values of the relation to be ordered. 
-In this case, if the `Full Name` column, which contains the names of the taxa that you want to match, is in column `T`, then the formula should be, for row 2, 
+4. In the Phylum column, enter the following formula: `=VLOOKUP(AA, BB:CC, 4, 0)`, where:
+    - *AA* corresponds to the cell that contains the name of the taxon for which you want to get the value of the phylum, 
+    - *BB:CC* to the table that contains in the first column the corresponding taxon and in the following columns the values that you want to get, 
+    - 4 is the number of the column that contains the value that you want to get, and 
+    - 0 corresponds to the FALSE value for the values of the relation to be ordered. 
+    In this case, if the `Full Name` column, which contains the names of the taxa that you want to match, is in column `T`, then the formula should be, for row 2, 
 ```
 =VLOOKUP(T2,$taxon!A$1:H$398,4,0)
 ```
@@ -123,34 +123,17 @@ The use of the `$` symbol is important to fix the address of the start and end c
 
 7. Verify, by browsing the table, that the values are well filled in.
 
-> Explanation (with regards from Bard):
-> 
-> The VLOOKUP function allows you to search for a value in a table and return the value from another > column in the same row. In this case, we are using the VLOOKUP function to search for the name of the taxon in the lista_nomesCientificos_ex01.xls table and return the value of the Phylum column in the same row.
->
->The formula for the Phylum column is as follows:
->```
-> =VLOOKUP(AA, BB:CC, 4,0)
->```
->> AA: The cell that contains the name of the taxon for which you want to get the value of the phylum.
->> BB:CC: The table that contains in the first column the corresponding taxon and in the following columns the values that you want to get.
-> 4: The number of the column that contains the value that you want to get.
-> 0: The FALSE value for the values of the relation to be ordered.
->
-> For example, if the cell T2 contains the name "Homo sapiens", then the VLOOKUP function will return the value "Chordata" from the Phylum column in the lista_nomesCientificos_ex01.xls table.
->
->The remaining columns (Class, Order, Family, Genus) can be filled in using the same process.
-
 ### 2.3. Export to csv and verify the table
 
 1. Save the file in CSV format, as in the previous exercise, with UTF-8 encoding.
 
 2. Open the CSV file in Notepad++, and verify that:
 
-a. The character encoding is correct.
+    a. The character encoding is correct.
 
-b. The number of rows in the file corresponds to the number of rows in the Excel or LibreOffice table.
+    b. The number of rows in the file corresponds to the number of rows in the Excel or LibreOffice table.
 
-c. There are no blank spaces at the beginning of the collector values.
+    c. There are no blank spaces at the beginning of the collector values.
 
 ### Discussion:
 
@@ -161,7 +144,7 @@ Q3. How can the procedures performed help improve data quality?
 > 1. A text file formatted in Markdown with the answers to discussion points
 > 2. The final csv of the exercise
 > 
-> The submission in Moodle is at [Exercise 1 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=469001).
+> The submission in Moodle is at [Exercise 1 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541514).
 
 ## Wrap-up
 
