@@ -2,7 +2,7 @@
 
 # Exercise 2 - OpenRefine - Create tables with territorial units - NUTS
 
-> An exercise submission via Moodle is required once completed. The deadline for submissions is **11th October 2024**.
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **10th October 2024**.
 > 1. Submit the final zip file of the exercise.
 
 ## Introduction
@@ -108,7 +108,7 @@ You can now export the tables for each NUTS level. For that, filter with the fac
 > 1. Compress the *processed* directory using zip or similar
 > 2. Submit the zipped file via Moodle
 > 
-> The submission in Moodle is at [Exercise 2 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=471157).
+> The submission in Moodle is at [Exercise 2 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541515).
 
 ## Wrap-up
 
