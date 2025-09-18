@@ -2,7 +2,7 @@
 
 # Exercise 3 - OpenRefine - Data wrangling - Agricultural Census data
 
-> An exercise submission via Moodle is required once completed. The deadline for submissions is **11th October 2024**.
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **10th October 2025**.
 
 > 1. Create a blank txt file formatted in markdown to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
 > 1. Submit also the final csv file of the exercise.
