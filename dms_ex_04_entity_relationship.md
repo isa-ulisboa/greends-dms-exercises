@@ -2,7 +2,7 @@
 
 # Exercise 4 - Designing an Entity-Relationship Model
 
-> An exercise submission via Moodle is required once completed. The deadline for submissions is **18th October 2024**.
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **17th October 2025**.
 > 1. Create a markdown file to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
 > 2. Add diagrams to your markdown file.
 > 3. Export a pdf of the markdown report and submit via Moodle.
@@ -87,4 +87,4 @@ Q2. Create an Entity-Relationship Diagram (ERD) that represents the above requir
 > **Submit one file**:
 > 1. Submit the report in pdf format via Moodle.
 > 
-> The submission in Moodle is at [Exercise 4 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=472620).
+> The submission in Moodle is at [Exercise 4 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541517).
