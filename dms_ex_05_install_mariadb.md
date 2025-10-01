@@ -4,7 +4,7 @@
 
 The goal of this exercise is to setup your environment to have a functional and secure  MariaDB service for your databases. We will install and review the selected IDE tool - DBeaver - to work with the database, in addition to the terminal.
 
-> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **25th October 2024**.
+> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **24th October 2025**.
 
 ### Conventions of this document
 
@@ -12,15 +12,15 @@ In all commands, `$` indicates that it should be run at the operating system ter
 
 ## 1. Secure your MariaDB installation
 
-After a new installation of MariaDB, it is recomended to execute the script `mysql_secure_installation`, particularly on production machines. Do execute, do the following at the MariaDB terminal
+After a new installation of MariaDB, it is recommended to execute the script `mysql_secure_installation`, particularly on production machines. Do execute, do the following at the MariaDB terminal
 ```bash
 $ mysql_secure_installation
 ```
 The script you make several questions. The first step will allow to create a `root` password. This is the administrator user of your MariaDB installation, so you should create a strong password, and keep it stored in a safe place.
 
-Then, in the following questions, it is important to anwser the following:
+Then, in the following questions, it is important to answer the following:
 - Remove anonymous users? `Y`
-- Disallow root login remotelly? `Y`
+- Disallow root login remotely? `Y`
 - Remove test database and access to it? `Y` 
 
 > ## Submission of exercise
