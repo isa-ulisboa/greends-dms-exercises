@@ -8,7 +8,7 @@ In this exercise, we are mainly interested in:
 - creating and managing a connection to your database server
 - execute SQL statements.
 
-> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **25th October 2024**.
+> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **24th October 2025**.
 
 ## 1. Make a database connection 
 
@@ -61,7 +61,7 @@ To create amn ER for a particular database, click `Create a new ER Diagram`, giv
 > **Submit one file**:
 > 1. Make a screenshot of your terminal, logged in MariaDB and submit it via Moodle.
 > 
-> The submission in Moodle is at [Exercise 7 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=477149).
+> The submission in Moodle is at [Exercise 7 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541520).
 
 
 
