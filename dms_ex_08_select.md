@@ -4,7 +4,7 @@
 
 The goal of this exercise is to exercise SQL statements with **SELECT**.
 
-> Your solutions for this exercise should be submitted via Moodle. You should create a SQL script with solution queries identified as **Q**.The deadline for submissions is **25th October 2024**.
+> Your solutions for this exercise should be submitted via Moodle. You should create a SQL script with solution queries identified as **Q**.The deadline for submissions is **24th October 2025**.
 
 ## Preparation of the exercise
 
@@ -147,4 +147,4 @@ Justify your answer:
 > **Submit one file**:
 > 1. Submit the sql script you created with queries or answers to questions identified with `Q`, including the question number. If the response is not a SQL statement, comment your text using `--`for a single row, or `/*`and `*/` to open and close your comment section. 
 > 
-> The submission in Moodle is at [Exercise 8 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=477152).
+> The submission in Moodle is at [Exercise 8 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541521).
