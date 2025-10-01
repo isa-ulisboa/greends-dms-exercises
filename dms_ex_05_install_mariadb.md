@@ -27,7 +27,7 @@ Then, in the following questions, it is important to answer the following:
 > **Submit one file**:
 > 1. Make a screenshot of your MariaDB installation in the terminal and submit it via Moodle.
 > 
-> The submission in Moodle is at [Exercise 5 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=477024).
+> The submission in Moodle is at [Exercise 5 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541518).
 
 ## Wrap up
 We have secured your database server.
