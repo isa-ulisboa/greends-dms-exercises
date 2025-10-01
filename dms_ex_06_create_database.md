@@ -6,7 +6,7 @@ The goal of this exercise is to create a new database in MariaDB, create a new u
 
 Although these operations can be done using an IDE like DBeaver, we will use the command line. The great advantage is that you will be able to reproduce these operations in any kind of environment (your machine, a remote machine in terminal, a virtual machine), even if you don't have access to a graphics interface.
 
-> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **25th October 2024**.
+> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **24th October 2025**.
 
 ### Conventions of this document
 
@@ -24,11 +24,11 @@ The tool mysqladmin is a tool to administer the mariadb server. Check [this link
 
 2. If `mysql` is running, then you shall have mysqladmin also available. We will create a database called *dms_2023*. To create the database, run:
    ```
-   $ mysqladmin -u root -p create dms_2024
+   $ mysqladmin -u root -p create dms_2025
    ```
    **Explanation**
 
-   In the above command, you are executing it as user root by adding, "`-u root`" , informing the system to prompt for the password by adding, "`-p`", and giving the command to create a database with the name provided, "`create dms_2024`".
+   In the above command, you are executing it as user root by adding, "`-u root`" , informing the system to prompt for the password by adding, "`-p`", and giving the command to create a database with the name provided, "`create dms_2025`".
 
 2. After that, we need to login to MariaDB, to create a new user and provide credentials. Login to the database as root with the command:
    ```
@@ -38,7 +38,7 @@ The tool mysqladmin is a tool to administer the mariadb server. Check [this link
 
 3. Inside MariaDB, we will create the user and provide privileges to the database at once. For that, run the following, but **remember to change the password** in the command:
    ```
-   mysql> GRANT ALL PRIVILEGES ON dms_2024.* TO 'dms_user'@'localhost' IDENTIFIED BY 'mypassword';
+   mysql> GRANT ALL PRIVILEGES ON dms_2025.* TO 'dms_user'@'localhost' IDENTIFIED BY 'mypassword';
 
    ```
    ```
@@ -48,7 +48,7 @@ The tool mysqladmin is a tool to administer the mariadb server. Check [this link
 
    **Explanation**
    
-   In the above command, you are providing all privileges to all tables of the database `dms_2024`, which is noted by the name of the database with the asterisc "*" (for all). These privileges are given to the user "`dms_user`" at the local machine "`localhost`", and using the specified password. If you want that user to be able to access to that database from a remote machine, then you should repeat the command, but replacing "`localhost`" by the IP address of that machine, or in case of any machine, by "`%`". Don't forget the "`;`" at the end of the command.
+   In the above command, you are providing all privileges to all tables of the database `dms_2025`, which is noted by the name of the database with the asterisc "*" (for all). These privileges are given to the user "`dms_user`" at the local machine "`localhost`", and using the specified password. If you want that user to be able to access to that database from a remote machine, then you should repeat the command, but replacing "`localhost`" by the IP address of that machine, or in case of any machine, by "`%`". Don't forget the "`;`" at the end of the command.
 
    Then, run flush privileges to make the system assume the new data immediately;
 
@@ -56,11 +56,11 @@ The tool mysqladmin is a tool to administer the mariadb server. Check [this link
 
 Although your database is at the stage empty, we can create a backup of the database. To make a backup, we will use the script `mysqldump`, at the systems' terminal. The command is:
 ```
-$ mysqldump -u root -p dms_2024 > dms_backup_2024-10-18.sql
+$ mysqldump -u root -p dms_2024 > dms_backup_2025-10-17.sql
 ```
 The system will as for the `root` password. You could execute the command with the user `dms_user` instead of `root`.
 
-This will create a new file `dms_backup_2024-10-18.sql` on the current location. You might want to adjust your output file with the current date. It is also possible to use a format in the output file to include automatically the date and time, for example, `dms_backup_$(date '+%Y-%m-%d_%H-%M').sql`. 
+This will create a new file `dms_backup_2025-10-17.sql` on the current location. You might want to adjust your output file with the current date. It is also possible to use a format in the output file to include automatically the date and time, for example, `dms_backup_$(date '+%Y-%m-%d_%H-%M').sql`. 
 
 The mysqldump also has many options, like connecting to a remote host, or dumping data from a specific table.
 
@@ -70,7 +70,7 @@ Using `mysqldump` you can implement a shell script to make backups of your datab
 
 If you want to restore you database (to revert to a previous good state, before anyone made an error, for example!), you can use the following:
 ```
-$ mysql -u root -p dms_2024 < dms_backup_2024-10-18.sql
+$ mysql -u root -p dms_2025 < dms_backup_2025-10-17.sql
 ```
 Again. this could be done with a user of the database, if it has the appropriate privileges.
 
@@ -78,7 +78,7 @@ Again. this could be done with a user of the database, if it has the appropriate
 > **Submit one file**:
 > 1. Make a screenshot of your terminal, logged in MariaDB and submit it via Moodle.
 > 
-> The submission in Moodle is at [Exercise 6 submission](https://elearning.ulisboa.pt/course/modedit.php?update=477026).
+> The submission in Moodle is at [Exercise 6 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541519).
 
 ## Wrap up
 In this exercise we learned:
