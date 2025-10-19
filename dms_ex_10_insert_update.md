@@ -5,30 +5,36 @@
 The goal of this exercise is to learn how to execute SQL statements with **INSERT**, **UPDATE**
 and **DELETE** statements.
 
-> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **22nd November 2024**.
+> Your solutions for this exercise should be submitted via Moodle.You should 
+save all SQL queries in one SQL script to be submitted. The deadline for 
+submissions is **07th November 2025**.
 
 ## Preparation of the exercise
 
 1. Open DBeaver and open a connection to your local MariaDB installation, with the 
 user `dms_user`.
 
-2. Ensure that you are using the `dms_INE` database. Execute the statement to make it the active database;
+2. Ensure that you are using the `dms_INE` database. Execute the statement to 
+make it the active database;
 ```SQL
 USE dms_INE;
 ```
-3. Try to write the statements yourself in DBeaver, and not simply copy from the exercise sheet. This will improve your skills in writing SQL and using DBeaver 
+3. Try to write the statements yourself in DBeaver, and not simply copy from the 
+exercise sheet. This will improve your skills in writing SQL and using DBeaver 
 autocomplete function.
 
 
 ## 1. INSERT records
 
-We will do these changes in a temporary copy of the `region` table. First, copy the table:
+We will do these changes in a temporary copy of the `region` table. First, copy 
+the table:
 
 ```SQL
 CREATE TABLE region_temp
     SELECT * FROM region;
 ```
-The explanation of the above query is first to select all columns from table `region`, and then create a new table named `region_temp` to accommodate the result of the query. 
+The explanation of the above query is first to select all columns from table `region`, 
+and then create a new table named `region_temp` to accommodate the result of the query. 
 
 Now, let's perform the changes with **INSERT**. 
 
@@ -87,7 +93,8 @@ DROP TABLE region_temp;
 ```
 If you detected the error in the INSERT statement, what was the correction to make?
 
-2. Let's do the correct **UPDATE** operation. First, identify the records to update with a **SELECT**.
+2. Let's do the correct **UPDATE** operation. First, identify the records to update 
+with a **SELECT**.
 
 ```SQL
 SELECT * FROM region_temp WHERE ParentCodeID IS NULL;
@@ -161,7 +168,8 @@ SELECT * FROM region_temp WHERE region_level = 'freguesia';
 
 > ## 5. Submission of exercise
 > **Submit one file**:
-> 1. Save que SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 10 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=478826).
+> 1. Save que SQL script you created will all queries from this exercise and submit 
+it to Moodle at [Exercise 10 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541523).
 
 
 
