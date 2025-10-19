@@ -5,13 +5,16 @@
 The goal of this exercise is to create tables in the database to accommodate our 
 data. 
 
-> Your solutions for this exercise should be submitted via Moodle.The deadline for submissions is **22nd November 2024**.
+> Your solutions for this exercise should be submitted via Moodle. The deadline 
+for submissions is **7th November 2025**.
 
 
 We will start by creating tables corresponding to the NUTS1 to 3, and 
-Municipalities (aka NUST4) and Freguesias (aka NUTS5). For that, we will use the SQL DDL command **create**.
+Municipalities (aka NUST4) and Freguesias (aka NUTS5). For that, we will use the 
+SQL DDL command **create**.
 
-The data to be imported to the database is in csv files, with the following structure (example for NUTS1):
+The data to be imported to the database is in csv files, with the following 
+structure (example for NUTS1):
 
 codes|parent_code|Nível|Código|Designação
 -----|-----------|-----|------|----------
@@ -23,7 +26,7 @@ This data sample indicates that the table should contain 5 columns. From the
 sample, it also appear that the first, third and fourth columns have only numeric 
 values. However, if you remember from the data wrangling exercise, there were 
 codes that contained letters. The only column with numeric values only is the 
-column `Nível`. Please, go back to your OpenRefine project and verify that.
+column `Nivel`. Please, go back to your OpenRefine project and verify that.
 
 Therefore, we need to have this in consideration when defining the schema for the 
 tables. And we can have all tables with the same structure.
@@ -37,7 +40,7 @@ can be downloaded from [here](https://github.com/isa-ulisboa/greends-dms-exercis
 The first thing to do is identify which database you will use. For that, do:
 
 ```SQL
-USE dms_2022;
+USE dms_2025;
 ```
 
 ## 2. Create the first new table
@@ -70,7 +73,12 @@ ENGINE=InnoDB;
 
    **Explanation**
    
-   In the command, after defining the name of the table, you list the names of the columns, inside a parenthesis. Please notice that we changed the names of the original columns in the table, for consistency. This is perfectly fine. We defined the column `NutsID` as primary key. We also said that the storage engine is INNODB, which is a general-purpose storage engine that balances high reliability and high performance.
+   In the command, after defining the name of the table, you list the names of 
+   the columns, inside a parenthesis. Please notice that we changed the names 
+   of the original columns in the table, for consistency. This is perfectly fine. 
+   We defined the column `NutsID` as primary key. We also said that the storage 
+   engine is INNODB, which is a general-purpose storage engine that balances high 
+   reliability and high performance.
 
 You can check the schema of the resulting table, with the SQL command:
 
@@ -80,7 +88,10 @@ DESCRIBE NUTS1;
 
 ## 3. Create the remaining tables
 
-The procedure for creating the tables for the other NUTS levels is identical. However, for these NUTS, we will want to reference the `ParentCodeID` columns as foreign keys, in order to establish the relations between each region and its encompassing region. 
+The procedure for creating the tables for the other NUTS levels is identical. 
+However, for these NUTS, we will want to reference the `ParentCodeID` columns as 
+foreign keys, in order to establish the relations between each region and its 
+encompassing region. 
 
 Therefore, the SQL command for creating the table **NUTS2** will be:
 
@@ -98,17 +109,21 @@ CREATE TABLE NUTS2 (
 ENGINE=InnoDB; 
 ```
 
-You can create tables **NUTS3**, **NUTS4** and **NUTS5** modifying the SQL statements above.
+You can create tables **NUTS3**, **NUTS4** and **NUTS5** modifying the SQL 
+statements above.
 
 ## 4. Load data
 
-In this case, we will load data to the database from the csv files we created using OpenRefine. This is possible with the SQL command `LOAD`. You need to specify:
+In this case, we will load data to the database from the csv files we created 
+using OpenRefine. This is possible with the SQL command `LOAD`. You need to specify:
 - the name of the file
 - the delimiters of the columns
 - the delimiters of the lines
 - number of rows to ignore
 
-In the case when number and the order of the columns of the csv file is the same of the columns in the table in the database, you do not need to include the list of fields to which data is loaded.
+In the case when number and the order of the columns of the csv file is the same 
+of the columns in the table in the database, you do not need to include the list 
+of fields to which data is loaded.
 
 The generic SQL statement is 
 
@@ -119,7 +134,8 @@ FIELD TERMINATED BY 'string' ENCLOSED BY 'char'
 LINES TERMINATED BY 'string'
 IGNORE number LINES;
 ```
-The [complete statement](https://mariadb.com/kb/en/load-data-infile/) includes other optional parameters that might be useful in some cases.
+The [complete statement](https://mariadb.com/kb/en/load-data-infile/) includes 
+other optional parameters that might be useful in some cases.
 
 
 The SQL statement to load data to the **NUST1** table is:
@@ -131,21 +147,29 @@ FIELDS TERMINATED BY ',' ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES;
 ```
-The above statement **needs to be changed** for your particular environment, namely the path and name of the csv file, and the string that identifies the end of a line. 
+The above statement **needs to be changed** for your particular environment, 
+namely the path and name of the csv file, and the string that identifies the end 
+of a line. 
 
-It might happen that the statement does not work on DBeaver, due to limitations in the MariaDB driver. In that case, you need to run it directly in mysql (in a `mysql>` prompt). Do not forget to tell mysql that you will use the database DMS_2022, with the command `USE` of above.
+It might happen that the statement does not work on DBeaver, due to limitations 
+in the MariaDB driver. In that case, you need to run it directly in mysql 
+(in a `mysql>` prompt). Do not forget to tell mysql that you will use the 
+database dms_2025, with the command `USE` of above.
 
 Check if data was correctly uploaded:
 
 ```SQL
 SELECT * FROM NUTS1;
 ```
-Most probably, special characters were wrongly interpreted. This is because the default character set of the database differs from the one in the csv file. Let's correct this issue, first by deleting all records from **NUTS1** table:
+Most probably, special characters were wrongly interpreted. This is because the 
+default character set of the database differs from the one in the csv file. Let's 
+correct this issue, first by deleting all records from **NUTS1** table:
 
 ```SQL
 DELETE FROM NUTS1;
 ```
-Then, repeat the load of data, but adding a parameter to inform the character set of the file is UTF-8:
+Then, repeat the load of data, but adding a parameter to inform the character set 
+of the file is UTF-8:
 
 ```SQL
 LOAD DATA LOCAL INFILE '/home/rfigueira/Documents/projectos/ISA/docencia_aulas/UCs_disciplinas/msc_GAD_2371/Recenseamento_agricola_INE/exercises/NUTS1_2013.csv'
@@ -161,4 +185,6 @@ Repeat the operation to load data for tables **NUTS2**, **NUTS3**, **NUTS4** and
 
 > ## 5. Submission of exercise
 > **Submit one file**:
-> 1. Create a screenshot of the top results of a SELECT query in DBeaver for each of the new NUTS1 to NUTS5 newly created tables and submit them to Moodle at [Exercise 9 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=478823).
+> 1. Create a screenshot of the top results of a SELECT query in DBeaver for 
+each of the new NUTS1 to NUTS5 newly created tables and submit them to Moodle 
+at [Exercise 9 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541522).
