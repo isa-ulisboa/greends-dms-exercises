@@ -22,7 +22,7 @@ The tool mysqladmin is a tool to administer the mariadb server. Check [this link
    ```
    The expected response will be an error saying you cannot access to the database.
 
-2. If `mysql` is running, then you shall have mysqladmin also available. We will create a database called *dms_2023*. To create the database, run:
+2. If `mysql` is running, then you shall have mysqladmin also available. We will create a database called *dms_2025*. To create the database, run:
    ```
    $ mysqladmin -u root -p create dms_2025
    ```
@@ -56,7 +56,7 @@ The tool mysqladmin is a tool to administer the mariadb server. Check [this link
 
 Although your database is at the stage empty, we can create a backup of the database. To make a backup, we will use the script `mysqldump`, at the systems' terminal. The command is:
 ```
-$ mysqldump -u root -p dms_2024 > dms_backup_2025-10-17.sql
+$ mysqldump -u root -p dms_2025 > dms_backup_2025-10-17.sql
 ```
 The system will as for the `root` password. You could execute the command with the user `dms_user` instead of `root`.
 
