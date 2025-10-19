@@ -165,7 +165,7 @@ TRUNCATE TABLE region_temp;
 DROP TABLE region_temp;
 ```
 
-This concludes the exercise. It does not require a result submission.
+This concludes the exercise. It does not require a result submission via Moodle.
 
 
 
