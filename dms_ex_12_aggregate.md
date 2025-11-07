@@ -29,7 +29,7 @@ You can use DBeaver to execute the exercise.
 A VIEW is a virtual table. It is useful when a result set from a complex SELECT 
 query is used repeatedly, avoiding to write it many times. In this case, we will 
 use a view to obtain a table of the permanent crops, at the *freguesia* region level,
-but but containing also the *municipality* to which that freguesia belongs. 
+but containing also the *municipality* to which that freguesia belongs. 
 
 To build that view, we will use a JOIN between tables that we will discuss in later
 exercises.
@@ -249,7 +249,7 @@ FROM
 
 > ## 5. Submission of exercise
 > **Submit one file**:
-> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 12 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=480582).
+> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 12 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541524).
 
 
 ## Wrap up
