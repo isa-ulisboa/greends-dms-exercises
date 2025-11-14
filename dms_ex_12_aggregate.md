@@ -11,7 +11,7 @@ We will also introduce the use of **GROUP BY** to combine with these functions.
 This exercise also uses the DDL statement **CREATE VIEW** to generate a table to be 
 analyzed in the exercise. 
 
-> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **29th November 2024**.
+> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **30th November 2025**.
 
 ## Preparation of the exercise
 
