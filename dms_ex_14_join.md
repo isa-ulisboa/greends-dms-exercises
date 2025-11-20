@@ -11,7 +11,7 @@ allow to respond to several questions.
 The ultimate goal is to obtain the tables necessary to build the dashboard of the 
 [Agricultural Census](https://www.ine.pt/scripts/db_ra_2019.html).
 
-> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **6th December 2024**.
+> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **5th December 2025**.
 
 ## Preparation of the exercise
 
@@ -290,7 +290,7 @@ query, and why they are needed.
 
 > ## 7. Submission of exercise
 > **Submit one file**:
-> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 14 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=481440).
+> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 14 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541526).
 
 ## Wrap up
 
