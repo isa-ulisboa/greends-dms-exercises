@@ -10,7 +10,9 @@ tables.
 Additionally, we will implement **CONSTRAINTS** to the tables (addition of **PRIMARY** and
 **FOREIGN KEYS**), which will improve the security and quality of the data.
 
-> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **6th December 2024**.
+> Your solutions for this exercise should be submitted via Moodle. You should save 
+all SQL queries in one SQL script to be submitted. The deadline for submissions 
+is **5th December 2025**.
 
 ## Preparation of the exercise
 
@@ -343,4 +345,4 @@ in the `data` directory of the repository.
 
 > ## 10. Submission of exercise
 > **Submit one file**:
-> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 13 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=481437).
+> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 13 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541525).
