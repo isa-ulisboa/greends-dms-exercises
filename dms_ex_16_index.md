@@ -5,6 +5,10 @@
 The goal of this exercise is to demonstrate why we need to carefully organise
 data on a database, and the benefit of indexes.
 
+>
+> This exercise does not require a submission.
+>
+
 ## Introduction
 
 Database normalization has the main purpose to provide consistency in your data. 
