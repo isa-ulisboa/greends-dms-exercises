@@ -6,7 +6,7 @@ The goal of this exercise is to practice SQL queries. We will use the INE
 dashboard of Agricultural Census database as a motivation for the queries to 
 be performed.
 
-> Your solutions for this exercise should be submitted via Moodle.You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **13th December 2024**.
+> Your solutions for this exercise should be submitted via Moodle You should save all SQL queries in one SQL script to be submitted. The deadline for submissions is **19th December 2025**.
 
 ## Introduction
 
@@ -251,5 +251,5 @@ SELECT ...
 
 > # 3. Submission of exercise
 > **Submit one file**:
-> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 17 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=483104).
+> 1. Save the SQL script you created will all queries from this exercise and submit it to Moodle at [Exercise 17 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541527).
 
