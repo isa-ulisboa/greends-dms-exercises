@@ -2,7 +2,7 @@
 
 # Exercise 3 - OpenRefine - Data wrangling - Agricultural Census data
 
-> An exercise submission via Moodle is required once completed. The deadline for submissions is **10th October 2025**.
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **9th October 2026**.
 
 > 1. Create a blank txt file formatted in markdown to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
 > 1. Submit also the final csv file of the exercise.
@@ -208,7 +208,7 @@ You can search with these topics as keywords at [https://www.ine.pt/xportal/xmai
 > 1. Compress the *processed* directory using zip or similar
 > 2. Submit the zipped file via Moodle
 > 
-> The submission in Moodle is at [Exercise 3 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=471529).
+> The submission in Moodle is at [Exercise 3 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=630188).
 
 
 
