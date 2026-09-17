@@ -2,7 +2,7 @@
 
 # Exercise 1 - Good practices in the use of spreadsheets in data handling
 
-> An exercise submission via Moodle is required once completed. The deadline for submissions is **3rd October 2024**.
+> An exercise submission via Moodle is required once completed. The deadline for submissions is **2nd October 2026**.
 
 > 1. Create a blank txt file formatted in markdown to add your responses to the questions identified in **Discussion points**, and submitted via Moodle before the deadline.
 > 2. Submit also the final csv file of the exercise.
@@ -144,7 +144,7 @@ Q3. How can the procedures performed help improve data quality?
 > 1. A text file formatted in Markdown with the answers to discussion points
 > 2. The final csv of the exercise
 > 
-> The submission in Moodle is at [Exercise 1 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541514).
+> The submission in Moodle is at [Exercise 1 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=630186).
 
 ## Wrap-up
 
