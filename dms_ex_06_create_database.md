@@ -6,7 +6,7 @@ The goal of this exercise is to create a new database in MariaDB, create a new u
 
 Although these operations can be done using an IDE like DBeaver, we will use the command line. The great advantage is that you will be able to reproduce these operations in any kind of environment (your machine, a remote machine in terminal, a virtual machine), even if you don't have access to a graphics interface.
 
-> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **24th October 2025**.
+> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **30th October 2026**.
 
 ### Conventions of this document
 
@@ -78,7 +78,7 @@ Again. this could be done with a user of the database, if it has the appropriate
 > **Submit one file**:
 > 1. Make a screenshot of your terminal, logged in MariaDB and submit it via Moodle.
 > 
-> The submission in Moodle is at [Exercise 6 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541519).
+> The submission in Moodle is at [Exercise 6 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=630191).
 
 ## Wrap up
 In this exercise we learned:
