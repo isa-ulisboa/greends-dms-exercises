@@ -4,7 +4,7 @@
 
 The goal of this exercise is to setup your environment to have a functional and secure  MariaDB service for your databases. We will install and review the selected IDE tool - DBeaver - to work with the database, in addition to the terminal.
 
-> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **24th October 2025**.
+> A confirmation of completing this exercise should be submitted via Moodle. The deadline for submissions is **30th October 2026**.
 
 ### Conventions of this document
 
@@ -27,7 +27,7 @@ Then, in the following questions, it is important to answer the following:
 > **Submit one file**:
 > 1. Make a screenshot of your MariaDB installation in the terminal and submit it via Moodle.
 > 
-> The submission in Moodle is at [Exercise 5 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541518).
+> The submission in Moodle is at [Exercise 5 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=630190).
 
 ## Wrap up
 We have secured your database server.
