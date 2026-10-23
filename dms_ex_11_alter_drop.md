@@ -7,6 +7,8 @@ The goal of this exercise is to exercise DDL SQL queries with **ALTER**,
 
 We will also introduce the use of **ALIASES** for columns and tables.
 
+> This exercise does not require a submission though Moodle.
+
 ## Preparation of the exercise
 
 This exercise is the continuation of DMS Exercise 10. It assumes you have the
