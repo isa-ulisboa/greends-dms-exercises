@@ -6,7 +6,7 @@ The goal of this exercise is to create tables in the database to accommodate our
 data. 
 
 > Your solutions for this exercise should be submitted via Moodle. The deadline 
-for submissions is **7th November 2025**.
+for submissions is **6th November 2026**.
 
 
 We will start by creating tables corresponding to the NUTS1 to 3, and 
@@ -187,4 +187,4 @@ Repeat the operation to load data for tables **NUTS2**, **NUTS3**, **NUTS4** and
 > **Submit one file**:
 > 1. Create a screenshot of the top results of a SELECT query in DBeaver for 
 each of the new NUTS1 to NUTS5 newly created tables and submit them to Moodle 
-at [Exercise 9 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541522).
+at [Exercise 9 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=630194).
