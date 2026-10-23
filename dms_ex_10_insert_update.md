@@ -7,7 +7,7 @@ and **DELETE** statements.
 
 > Your solutions for this exercise should be submitted via Moodle.You should 
 save all SQL queries in one SQL script to be submitted. The deadline for 
-submissions is **07th November 2025**.
+submissions is **06th November 2026**.
 
 ## Preparation of the exercise
 
@@ -169,7 +169,7 @@ SELECT * FROM region_temp WHERE region_level = 'freguesia';
 > ## 5. Submission of exercise
 > **Submit one file**:
 > 1. Save que SQL script you created will all queries from this exercise and submit 
-it to Moodle at [Exercise 10 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=541523).
+it to Moodle at [Exercise 10 submission](https://elearning.ulisboa.pt/mod/assign/view.php?id=630195).
 
 
 
